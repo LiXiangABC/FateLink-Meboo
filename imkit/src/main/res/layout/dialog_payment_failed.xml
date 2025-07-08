@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/icon_pay_failed_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/interbold"
+            android:text="Oops! Payment Failed 😱"
+            android:textColor="#333333"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="26dp"
+            android:fontFamily="@font/interregular"
+            android:gravity="center_horizontal"
+            android:text="Please try another payment method.Google Play supports👇"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="33dp"
+            android:background="@drawable/shape_payment_failed_item_bg">
+
+            <ImageView
+                android:id="@+id/img_one"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/icon_pay_failed_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#3DC6F2" />
+
+            <TextView
+                android:id="@+id/title_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/intermedium"
+                android:text="Add credit or debit card"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toRightOf="@+id/img_one"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="11dp"
+                android:fontFamily="@font/interregular"
+                android:text="supports USD payments"
+                android:textColor="#999999"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/img_one"
+                app:layout_constraintTop_toBottomOf="@+id/title_one" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="33dp"
+            android:background="@drawable/shape_payment_failed_item_bg">
+
+            <ImageView
+                android:id="@+id/img_two"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                app:tint="#3DC6F2"
+                android:src="@drawable/icon_pay_failed_two"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/intermedium"
+                android:text="Add PayPal"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/img_two"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="33dp"
+            android:background="@drawable/shape_payment_failed_item_bg">
+
+            <ImageView
+                android:id="@+id/img_three"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                app:tint="#3DC6F2"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/icon_pay_failed_three"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/intermedium"
+                android:text="Redeem code"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/img_three"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
+            android:gravity="center_horizontal"
+            android:text="Any problem arises, please message our Support Team gmail"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/intermedium"
+            android:text="@string/email_address_logo"
+            android:textColor="@color/color_0B6B9D"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_pay_failed_button"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:text="Try It Again"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:text="Abandon"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

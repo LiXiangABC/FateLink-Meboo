@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conGiftPackBuyWai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@mipmap/img_gift_pack_buy_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--彩带-->
+        <ImageView
+            android:id="@+id/imgMyGiftPackTop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/img_my_gift_pack_top"
+            app:layout_constraintDimensionRatio="h,307:278"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.916" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="Welcome gift package"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@id/imgMyGiftPackTop"
+            app:layout_constraintEnd_toEndOf="@id/imgMyGiftPackTop"
+            app:layout_constraintStart_toStartOf="@id/imgMyGiftPackTop"
+            app:layout_constraintTop_toTopOf="@id/imgMyGiftPackTop"
+            app:layout_constraintVertical_bias="0.807" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="Get Top 20 Features and save 20%"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/imgMyGiftPackTop"
+            app:layout_constraintEnd_toEndOf="@id/imgMyGiftPackTop"
+            app:layout_constraintStart_toStartOf="@id/imgMyGiftPackTop"
+            app:layout_constraintTop_toTopOf="@id/imgMyGiftPackTop"
+            app:layout_constraintVertical_bias="0.911" />
+        <!--1-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conGiftPackBuyOne"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dimen_11dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:background="@drawable/shape_a20db1_7b14cd_radius_14"
+            app:layout_constraintDimensionRatio="h,99:109"
+            app:layout_constraintEnd_toStartOf="@+id/conGiftPackBuyTwo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackTop"
+            >
+
+            <ImageView
+                android:id="@+id/imgMyGiftPackBuyOne"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="19dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_flash_chat_new"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x3"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgMyGiftPackBuyOne"
+                app:layout_constraintEnd_toEndOf="@+id/imgMyGiftPackBuyOne" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyNameOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Flash Chat"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackBuyOne" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--2-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conGiftPackBuyTwo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:background="@drawable/shape_a20db1_7b14cd_radius_14"
+            app:layout_constraintDimensionRatio="h,99:109"
+            app:layout_constraintEnd_toStartOf="@+id/conGiftPackBuyThree"
+            app:layout_constraintStart_toEndOf="@+id/conGiftPackBuyOne"
+            app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackTop">
+
+            <ImageView
+                android:id="@+id/imgMyGiftPackBuyTwo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="19dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_private_photos_new"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x3"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgMyGiftPackBuyTwo"
+                app:layout_constraintEnd_toEndOf="@+id/imgMyGiftPackBuyTwo" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyNameTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Private Photos"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackBuyTwo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--3-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conGiftPackBuyThree"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginEnd="11dp"
+            android:background="@drawable/shape_a20db1_7b14cd_radius_14"
+            app:layout_constraintDimensionRatio="h,99:109"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/conGiftPackBuyTwo"
+            app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackTop">
+
+            <ImageView
+                android:id="@+id/imgMyGiftPackBuyThree"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="19dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_private_videos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x3"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgMyGiftPackBuyThree"
+                app:layout_constraintEnd_toEndOf="@+id/imgMyGiftPackBuyThree" />
+
+            <TextView
+                android:id="@+id/txtGiftPackBuyNameThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Private Videos"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgMyGiftPackBuyThree" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txtGiftPackBuyPrivacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:layout_marginHorizontal="30dp"
+            android:fontFamily="@font/cabin_regular"
+            android:text="@string/buy_member_unitary_tips"
+            android:textColor="@color/color_9C9FA6"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conGiftPackBuyOne" />
+
+        <com.crush.view.delay.DelayClickTextView
+            android:id="@+id/txtGiftPackBuyBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48dp"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:background="@drawable/shape_e71ea8_fd4dc6_e71ea8_radius"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtGiftPackBuyPrivacy"
+            tools:text="Continue Now" />
+        <ImageView
+            android:id="@+id/imgMyGiftPackBuyClose"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="centerInside"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/icon_white_close_no_bg"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

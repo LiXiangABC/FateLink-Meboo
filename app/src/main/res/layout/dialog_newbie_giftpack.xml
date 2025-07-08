@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--内容部分-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conNewBieGiftPackBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/svNewBieGiftPackTerm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.893">
+
+        <ImageView
+            android:id="@+id/imgNewBieGiftPackBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="@color/color_2DD7A3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="fitXY"
+            />
+
+        <!--展示权益部分-->
+        <com.youth.banner.Banner
+            android:id="@+id/bannerNewBieGiftPack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:banner_auto_loop="true"
+            app:banner_infinite_loop="true"
+            app:banner_loop_time="5000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.234"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.46" />
+
+        <LinearLayout
+            android:id="@+id/indicatorNewBieGiftPack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerNewBieGiftPack"
+            />
+        <!--展示价格部分-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conNewBieGiftPackPriceContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2019"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7901">
+
+            <!--左边显示价格区域da-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conNewBieGiftPackLeftPrice"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:background="@mipmap/img_newbie_giftpack_price_two"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.644">
+
+                <TextView
+                    android:id="@+id/txtNewBieGiftPackPriceNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txtNewBieGiftPackPrice"
+                    app:layout_constraintBottom_toTopOf="@+id/txtNewBieGiftPackPriceTwo"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="$0.99"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:fontFamily="@font/cabin_bold"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    />
+                <TextView
+                    android:id="@+id/txtNewBieGiftPackPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text=" /day"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtNewBieGiftPackPriceNum"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtNewBieGiftPackPriceNum"
+                    app:layout_constraintTop_toTopOf="@+id/txtNewBieGiftPackPriceNum"
+                    />
+
+                <TextView
+                    android:id="@+id/txtNewBieGiftPackPriceTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/cabin_regular"
+                    tools:text="instead of $16.99 per day"
+                    android:textColor="#E6FFFFFF"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNewBieGiftPackPriceNum" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--右边显示赠送的东西-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conNewBieGiftPackRightInfo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@mipmap/img_newbie_giftpack_num"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/conNewBieGiftPackLeftPrice"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.28">
+
+                <ImageView
+                    android:id="@+id/imgNewBieGiftPackRes"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:src="@mipmap/icon_private_photos_new"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintBottom_toTopOf="@+id/txtNewBieGiftPackResDesc"
+                    />
+
+                <TextView
+                    android:id="@+id/txtNewBieGiftPackResNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/cabin_bold"
+                    tools:text="X1"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgNewBieGiftPackRes"
+                    app:layout_constraintEnd_toEndOf="@+id/imgNewBieGiftPackRes" />
+
+                <TextView
+                    android:id="@+id/txtNewBieGiftPackResDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    tools:text="Private Photos"
+                    android:layout_marginBottom="24dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgNewBieGiftPackRes" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="11dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="BonusGift"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--打折标签-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conNewBieGiftPackOffFromContainer"
+            android:layout_width="83dp"
+            android:layout_height="33dp"
+            android:background="@mipmap/img_newbie_giftpack_tag"
+            android:rotation="14.89"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.66">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/cabin_medium"
+                android:text="off from"
+                android:textColor="@color/color_333333"
+                android:textSize="10sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtNewBieGiftPackOffFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="@font/cabin_medium"
+                tools:text="40%"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--按钮-->
+        <com.crush.view.delay.DelayClickTextView
+            android:id="@+id/txtNewBieGiftPackBuy"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="11dp"
+            android:background="@drawable/shape_gradient_4332a2_9927a2_30"
+            android:gravity="center"
+            android:textColor="#FBC9CF"
+            android:textSize="16sp"
+            android:fontFamily="@font/cabin_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.942"
+            tools:text="$0.99 Continue Now"
+            />
+
+        <TextView
+            android:id="@+id/txtNewBieGiftPackBottomNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/cabin_regular"
+            tools:text="One-time purchase, not a recurring subscription"
+            android:textColor="#C673FF"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgNewBieGiftPackClose"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_white_close_no_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieNewBieGiftPackBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="lottie_newbiegiftpack_open.json"
+            app:lottie_loop="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--协议-->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/svNewBieGiftPackTerm"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_discount_alpha_10_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conNewBieGiftPackBg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dialog_tip_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/cabin_semibold"
+                android:gravity="center_horizontal"
+                tools:text="Recurring billing. Cancel anytime"
+                android:textColor="#CCFFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/dialog_tip_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/cabin_medium"
+                android:gravity="center"
+                tools:text="Recurring billing. Cancel anytimeRecurring billing. Cancel anytimeRecurring billing. Cancel anytimeRecurring billing. Cancel anytimeRecurring billing. Cancel anytimeRecurring billing. Cancel anytime"
+                android:textColor="#CCFFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

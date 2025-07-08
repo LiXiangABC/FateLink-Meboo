@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shape_wlm_premium_button"
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="@dimen/dimen_26dp">
+        <TextView
+            android:id="@+id/txt_limited_special"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_26dp"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_12sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/limited_special"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            app:layout_constraintStart_toEndOf="@+id/img_limited_special"
+            />
+        <TextView
+            android:id="@+id/txt_down_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/txt_limited_special"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            tools:text="00:05:00" />
+        <ImageView
+            android:id="@+id/img_limited_special"
+            android:layout_width="@dimen/dimen_26dp"
+            android:layout_height="@dimen/dimen_26dp"
+            android:src="@mipmap/icon_countdown_member"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

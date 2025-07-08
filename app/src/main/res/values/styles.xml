@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name = "AppTheme" parent = "Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name = "colorPrimary">@color/colorPrimary</item>
+        <item name = "colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name = "colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="date_picker_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/color_background</item>
+    </style>
+
+    <style name="ProcessBarStyle">
+        <item name="android:minWidth">26dip</item>
+        <item name="android:maxWidth">26dip</item>
+        <item name="android:minHeight">26dip</item>
+        <item name="android:maxHeight">26dip</item>
+        <item name="android:indeterminateDrawable">@drawable/process</item>
+    </style>
+
+    <style name="common_ui_loading_progress" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="NoAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="Theme.Light.NoTitle.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="Theme.Light.NoTitle.NoShadow.Dialog" parent="Theme.Light.NoTitle.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Animation.Bottom.Rising" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_anim_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_anim_exit</item>
+    </style>
+</resources>

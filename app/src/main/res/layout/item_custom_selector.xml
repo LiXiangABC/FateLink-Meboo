@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@drawable/shape_custom_selector_unselect"
+        android:layout_marginHorizontal="@dimen/dimen_28dp"
+        android:fontFamily="@font/intermedium"
+        android:gravity="center"
+        android:textColor="#202323"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        tools:text="💑 Long-term commitment" />
+
+</FrameLayout>

@@ -1,0 +1,676 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/member_container"
+        android:layout_width="0dp"
+        android:layout_height="590dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="67dp"
+        android:background="@drawable/icon_member_dialog_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/member_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingTop="25dp"
+            android:overScrollMode="never"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conBuyMemberWai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/conBuyMemberBenefits"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:id="@+id/txtBuyMemberBenefitTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get Premium Membership"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/cabin_semibold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+                    <TextView
+                        android:id="@+id/txtBuyMemberBenefitNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Enjoy x premium benefits"
+                        android:textColor="#7A000000"
+                        android:textSize="15sp"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/cabin_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBuyMemberBenefitTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/discount_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:visibility="visible"
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:id="@+id/dialog_discount_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Limited-Time Special"
+                        android:textSize="22sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:textColor="#D9000000"
+                        android:fontFamily="@font/cabin_bold"
+                        />
+                    <TextView
+                        android:id="@+id/dialog_discount_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get special offer of premium in"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/cabin_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/dialog_discount_title"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="10dp"
+                        />
+                    <io.rong.imkit.widget.SnapUpCountDownTimerView
+                        android:id="@+id/dialog_discount_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        app:layout_constraintTop_toBottomOf="@+id/dialog_discount_tip"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="5dp"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.youth.banner.Banner
+                    android:id="@+id/dialog_cycle_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:banner_auto_loop="true"
+                    app:banner_infinite_loop="true"
+                    app:banner_loop_time="5000"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/discount_container"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/item_member_indicator_rg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dialog_cycle_banner">
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/selector_buy_member_in"
+                        />
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+                    <RadioButton
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/selector_buy_member_in" />
+                </RadioGroup>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/quarter_container"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/shape_member_unselect_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/monthly_container"
+                    app:layout_constraintTop_toTopOf="@+id/item_quarter_title">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/quarter_child_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/item_quarter_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="11dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#7f7f7f"
+                            android:textSize="24sp"
+                            tools:text="3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="14sp"
+                            tools:text="Months"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_number" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="1.5dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_quarter_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_quarter_discounted_price"/>
+
+                        <TextView
+                            android:id="@+id/item_quarter_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#7f7f7f"
+                            android:textSize="18sp"
+                            tools:text="14.99"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_name" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            tools:text="$85.99"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_discounted_price" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/item_quarter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/shape_solid_purple_e1a7ff_radius_6"
+                    android:fontFamily="@font/cabin_regular"
+                    android:gravity="center"
+                    android:paddingStart="7dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/quarter_container"
+                    app:layout_constraintRight_toRightOf="@+id/quarter_container"
+                    app:layout_constraintTop_toBottomOf="@+id/item_member_indicator_rg" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/monthly_container"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/shape_member_select_bg"
+                    app:layout_constraintLeft_toRightOf="@+id/quarter_container"
+                    app:layout_constraintRight_toLeftOf="@+id/weeks_container"
+                    app:layout_constraintTop_toTopOf="@+id/item_monthly_title">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/monthly_child_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_monthly_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="11dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#333333"
+                            android:textSize="24sp"
+                            tools:text="2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#333333"
+                            android:textSize="14sp"
+                            tools:text="Month"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_number" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#FF3437"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="1.5dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_monthly_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_monthly_discounted_price"/>
+
+                        <TextView
+                            android:id="@+id/item_monthly_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#FF3437"
+                            android:textSize="18sp"
+                            tools:text="4.99"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_name" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#FF3437"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            tools:text="$85.99"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_discounted_price" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/item_monthly_discount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/cabin_bold"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/monthly_child_container" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/item_monthly_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/shape_member_select_title_bg"
+                    android:fontFamily="@font/cabin_regular"
+                    android:gravity="center"
+                    android:paddingStart="7dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/monthly_container"
+                    app:layout_constraintRight_toRightOf="@+id/monthly_container"
+                    app:layout_constraintTop_toBottomOf="@+id/item_member_indicator_rg" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weeks_container"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_member_unselect_bg"
+                    app:layout_constraintLeft_toRightOf="@+id/monthly_container"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_member_indicator_rg">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_weeks_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="11dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#7f7f7f"
+                            android:textSize="24sp"
+                            tools:text="1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/item_weeks_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="14sp"
+                            tools:text="week"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_number" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="1.5dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_weeks_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_weeks_discounted_price" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#7f7f7f"
+                            android:textSize="18sp"
+                            tools:text="1.99"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_name" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#7f7f7f"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            tools:text="$85.99"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_discounted_price" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/dialog_valid_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#7A000000"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:fontFamily="@font/cabin_regular"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_container"
+                    android:text="*The offer is valid for the first 1 month"
+                    android:layout_marginTop="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/member_introduce_container_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintLeft_toLeftOf="@+id/member_introduce_container"
+                    app:layout_constraintRight_toRightOf="@+id/member_introduce_container"
+                    app:layout_constraintTop_toTopOf="@+id/member_introduce_container"
+                    app:layout_constraintBottom_toBottomOf="@+id/member_introduce_container"
+                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/member_introduce_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dialog_valid_time"
+                    android:layout_marginTop="10dp"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/member_equity_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/dialog_member_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="15dp"
+            android:src="@drawable/icon_black_close"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_purchase_now"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/selector_buy_member_subscription_btn"
+            android:fontFamily="@font/cabin_medium"
+            android:gravity="center"
+            android:text="@string/purchase_now"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/off_from_container"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:background="@drawable/icon_dialog_member_discount_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="80dp"
+        android:rotation="10"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="50dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="off from"
+            android:textSize="10sp"
+            android:textColor="@color/color_333333"
+            android:fontFamily="@font/cabin_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            />
+        <TextView
+            android:id="@+id/txt_off_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"
+            android:text="40%"
+            android:fontFamily="@font/cabin_medium"
+            android:layout_marginEnd="6dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_container"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_member_tip_bg"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tip_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin_semibold"
+                android:gravity="center"
+                android:text="@string/purchase_tip_title"
+                android:textColor="#CCFFFFFF"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tip_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin_medium"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:lineSpacingExtra="1dp"
+                android:text="@string/purchase_tip_content"
+                android:textColor="#CCFFFFFF"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tip_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

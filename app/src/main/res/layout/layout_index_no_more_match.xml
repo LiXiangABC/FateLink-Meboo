@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/color_00FFFFFF"
+    android:orientation="horizontal"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_hour_decade"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_hour_unit"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/time_separation_hour"
+        android:layout_width="@dimen/dimen_6dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/icon_time_separation"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_min_decade"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_min_unit"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dimen_5dp"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/time_separation_min"
+        android:layout_width="@dimen/dimen_6dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/icon_time_separation"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_sec_decade"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_sec_unit"
+            android:layout_width="@dimen/dimen_42dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:textSize="@dimen/dimen_20sp"
+            android:textColor="@color/color_0B6B9D"
+            android:text="0"
+            android:fontFamily="@font/interextrabold"
+            android:background="@mipmap/icon_time_bg"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dimen_5dp"/>
+    </LinearLayout>
+
+</LinearLayout>

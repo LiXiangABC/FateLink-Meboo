@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StarStar">
+        <attr name="StarStar_message" format="string" />
+        <attr name="StarStar_message_text_size" format="dimension" />
+        <attr name="StarStar_message_text_color" format="color" />
+        <attr name="StarStar_message_text_leftMargin" format="integer" />
+        <attr name="StarStar_rightMargin" format="integer" />
+        <attr name="StarStar_maxLength" format="integer" />
+        <attr name="StarStar_minLength" format="integer" />
+        <attr name="StarStar_length" format="integer" />
+        <attr name="StarStar_width" format="integer" />
+        <attr name="StarStar_isClick" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomCircleProgressBar">
+        <attr name="outside_start_color" format="color" />
+        <attr name="outside_end_color" format="color" />
+        <attr name="outside_radius" format="dimension" />
+        <attr name="inside_color" format="color" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_width" format="dimension" />
+        <attr name="max_progress" format="integer" />
+        <attr name="progress" format="float" />
+        <attr name="text" format="string" />
+        <attr name="direction">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+    <!--星星控件属性-->
+    <declare-styleable name="StarBarView">
+        <!--设置星星间的间隔-->
+        <attr name="space_width" format="dimension" />
+        <!--星星间宽度-->
+        <attr name="star_width" format="dimension" />
+        <!--星星间高度-->
+        <attr name="star_height" format="dimension" />
+        <!--最大数量-->
+        <attr name="star_max" format="integer" />
+        <!--选中数量-->
+        <attr name="star_rating" format="float" />
+        <!--未选中图片-->
+        <attr name="star_hollow" format="reference" />
+        <!--选中图片-->
+        <attr name="star_solid" format="reference" />
+        <!--是否可以滑动改变选中数量-->
+        <attr name="star_isIndicator" format="boolean" />
+        <!--排列方向-->
+        <attr name="star_orientation" format="enum">
+            <enum name="vertical" value="1" />
+            <enum name="horizontal" value="0" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="radius" format="reference|dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="yt_civ_border_width"/>
+        <attr format="color" name="yt_civ_border_color"/>
+        <attr format="boolean" name="yt_civ_border_overlay"/>
+        <attr format="color" name="yt_civ_fill_color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TagCloudView">
+        <attr name="tcvBackground" format="reference"/>
+        <attr name="tcvTextColor" format="color"/>
+        <attr name="tcvBorder" format="dimension"/>
+        <attr name="tcvFontFamily" format="reference"/>
+        <attr name="tcvTextSize" format="integer"/>
+        <attr name="tcvTextPaddingLeft" format="integer"/>
+        <attr name="tcvTextPaddingRight" format="integer"/>
+        <attr name="tcvTextPaddingTop" format="integer"/>
+        <attr name="tcvTextPaddingBottom" format="integer"/>
+        <attr name="tcvTextPadding" format="integer"/>
+        <attr name="tcvBorderItem" format="dimension"/>
+        <attr name="tcvItemBorderVertical" format="dimension"/>
+        <attr name="tcvItemBorderHorizontal" format="dimension"/>
+
+        <attr name="tcvSingleLine" format="boolean"/>
+        <attr name="tcvTwoLine" format="boolean"/>
+        <attr name="tcvShowEndText" format="boolean"/>
+        <attr name="tcvEndText" format="string"/>
+        <attr name="tcvCanTagClick" format="boolean"/>
+        <attr name="tcvTagResId" format="reference"/>
+    </declare-styleable>
+
+    <!-- 自定义验证码输入框-->
+    <declare-styleable name="VerificationCodeView">
+        <!--输入框的数量-->
+        <attr name="icv_et_number" format="integer" />
+        <!--输入框的宽度-->
+        <attr name="icv_et_width" format="dimension|reference" />
+        <!--输入框之间的分割线-->
+        <attr name="icv_et_divider_drawable" format="reference" />
+        <!--输入框文字颜色-->
+        <attr name="icv_et_text_color" format="color|reference" />
+        <!--输入框文字大小-->
+        <attr name="icv_et_text_size" format="dimension|reference" />
+        <!--输入框获取焦点时边框-->
+        <attr name="icv_et_bg_focus" format="reference" />
+        <!--输入框没有焦点时边框-->
+        <attr name="icv_et_bg_normal" format="reference" />
+        <!--是否是密码模式-->
+        <attr name="icv_et_pwd" format="boolean" />
+        <!--密码模式时,圆的半径-->
+        <attr name="icv_et_pwd_radius" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="lwvWheelView">
+        <attr name="lwvHighlightColor" format="color|reference"/>
+        <attr name="lwvMarkColor" format="color|reference"/>
+        <attr name="lwvMarkTextColor" format="color|reference"/>
+        <attr name="lwvIntervalFactor" format="float"/>
+        <attr name="lwvMarkRatio" format="float"/>
+        <attr name="lwvCursorSize" format="dimension"/>
+        <attr name="lwvMarkTextSize" format="dimension"/>
+        <attr name="lwvCenterMarkTextSize" format="dimension"/>
+        <attr name="lwvAdditionalCenterMark" format="string|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="DateSelectView">
+        <attr name="dataTextSize" format="dimension"/>
+        <attr name="isCyclic" format="boolean"/>
+        <attr name="textColorCenter" format="color"/>
+        <attr name="view_background" format="color"/>
+        <attr name="dividerColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalProgressBar">
+        <attr name="zpb_padding" format="dimension" />
+        <attr name="zpb_bg_color" format="color|reference" />
+        <attr name="zpb_pb_color" format="color|reference" />
+        <attr name="zpb_second_pb_color" format="color|reference" />
+        <attr name="zpb_max" format="integer" />
+        <attr name="zpb_progress" format="integer" />
+        <attr name="zpb_show_zero_point" format="boolean" />
+        <attr name="zpb_show_second_progress" format="boolean" />
+        <attr name="zpb_second_progress" format="integer" />
+        <attr name="zpb_show_second_point_shape" format="enum">
+            <enum name="point" value="0"/>
+            <enum name="line" value="1"/>
+        </attr>
+        <attr name="zpb_open_gradient" format="boolean" />
+        <attr name="zpb_gradient_from" format="color|reference" />
+        <attr name="zpb_gradient_to" format="color|reference" />
+        <attr name="zpb_open_second_gradient" format="boolean" />
+        <attr name="zpb_second_gradient_from" format="color|reference" />
+        <attr name="zpb_second_gradient_to" format="color|reference" />
+        <attr name="zpb_show_mode" format="enum" >
+            <enum name="round" value="0"/>
+            <enum name="rect" value="1"/>
+            <enum name="round_rect" value="2"/>
+        </attr>
+        <attr name="zpb_round_rect_radius" format="dimension|reference"/>
+        <attr name="zpb_draw_border" format="boolean"/>
+        <attr name="zpb_border_width" format="dimension|reference"/>
+        <attr name="zpb_border_color" format="color|reference"/>
+
+    </declare-styleable>
+
+</resources>

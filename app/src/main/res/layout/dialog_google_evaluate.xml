@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/center_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_google_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginStart="@dimen/dimen_25dp"
+            />
+        <ImageView
+            android:id="@+id/dialog_cancel"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_black_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/dimen_22dp"
+            />
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:background="#dddddd"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <ImageView
+            android:id="@+id/img_launcher"
+            android:layout_width="@dimen/dimen_37dp"
+            android:layout_height="@dimen/dimen_37dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dimen_21dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            />
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constraintTop_toTopOf="@+id/img_launcher"
+            app:layout_constraintStart_toEndOf="@+id/img_launcher"
+            android:layout_marginStart="@dimen/dimen_17dp"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dimen_14sp"
+            android:fontFamily="@font/cabin_regular"
+            />
+
+        <TextView
+            android:id="@+id/dialog_evaluate_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Reviews are public and include your account and device info. "
+            android:textSize="14sp"
+            android:textColor="@color/color_666666"
+            app:layout_constraintStart_toStartOf="@+id/dialog_title"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/dimen_25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/cabin_regular"
+            />
+
+        <com.crush.view.StarBarView
+            android:id="@+id/dialog_evaluate_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_evaluate_tip"
+            app:star_max="5"
+            app:star_width="25dp"
+            app:star_height="25dp"
+            app:star_solid="@mipmap/img_star_select"
+            app:star_hollow="@mipmap/img_star_unselect"
+            app:star_isIndicator="false"
+            app:space_width="40dp"
+            app:star_rating="0"
+            />
+        <EditText
+            android:id="@+id/dialog_input"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_evaluate_star"
+            android:background="@drawable/shape_stroke_gray_solid_white_radius_4"
+            android:layout_marginHorizontal="@dimen/dimen_15dp"
+            android:hint="Please describe your user experience(optional)"
+            android:paddingStart="@dimen/dimen_15dp"
+            android:textSize="14sp"
+            android:textColor="@color/color_333333"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:maxLength="500"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/dialog_input_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/dialog_input"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_input"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dimen_12sp"
+            android:fontFamily="@font/cabin_regular"
+            android:text="0/500"
+            android:visibility="gone"
+            />
+
+
+
+        <TextView
+            android:id="@+id/dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="Publish a review"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="@dimen/dimen_28dp"
+            android:background="@drawable/selector_google_evaluate_enable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_input"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="12dp"
+            />
+
+
+        <TextView
+            android:id="@+id/dialog_no_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No longer remind me"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_confirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="21dp"
+            android:paddingHorizontal="@dimen/dimen_20dp"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_999999"
+            android:fontFamily="@font/cabin_semibold"
+            android:visibility="gone"
+            />
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_no_remind"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

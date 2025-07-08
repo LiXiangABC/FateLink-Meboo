@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/img_destroyed_text"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="This will remain a secret for eternity"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/interregular"
+        android:background="@drawable/icon_private_photo_destroyed"
+        android:gravity="center_vertical"
+        android:paddingStart="13dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/read_container"
+        android:layout_width="112dp"
+        android:layout_height="42dp"
+        app:layout_constraintTop_toTopOf="@+id/rc_image"
+        android:layout_marginTop="131dp"
+        app:layout_constraintLeft_toLeftOf="@+id/rc_image"
+        app:layout_constraintRight_toRightOf="@+id/rc_image"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|bottom"
+        android:background="@drawable/shape_private_bottom_red_bg"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/countdown_logo"
+            android:layout_width="13dp"
+            android:layout_height="12dp"
+            android:src="@drawable/icon_private_countdown"
+            android:layout_marginBottom="6dp"
+            />
+        <TextView
+            android:id="@+id/countdown_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/interregular"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="1dp"
+
+            />
+    </LinearLayout>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/rc_image"
+        android:layout_width="112dp"
+        android:layout_height="149dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="12dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/main_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/picture_color_80"
+        app:layout_constraintLeft_toLeftOf="@+id/rc_image"
+        app:layout_constraintRight_toRightOf="@+id/rc_image"
+        app:layout_constraintTop_toTopOf="@+id/rc_image"
+        app:layout_constraintBottom_toBottomOf="@+id/rc_image"
+        />
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/private_logo"
+        android:layout_width="112dp"
+        android:layout_height="149dp"
+        android:src="@drawable/icon_im_private_photo"
+        app:layout_constraintStart_toStartOf="@+id/rc_image"
+        app:layout_constraintEnd_toEndOf="@+id/rc_image"
+        app:layout_constraintTop_toTopOf="@+id/rc_image"
+        app:layout_constraintBottom_toBottomOf="@+id/rc_image"
+        app:riv_corner_radius="12dp"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:id="@+id/rl_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/rc_image"
+        app:layout_constraintRight_toRightOf="@+id/rc_image"
+        app:layout_constraintTop_toTopOf="@+id/rc_image"
+        app:layout_constraintBottom_toBottomOf="@+id/rc_image">
+
+        <ProgressBar
+            android:id="@+id/rc_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:indeterminateDrawable="@drawable/rc_progress_sending_style" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/rc_margin_size_2"
+            android:text="0%"
+            android:textColor="@color/rc_white_color"
+            android:textSize="@dimen/rc_font_describe_size" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:overScrollMode="never"
+    tools:background="@color/color_999999"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/container_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shape_solid_white_radius_12">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_modify_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="@string/nickname"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/user_profile_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_6dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_nickname_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_nickname_arrow"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:src="@mipmap/icon_gray_right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_select_date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_brith_of_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_6dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_brith_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_brith_arrow"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:src="@mipmap/icon_gray_right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="@string/gender"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_user_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_6dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_gender_symbol"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_gender_symbol"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:layout_marginEnd="@dimen/dimen_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_seeking"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="@string/looking_for"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_seeking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_6dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_looking_symbol"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_looking_symbol"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_looking_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_looking_arrow"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:src="@mipmap/icon_gray_right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_my_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="@string/my_height"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_my_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_6dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/img_my_height_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_my_height_arrow"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:src="@mipmap/icon_gray_right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_profile_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_profile">
+
+            <TextView
+                android:id="@+id/iv_about_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/intersemibold"
+                android:text="@string/about_me"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.delay.DelayClickImageView
+                android:id="@+id/img_about_modify"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_37dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingHorizontal="@dimen/dimen_20dp"
+                android:src="@mipmap/icon_new_about_modify"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_about_me"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/shape_solid_white_radius_12"
+                android:hint="@string/about_me_tips"
+                android:padding="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:textColor="@color/color_202323"
+                android:textColorHint="@color/color_999999"
+                android:textSize="@dimen/dimen_14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_about_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_my_interests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_profile_about">
+
+            <TextView
+                android:id="@+id/tv_interests_add_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:fontFamily="@font/intersemibold"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/my_interests"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.delay.DelayClickImageView
+                android:id="@+id/img_interests_add"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_57dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:paddingHorizontal="@dimen/dimen_20dp"
+                android:src="@mipmap/icon_new_my_interests_add"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.TagCloudView
+                android:id="@+id/interests_tag_cloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_interests_add_title"
+                app:tcvBackground="@drawable/shape_ed3fae_radius_17"
+                app:tcvTextPaddingLeft="10"
+                app:tcvTextPaddingRight="10"
+                app:tcvTextPaddingTop="8"
+                app:tcvTextPaddingBottom="8"
+                app:tcvBorder="@dimen/dimen_6dp"
+                app:tcvCanTagClick="false"
+                app:tcvItemBorderHorizontal="5dp"
+                app:tcvItemBorderVertical="5dp"
+                app:tcvShowEndText="false"
+                app:tcvSingleLine="false"
+                app:tcvTextColor="#FF3437"
+                app:tcvTextSize="15" />
+            <TextView
+                android:id="@+id/tv_empty_interests_tag_cloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin_regular"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:background="@drawable/shape_solid_white_radius_20"
+                android:paddingHorizontal="@dimen/dimen_25dp"
+                android:paddingVertical="@dimen/dimen_8dp"
+                android:textSize="15sp"
+                android:text="@string/like_minded_sweetheart"
+                android:textColor="@color/color_999999"
+                android:layout_marginTop="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_interests_add_title"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_now_i_want"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_my_interests">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:fontFamily="@font/intersemibold"
+                android:text="@string/now_i_want"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.delay.DelayClickImageView
+                android:id="@+id/iv_now_i_want_in"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_57dp"
+                android:paddingHorizontal="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:src="@mipmap/icon_black_in"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_now_i_want"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/intermedium"
+                android:background="@drawable/shape_ab27ee_radius_17"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/dimen_25dp"
+                android:paddingVertical="@dimen/dimen_6dp"
+                android:textSize="16sp"
+                tools:text="💑 Long-term commitment"
+                android:textColor="#202323"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_now_i_want_in"/>
+            <TextView
+                android:id="@+id/tv_empty_now_i_want"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin_regular"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/shape_solid_white_radius_20"
+                android:paddingHorizontal="@dimen/dimen_25dp"
+                android:paddingVertical="@dimen/dimen_8dp"
+                android:textSize="16sp"
+                android:text="@string/seeking_a_thrilling_fling"
+                android:textColor="@color/color_999999"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_now_i_want_in"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/you_accept_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_now_i_want">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:fontFamily="@font/intersemibold"
+                android:text="@string/you_accept"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.delay.DelayClickImageView
+                android:id="@+id/iv_you_accept_in"
+                android:layout_width="@dimen/dimen_62dp"
+                android:layout_height="@dimen/dimen_57dp"
+                android:paddingHorizontal="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:src="@mipmap/icon_black_in"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <com.crush.view.TagCloudView
+                android:id="@+id/tag_you_accept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_12dp"
+                tools:layout_height="@dimen/dimen_34dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                app:tcvFontFamily="@font/intermedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_you_accept_in"
+                app:tcvBackground="@drawable/shape_ed3fae_radius_17"
+                app:tcvCanTagClick="false"
+                app:tcvItemBorderHorizontal="8dp"
+                app:tcvItemBorderVertical="6dp"
+                app:tcvTextPaddingLeft="25"
+                app:tcvTextPaddingRight="25"
+                app:tcvTextPaddingTop="8"
+                app:tcvTextPaddingBottom="7"
+                app:tcvShowEndText="false"
+                app:tcvSingleLine="false"
+                app:tcvTextColor="#FF3437"
+                app:tcvTextSize="16"  />
+            <TextView
+                android:id="@+id/tv_empty_tag_you_accept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cabin_regular"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/shape_solid_white_radius_20"
+                android:paddingHorizontal="@dimen/dimen_25dp"
+                android:paddingVertical="@dimen/dimen_8dp"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp"
+                android:text="@string/oldly_express_your_desires"
+                android:textColor="@color/color_999999"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_you_accept_in"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

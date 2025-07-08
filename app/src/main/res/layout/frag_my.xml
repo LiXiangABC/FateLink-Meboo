@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_my_profile_bg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ctb_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dimen_30dp"
+            app:expandedTitleMarginEnd="10dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_christmas_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1.2">
+
+                <View
+                    android:id="@+id/index_top_bg"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:visibility="gone"
+                    android:background="@mipmap/icon_me_top_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_my_title_christmas"
+                    android:layout_width="@dimen/dimen_34dp"
+                    android:layout_height="@dimen/dimen_28dp"
+                    android:layout_marginTop="@dimen/dimen_41dp"
+                    android:src="@drawable/icon_my_christmas_title"
+                    android:visibility="invisible"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img_my_avatar"
+                    android:layout_width="@dimen/dimen_88dp"
+                    android:layout_height="@dimen/dimen_88dp"
+                    android:layout_marginTop="@dimen/dimen_80dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_border_color="@color/color_FCD264"
+                    app:riv_corner_radius="@dimen/dimen_24dp" />
+
+                <ImageView
+                    android:id="@+id/img_my_crown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-16dp"
+                    android:layout_marginBottom="@dimen/dimen_66dp"
+                    android:src="@mipmap/icon_my_crown"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_my_avatar"
+                    app:layout_constraintLeft_toLeftOf="@+id/img_my_avatar" />
+
+
+                <ImageView
+                    android:id="@+id/btn_modify_profile"
+                    android:layout_width="@dimen/dimen_55dp"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_marginStart="@dimen/dimen_51dp"
+                    android:layout_marginTop="@dimen/dimen_51dp"
+                    android:paddingHorizontal="@dimen/dimen_15dp"
+                    android:paddingTop="@dimen/dimen_15dp"
+                    android:src="@mipmap/icon_me_modify_profile"
+                    app:layout_constraintLeft_toLeftOf="@+id/img_my_avatar"
+                    app:layout_constraintTop_toTopOf="@+id/img_my_avatar" />
+
+                <TextView
+                    android:id="@+id/txt_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:fontFamily="@font/cabin_semibold"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_20sp"
+                    android:visibility="invisible"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_my_avatar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/me_i_like_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_78dp"
+                android:background="@drawable/shape_me_i_like_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_me_i_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_33dp"
+                    android:gravity="center"
+                    app:drawableStartCompat="@mipmap/icon_me_i_like_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:drawablePadding="@dimen/dimen_15dp"
+                    android:text="I Like"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/cabin_regular"
+                    />
+                <TextView
+                    android:id="@+id/txt_me_i_like_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_33dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:layout_marginStart="@dimen/dimen_3dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/cabin_bold"
+                    app:layout_constraintLeft_toRightOf="@+id/txt_me_i_like"
+
+                    />
+
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_member_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@mipmap/icon_me_member_bg"
+                app:layout_constraintDimensionRatio="h,351:120"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/special_member_tip">
+
+                <ImageView
+                    android:id="@+id/img_member_bg"
+                    android:layout_width="@dimen/dimen_95dp"
+                    android:layout_height="@dimen/dimen_75dp"
+                    android:layout_marginEnd="@dimen/dimen_26dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/icon_my_privilege_member"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_member_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:fontFamily="@font/cabin_bold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_20sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tool:text="Premium Privilege" />
+
+                <TextView
+                    android:id="@+id/txt_member_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dimen_2dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/txt_member_title"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_member_title"
+                    tool:text="Enjoy 7 premium benefits" />
+
+                <TextView
+                    android:id="@+id/txt_get_premium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_31dp"
+                    android:layout_marginStart="@dimen/dimen_18dp"
+                    android:background="@drawable/shape_solid_white_radius_20"
+                    android:drawablePadding="@dimen/dimen_9dp"
+                    android:fontFamily="@font/cabin_medium"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_16dp"
+                    android:paddingEnd="@dimen/dimen_10dp"
+                    android:text="@string/get_premium"
+                    android:textColor="@color/color_0B6B9D"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:visibility="gone"
+                    app:drawableEndCompat="@mipmap/icon_right_arrow_purple"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_member_content" />
+
+                <TextView
+                    android:id="@+id/txt_member_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent="0.134"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_member_content"
+                    tool:text="Until: 1/11/2023" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/special_member_tip"
+                android:layout_width="138dp"
+                android:layout_height="@dimen/dimen_24dp"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@mipmap/icon_me_special_member_tip_bg"
+                android:fontFamily="@font/cabin_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/dimen_15dp"
+                android:paddingVertical="@dimen/dimen_5dp"
+                android:text="Limited-time Special"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_12sp"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/me_i_like_container"
+                tool:text="Limited-time Special" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/one_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:background="@drawable/shape_bottom_half_solid_white_radius_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_member_container">
+
+                <!--新增礼包入口v3.2-->
+                <com.crush.view.delay.DelayClickConstraintLayout
+                    android:id="@+id/conMyGiftPackBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    >
+                    <ImageView
+                        android:id="@+id/imgMyGiftPack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_my_gift_pack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="14dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="Gift Pack Store"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp"
+                        app:layout_constraintStart_toEndOf="@+id/imgMyGiftPack"
+                        app:layout_constraintTop_toTopOf="@+id/imgMyGiftPack"
+                        app:layout_constraintBottom_toBottomOf="@+id/imgMyGiftPack"
+                        />
+                    <com.crush.view.delay.DelayClickTextView
+                        android:layout_width="@dimen/dimen_69dp"
+                        android:layout_height="@dimen/dimen_23dp"
+                        android:layout_marginEnd="@dimen/dimen_14dp"
+                        android:background="@drawable/shape_single_giftpack_buy_button"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:text="@string/purchase"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_my_gift_pack_new"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="6dp"
+                        />
+                </com.crush.view.delay.DelayClickConstraintLayout>
+
+
+                <com.crush.view.delay.DelayClickConstraintLayout
+                    android:id="@+id/boost_flash_chat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/conMyGiftPackBox">
+
+                    <ImageView
+                        android:id="@+id/img_flash_chat"
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:layout_marginStart="@dimen/dimen_14dp"
+                        android:src="@mipmap/icon_flash_chat_new"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_flash_chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="0 Flash Chat"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/img_flash_chat"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+
+                    <com.crush.view.delay.DelayClickTextView
+                        android:layout_width="@dimen/dimen_69dp"
+                        android:layout_height="@dimen/dimen_23dp"
+                        android:layout_marginEnd="@dimen/dimen_14dp"
+                        android:background="@drawable/shape_single_member_buy_button"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:text="@string/purchase"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </com.crush.view.delay.DelayClickConstraintLayout>
+
+                <com.crush.view.delay.DelayClickConstraintLayout
+                    android:id="@+id/boost_private_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/boost_flash_chat">
+
+                    <ImageView
+                        android:id="@+id/img_private_photos"
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:layout_marginStart="@dimen/dimen_14dp"
+                        android:src="@mipmap/icon_private_photos_new"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_private_photos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="0 Private Photos"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/img_private_photos"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+
+                    <com.crush.view.delay.DelayClickTextView
+                        android:layout_width="@dimen/dimen_69dp"
+                        android:layout_height="@dimen/dimen_23dp"
+                        android:layout_marginEnd="@dimen/dimen_14dp"
+                        android:background="@drawable/shape_single_member_buy_button"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:text="@string/purchase"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </com.crush.view.delay.DelayClickConstraintLayout>
+
+                <com.crush.view.delay.DelayClickConstraintLayout
+                    android:id="@+id/boost_private_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/boost_private_photo">
+
+
+                    <ImageView
+                        android:id="@+id/img_private_videos"
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:layout_marginStart="@dimen/dimen_14dp"
+                        android:src="@mipmap/icon_private_videos"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_private_videos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="0 Private Videos"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/img_private_videos"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+
+                    <com.crush.view.delay.DelayClickTextView
+                        android:layout_width="@dimen/dimen_69dp"
+                        android:layout_height="@dimen/dimen_23dp"
+                        android:layout_marginEnd="@dimen/dimen_14dp"
+                        android:background="@drawable/shape_single_member_buy_button"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:text="@string/purchase"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </com.crush.view.delay.DelayClickConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--新增口令兑换v3.2-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conMyPwdExchangeBox"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:visibility="gone"
+                android:background="@drawable/shape_solid_white_radius_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/one_container"
+                >
+                <ImageView
+                    android:id="@+id/imgMyPwdExchange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_my_pwd_exchange"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    />
+                <TextView
+                    android:id="@+id/txtMyPwdExchange"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    app:layout_constraintStart_toEndOf="@+id/imgMyPwdExchange"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="Benefit Zone"
+                    android:textColor="@color/color_202323"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgMyPwdExchangeRight"
+                    android:textSize="@dimen/dimen_15sp" />
+                <ImageView
+                    android:id="@+id/imgMyPwdExchangeRight"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/txtMyPwdExchange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="@dimen/dimen_14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@mipmap/icon_gray_right_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/two_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/shape_solid_white_radius_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/conMyPwdExchangeBox">
+
+                <LinearLayout
+                    android:id="@+id/edit_profile_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_15dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:src="@mipmap/icon_edit_profile" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="@string/edit_profile"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:src="@mipmap/icon_gray_right_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/private_album_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_15dp"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_profile_container">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:src="@mipmap/icon_private_album" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="@string/private_album"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:src="@mipmap/icon_gray_right_arrow" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/shape_solid_white_radius_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/two_container"
+
+                >
+
+                <LinearLayout
+                    android:id="@+id/container_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_15dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:src="@mipmap/icon_setting" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="@string/title_settings"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:src="@mipmap/icon_gray_right_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_help_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_15dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_setting">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_20dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:src="@mipmap/icon_help_center" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="@string/support"
+                        android:textColor="@color/color_202323"
+                        android:textSize="@dimen/dimen_15sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:src="@mipmap/icon_gray_right_arrow" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

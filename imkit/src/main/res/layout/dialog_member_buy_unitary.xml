@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/father_member_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_buy_member_dialog_bg_fl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toTopOf="@+id/dialog_purchase_now"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conMemberBuyUnitaryBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_top"
+                    android:layout_width="245dp"
+                    android:layout_height="136dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/interbold"
+                    android:textColor="#202323"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_top" />
+
+                <TextView
+                    android:id="@+id/item_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/intermedium"
+                    android:gravity="center"
+                    android:textColor="#202323"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/quarter_container"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/shape_buy_member_item_bg_fl_unselect"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/monthly_container"
+                    app:layout_constraintTop_toTopOf="@+id/item_quarter_title">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/quarter_child_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_quarter_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="26dp"
+                            android:fontFamily="@font/interbold"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/interregular"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_number" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/interregular"
+                            android:text="@string/dollar_sign"
+                            android:textColor="#202323"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_quarter_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_quarter_discounted_price"
+                            app:layout_constraintTop_toTopOf="@+id/item_quarter_discounted_price" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/interbold"
+                            android:textColor="#202323"
+                            android:textSize="18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_name" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/interregular"
+                            android:textColor="#DB8334"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_discounted_price" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <TextView
+                        android:id="@+id/item_quarter_discount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/interbold"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/quarter_child_container" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/item_quarter_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/shape_solid_radius_6_fl_unselect"
+                    android:fontFamily="@font/interregular"
+                    android:gravity="center"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/quarter_container"
+                    app:layout_constraintRight_toRightOf="@+id/quarter_container"
+                    app:layout_constraintTop_toBottomOf="@+id/item_content" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/monthly_container"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/shape_buy_member_item_bg_fl_select"
+                    app:layout_constraintLeft_toRightOf="@+id/quarter_container"
+                    app:layout_constraintRight_toLeftOf="@+id/weeks_container"
+                    app:layout_constraintTop_toTopOf="@+id/item_monthly_title">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/monthly_child_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_monthly_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="26dp"
+                            android:fontFamily="@font/interbold"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/interregular"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_number" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/interregular"
+                            android:text="@string/dollar_sign"
+                            android:textColor="#202323"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toTopOf="@+id/item_monthly_discounted_price"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_monthly_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_monthly_discounted_price"
+                            />
+
+                        <TextView
+                            android:id="@+id/item_monthly_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/interbold"
+                            android:textColor="#202323"
+                            android:textSize="18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_name" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/interregular"
+                            android:textColor="#DB8334"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_discounted_price" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/item_monthly_discount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/interbold"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/monthly_child_container" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/item_monthly_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/shape_solid_radius_6_fl_select"
+                    android:fontFamily="@font/interregular"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/monthly_container"
+                    app:layout_constraintRight_toRightOf="@+id/monthly_container"
+                    app:layout_constraintTop_toBottomOf="@+id/item_content" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weeks_container"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_buy_member_item_bg_fl_unselect"
+                    app:layout_constraintLeft_toRightOf="@+id/monthly_container"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_solid_white_radius_9"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                    <TextView
+                        android:id="@+id/item_weeks_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:fontFamily="@font/interbold"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/item_weeks_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/interregular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/item_weeks_number" />
+
+                    <TextView
+                        android:id="@+id/item_weeks_dollar_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/interregular"
+                        android:text="@string/dollar_sign"
+                        android:textColor="#202323"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toTopOf="@+id/item_weeks_discounted_price"
+                        app:layout_constraintBottom_toBottomOf="@+id/item_weeks_discounted_price"
+                        app:layout_constraintRight_toLeftOf="@+id/item_weeks_discounted_price" />
+
+                    <TextView
+                        android:id="@+id/item_weeks_discounted_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/interbold"
+                        android:textColor="#202323"
+                        android:textSize="18sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/item_weeks_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/txt_buy_single_tips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/interregular"
+                    android:gravity="center"
+                    android:text="@string/buy_member_unitary_tips"
+                    android:textColor="#F1B3AA"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quarter_container" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:padding="15dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/icon_black_close"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_purchase_now"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/selector_buy_fc_btn"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:text="@string/continues"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/scroll_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

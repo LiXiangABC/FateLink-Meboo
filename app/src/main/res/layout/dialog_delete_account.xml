@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dimen_20dp"
+    android:background="@mipmap/bg_dialog_delete_account"
+    android:paddingBottom="@dimen/dimen_30dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_36dp"
+        android:src="@mipmap/icon_delte_acoount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:fontFamily="@font/interbold"
+        android:text="@string/delete_account"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+
+    <TextView
+        android:id="@+id/tvDeleteAccountHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_19dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:gravity="center"
+        android:text="@string/delete_account_hit"
+        android:textColor="@color/color_84868E"
+        android:textSize="@dimen/dimen_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvCancel"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginStart="@dimen/dimen_24dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_13dp"
+        android:background="@drawable/shape_ef39f1_f13992_radius"
+        android:fontFamily="@font/intersemibold"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewCenterLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeleteAccountHint" />
+
+    <View
+        android:id="@+id/viewCenterLine"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeleteAccountHint" />
+
+    <TextView
+        android:id="@+id/tvDelete"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginStart="@dimen/dimen_13dp"
+        android:layout_marginEnd="@dimen/dimen_24dp"
+        android:background="@drawable/shape_ffffff_c8c8c8_stroke1_radius"
+        android:fontFamily="@font/intersemibold"
+        android:gravity="center"
+        android:text="@string/delete"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/viewCenterLine"
+        app:layout_constraintTop_toTopOf="@+id/tvCancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

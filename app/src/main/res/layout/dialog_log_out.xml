@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_solid_white_radius_20"
+        android:layout_marginStart="@dimen/dimen_20dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_17sp"
+        android:text="Are You Sure To Log Out?"
+        android:textColor="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/intersemibold"
+        android:layout_marginTop="@dimen/dimen_36dp"
+        />
+    <TextView
+        android:id="@+id/dialog_cancel"
+        android:layout_width="137dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:background="@drawable/shape_stroke_gray_solid_white_radius_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dialog_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+        android:textColor="@color/black"
+        android:text="Cancel"
+        android:textSize="@dimen/dimen_17sp"
+        android:fontFamily="@font/intermedium"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        />
+    <TextView
+        android:id="@+id/dialog_confirm"
+        android:layout_width="137dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:background="@drawable/shape_solid_black_radius_24"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/dialog_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:text="Log Out"
+        android:textSize="@dimen/dimen_17sp"
+        android:fontFamily="@font/intermedium"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "514826283436",
+    "project_id": "auramix-c64d8",
+    "storage_bucket": "auramix-c64d8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514826283436:android:ac3fff569fa45260277209",
+        "android_client_info": {
+          "package_name": "com.blazeupa.auramix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514826283436-6i2268eoqkaod1ffsnn4h1gccdds3057.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blazeupa.auramix",
+            "certificate_hash": "400224029a26572dbf37092c8eb310c72c24d5bb"
+          }
+        },
+        {
+          "client_id": "514826283436-8nrfhnfv5q9eq4rbh5bata7aa1nrq3pt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blazeupa.auramix",
+            "certificate_hash": "36c941c8a66094a99c1ea9fe8e75e5db423b8c73"
+          }
+        },
+        {
+          "client_id": "514826283436-ie66k23at7qcr6fphe70l7i7bkjkgroo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9UNG990iT0DtpqJpTF7_o79A1qwg1sEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514826283436-ie66k23at7qcr6fphe70l7i7bkjkgroo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

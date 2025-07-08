@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_match_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/container_back_arrow"
+        android:layout_width="@dimen/dimen_48dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_6dp"
+        android:padding="@dimen/dimen_14dp"
+        android:src="@mipmap/icon_black_close_normal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.crush.view.CircleImageView
+        android:id="@+id/img_user_match"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_140dp"
+        android:layout_marginStart="@dimen/dimen_60dp"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:layout_marginEnd="-10dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/img_user_match_right"
+        app:layout_constraintTop_toBottomOf="@+id/container_back_arrow" />
+
+    <com.crush.view.CircleImageView
+        android:id="@+id/img_user_match_right"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_140dp"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:layout_marginEnd="@dimen/dimen_60dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toRightOf="@+id/img_user_match"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_back_arrow" />
+
+    <ImageView
+        android:id="@+id/img_match_icon_one"
+        android:layout_width="@dimen/dimen_83dp"
+        android:layout_height="@dimen/dimen_73dp"
+        android:layout_marginStart="-14dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toTopOf="@id/img_user_match"
+        android:src="@mipmap/icon_match_icon_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"  />
+
+    <ImageView
+        android:id="@+id/img_match_icon_three"
+        android:layout_width="@dimen/dimen_70dp"
+        android:layout_height="@dimen/dimen_70dp"
+        android:layout_marginStart="@dimen/dimen_36dp"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/icon_match_icon_three"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_user_match" />
+
+    <ImageView
+        android:id="@+id/img_match_icon_two"
+        android:layout_width="@dimen/dimen_72dp"
+        android:layout_height="@dimen/dimen_61dp"
+        android:layout_marginStart="-14dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="@dimen/dimen_24dp"
+        android:layout_marginBottom="-3dp"
+        android:visibility="gone"
+        android:src="@mipmap/icon_match_icon_two"
+        app:layout_constraintBottom_toTopOf="@+id/img_user_match_right"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_match_icon_four"
+        android:layout_width="@dimen/dimen_70dp"
+        android:layout_height="@dimen/dimen_70dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="@dimen/dimen_36dp"
+        android:src="@mipmap/icon_match_icon_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_user_match_right" />
+
+    <ImageView
+        android:id="@+id/img_match_title"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_142dp"
+        android:layout_marginStart="@dimen/dimen_43dp"
+        android:layout_marginTop="@dimen/dimen_40dp"
+        android:layout_marginEnd="@dimen/dimen_39dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_match_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_user_match" />
+
+    <ImageView
+        android:layout_width="@dimen/dimen_25dp"
+        android:layout_height="@dimen/dimen_29dp"
+        android:layout_marginStart="@dimen/dimen_23dp"
+        android:layout_marginTop="@dimen/dimen_77dp"
+        android:src="@mipmap/icon_match_star_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_match_title" />
+
+    <ImageView
+        android:layout_width="@dimen/dimen_25dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_35dp"
+        android:layout_marginEnd="@dimen/dimen_14dp"
+        android:src="@mipmap/icon_match_star_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_match_title" />
+
+    <com.crush.view.delay.DelayClickTextView
+        android:id="@+id/emoji_wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_45dp"
+        android:layout_marginBottom="@dimen/dimen_140dp"
+        android:textAllCaps="true"
+        android:textColor="@color/color_C5C9D4"
+        android:textSize="@dimen/dimen_30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <com.crush.view.delay.DelayClickTextView
+        android:id="@+id/emoji_winking_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_140dp"
+        android:textColor="@color/color_C5C9D4"
+        android:textSize="@dimen/dimen_30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/emoji_wave"
+        app:layout_constraintRight_toLeftOf="@+id/emoji_heart" />
+
+    <com.crush.view.delay.DelayClickTextView
+        android:id="@+id/emoji_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_140dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/emoji_winking_face"
+        app:layout_constraintRight_toLeftOf="@+id/emoji_lecherous" />
+
+    <com.crush.view.delay.DelayClickTextView
+        android:id="@+id/emoji_lecherous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_45dp"
+        android:layout_marginBottom="@dimen/dimen_140dp"
+        android:textColor="@color/color_C5C9D4"
+        android:textSize="@dimen/dimen_30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/out_edit_container"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:background="@drawable/shape_match_enter_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/txt_match_send">
+
+            <EditText
+                android:id="@+id/edit_user_match"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_margin="@dimen/dimen_1dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/cabin_regular"
+                android:hint="@string/say_something_nice"
+                android:paddingHorizontal="@dimen/dimen_20dp"
+                android:textColorHint="@color/color_999999"
+                android:textSize="@dimen/dimen_15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.crush.view.delay.DelayClickTextView
+            android:id="@+id/txt_match_send"
+            android:layout_width="@dimen/dimen_60dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@drawable/shape_gradation_login_button"
+            android:enabled="false"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/send"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

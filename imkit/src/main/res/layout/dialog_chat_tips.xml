@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewMian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@mipmap/ic_bg_tips_dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:layout_marginHorizontal="19dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/intersemibold"
+            android:textColor="@color/black"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="24dp"
+            tools:src="@color/color_333333" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivImage"
+            tools:text="Auramix Tips" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:alpha="0.48"
+            android:fontFamily="@font/interregular"
+            android:gravity="center"
+            android:textColor="@color/app_color_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/ivImage"
+            app:layout_constraintStart_toStartOf="@+id/ivImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="Auramix encourages open dialogue, where expressing bold ideas and large-scale content is not just allowed but celebrated" />
+
+        <TextView
+            android:id="@+id/tvGotIt"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/shape_e935b1_b53cee_radius"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/got_it"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivImage"
+            app:layout_constraintStart_toStartOf="@+id/ivImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMian"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="68dp"
+        android:src="@mipmap/icon_tips_mouth"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMian"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="125dp"
+        android:src="@mipmap/icon_tips_spirit"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

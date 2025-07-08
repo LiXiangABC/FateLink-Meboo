@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/out_side_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_register_default_bg">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/date_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <TextView
+            android:id="@+id/txt_show_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:fontFamily="@font/interbold"
+            android:text="@string/select_birth_date"
+            android:textColor="@color/color_248399"
+            android:textSize="@dimen/dimen_28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_show_date_tip"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:fontFamily="@font/interregular"
+            android:textColor="#50000000"
+            android:textSize="@dimen/dimen_18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_show_date" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="347dp"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginVertical="@dimen/dimen_30dp"
+            android:background="@drawable/shape_stroke_gray_bbb_radius_26"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/txt_show_date_tip">
+
+            <TextView
+                android:id="@+id/select_date_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:fontFamily="@font/interbold"
+                android:gravity="center"
+                android:text="@string/you_re_18_years_old"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16sp"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.view.DateSelectView
+                android:id="@+id/date_select_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="@dimen/dimen_30dp"
+                app:dividerColor="@color/color_0B6B9D"
+                app:isCyclic="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/select_date_tips"
+                app:textColorCenter="@color/color_0B6B9D"
+                tools:ignore="MissingConstraints"
+                android:visibility="gone"/>
+            <com.crush.view.DateWheelLayout
+                android:id="@+id/date_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="@dimen/dimen_30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/select_date_tips"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_date_save_tip"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_40dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:fontFamily="@font/intermedium"
+            android:gravity="center"
+            android:textColor="#FF3437"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_date_next"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txt_date_next"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_21dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:background="@drawable/selector_button_isenable"
+            android:enabled="true"
+            android:fontFamily="@font/interbold"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textColor="@color/selector_button_color"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nickname_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <TextView
+            android:id="@+id/txt_show_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:fontFamily="@font/interbold"
+            android:text="@string/your_nickname"
+            android:textColor="@color/color_0B6B9D"
+            android:textSize="@dimen/dimen_28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_show_name_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:fontFamily="@font/interregular"
+            android:textColor="#50000000"
+            android:text="Please provide a name that will help others remember you better"
+            android:textSize="@dimen/dimen_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_show_name" />
+
+        <EditText
+            android:id="@+id/edit_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_54dp"
+            android:layout_marginStart="@dimen/dimen_28dp"
+            android:layout_marginTop="@dimen/dimen_38dp"
+            android:layout_marginEnd="@dimen/dimen_28dp"
+            android:background="@drawable/shape_solid_black_alpha_40_radius_27"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:hint="@string/enter_your_nickname"
+            android:inputType="textCapWords"
+            android:maxLength="30"
+            android:textColor="@color/black"
+            android:textColorHint="@color/color_999999"
+            android:textSize="@dimen/dimen_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_show_name_tip" />
+
+        <TextView
+            android:id="@+id/txt_nickname_length_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/interregular"
+            android:text="@string/support_up_to_30_characters"
+            android:textColor="#c6c6c6"
+            android:textSize="@dimen/dimen_14sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_nickname" />
+
+        <TextView
+            android:id="@+id/txt_nickname_save_tip"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_48dp"
+            android:fontFamily="@font/intermedium"
+            android:gravity="center"
+            android:textColor="#FF3437"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nickname_length_tip" />
+
+
+        <TextView
+            android:id="@+id/txt_nickname_next"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:background="@drawable/selector_button_isenable"
+            android:enabled="false"
+            android:fontFamily="@font/interbold"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/next"
+            android:textColor="@color/selector_button_color"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nickname_save_tip" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gender_container"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/txt_gender_next"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_gender_define"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:fontFamily="@font/interbold"
+                    android:text="@string/choose_your_gender"
+                    android:textColor="@color/color_0B6B9D"
+                    android:textSize="@dimen/dimen_28sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/female_container"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="@dimen/dimen_90dp"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:background="@drawable/selector_gender_woman_press_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/male_container"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img_gender_female"
+                            android:layout_width="@dimen/dimen_38dp"
+                            android:layout_height="@dimen/dimen_38dp"
+                            android:src="@drawable/selector_gender_female_press" />
+
+                        <TextView
+                            android:id="@+id/txt_gender_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/intermedium"
+                            android:text="@string/female"
+                            android:textColor="@color/color_0B6B9D"
+                            android:textSize="@dimen/dimen_16sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/male_container"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="@dimen/dimen_90dp"
+                        android:layout_marginHorizontal="@dimen/dimen_22dp"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:background="@drawable/shape_stroke_gender_man_select"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toRightOf="@+id/female_container"
+                        app:layout_constraintRight_toLeftOf="@+id/queer_container"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img_gender_male"
+                            android:layout_width="@dimen/dimen_38dp"
+                            android:layout_height="@dimen/dimen_38dp"
+                            android:src="@mipmap/icon_press_male" />
+
+                        <TextView
+                            android:id="@+id/txt_gender_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/intermedium"
+                            android:text="@string/male"
+                            android:textColor="@color/color_0B6B9D"
+                            android:textSize="@dimen/dimen_16sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/queer_container"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="@dimen/dimen_90dp"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:layout_marginEnd="@dimen/dimen_30dp"
+                        android:background="@drawable/selector_gender_queer_press_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toRightOf="@+id/male_container"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img_gender_queer"
+                            android:layout_width="@dimen/dimen_38dp"
+                            android:layout_height="@dimen/dimen_38dp"
+                            android:src="@drawable/selector_gender_queer_press" />
+
+                        <TextView
+                            android:id="@+id/txt_gender_queer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/intermedium"
+                            android:gravity="center"
+                            android:text="@string/gender_queer"
+                            android:textColor="@color/color_0B6B9D"
+                            android:textSize="@dimen/dimen_16sp" />
+
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gender_prefer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/female_container">
+
+                    <TextView
+                        android:id="@+id/txt_prefer_define"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:fontFamily="@font/interbold"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_21sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_prefer_define_tip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_marginEnd="@dimen/dimen_30dp"
+                        android:fontFamily="@font/interregular"
+                        android:textColor="#50000000"
+                        android:textSize="@dimen/dimen_18sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_prefer_define" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/prefer_list"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        android:layout_marginBottom="@dimen/dimen_40dp"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_prefer_define_tip" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/no_preferences_click_to_select_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:fontFamily="@font/inter_medium_italic"
+            android:gravity="center"
+            android:text="@string/no_preferences_click_to_select_more"
+            android:textColor="@color/color_D375FF"
+            android:textSize="@dimen/dimen_14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/txt_gender_next"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/no_preferences_click_to_select_more_woman"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:fontFamily="@font/inter_medium_italic"
+            android:gravity="center"
+            android:text="@string/no_preferences_click_to_select_more"
+            android:textColor="@color/color_D375FF"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_gender_next"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txt_gender_next"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:background="@drawable/selector_button_isenable"
+            android:fontFamily="@font/interbold"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/next"
+            android:textColor="@color/selector_button_color"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/photo_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <TextView
+            android:id="@+id/photo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:fontFamily="@font/interbold"
+            android:text="@string/select_your_photo"
+            android:textColor="@color/color_0B6B9D"
+            android:textSize="@dimen/dimen_28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/photo_title_tip"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:fontFamily="@font/interregular"
+            android:text="@string/add_profile_photo_tip"
+            android:textColor="#50000000"
+            android:textSize="@dimen/dimen_18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photo_list"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:overScrollMode="never"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo_title_tip" />
+
+        <TextView
+            android:id="@+id/txt_photo_next"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_48dp"
+            android:background="@drawable/selector_button_isenable"
+            android:enabled="false"
+            android:fontFamily="@font/intermedium"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textColor="@color/selector_button_color"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo_list" />
+
+        <TextView
+            android:id="@+id/txt_photo_skip"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@drawable/shape_solid_pink_radius_26"
+            android:fontFamily="@font/intermedium"
+            android:gravity="center"
+            android:text="@string/skip"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_photo_next" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/purpose_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/txt_looking_next"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_want_title"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:fontFamily="@font/interbold"
+                    android:text="Now I want..."
+                    android:textColor="@color/color_0B6B9D"
+                    android:textSize="@dimen/dimen_28sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_want_tip"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:fontFamily="@font/interregular"
+                    android:textColor="#50000000"
+                    android:visibility="gone"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_want_title" />
+
+                <RadioGroup
+                    android:id="@+id/radio_looking_group"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_want_tip">
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/txt_accept_title"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:fontFamily="@font/interbold"
+                    android:text="You accept..."
+                    android:textColor="@color/color_0B6B9D"
+                    android:textSize="@dimen/dimen_28sp"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radio_looking_group" />
+
+                <LinearLayout
+                    android:id="@+id/accpet_container"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_accept_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/dimen_40dp"
+                    android:layout_marginHorizontal="@dimen/dimen_30dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/txt_looking_next"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:background="@drawable/shape_solid_gray_f5f7f9_radius_26"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/text_looking_next"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_52dp"
+                android:enabled="false"
+                android:fontFamily="@font/interbold"
+                android:gravity="center"
+                android:text="@string/next"
+                android:textColor="@color/color_BBBBBB"
+                android:textSize="@dimen/dimen_16sp" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/action_loading"
+                android:layout_width="@dimen/dimen_16dp"
+                android:layout_height="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="false"
+                app:lottie_fileName="next_loading.json"
+                app:lottie_loop="true" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/img_top_back"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_46dp"
+        android:layout_marginTop="@dimen/dimen_28dp"
+        android:paddingHorizontal="@dimen/dimen_15dp"
+        android:paddingVertical="@dimen/dimen_13dp"
+        android:src="@mipmap/icon_white_back_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

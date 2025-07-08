@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View
+        android:id="@+id/outside_view"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/container_nick"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_dialog_edit_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:fontFamily="@font/interbold"
+            android:text="@string/why_you_here"
+            android:textColor="@color/color_202323"
+            android:textSize="@dimen/dimen_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="@dimen/dimen_44dp"
+            android:layout_height="@dimen/dimen_44dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_6dp"
+            android:padding="@dimen/dimen_10dp"
+            android:src="@mipmap/icon_black_close"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radio_looking_group"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_title">
+
+            <RadioButton
+                android:id="@+id/rb_make_new_friends"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginLeft="@dimen/dimen_28dp"
+                android:layout_marginRight="@dimen/dimen_28dp"
+                android:background="@drawable/selector_looking_check_bg"
+                android:button="@null"
+                android:drawableStart="@drawable/selector_looking_check_mark_friend"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_20dp"
+                android:text="@string/make_new_friends"
+                android:textColor="@drawable/selector_looking_button_check"
+                android:textSize="@dimen/dimen_16sp" />
+
+            <RadioButton
+                android:id="@+id/rb_seeking_long_term_partner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginLeft="@dimen/dimen_28dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_28dp"
+                android:background="@drawable/selector_looking_check_bg"
+                android:button="@null"
+                android:checked="false"
+                android:drawableStart="@drawable/selector_looking_check_seeking"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_20dp"
+                android:text="@string/seeking_long_term_partner"
+                android:textColor="@drawable/selector_looking_button_check"
+                android:textSize="@dimen/dimen_16sp" />
+
+            <RadioButton
+                android:id="@+id/rb_looking_for_dating_partner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54dp"
+                android:layout_marginLeft="@dimen/dimen_28dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_28dp"
+                android:background="@drawable/selector_looking_check_bg"
+                android:button="@null"
+                android:drawableStart="@drawable/selector_looking_check_dating"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_20dp"
+                android:text="@string/looking_for_dating_partner"
+                android:textColor="@drawable/selector_looking_button_check"
+                android:textSize="@dimen/dimen_16sp"
+                />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txt_purpose_save"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_35dp"
+            android:layout_marginEnd="@dimen/dimen_12dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/shape_solid_pink_radius_26"
+            android:fontFamily="@font/interregular"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_looking_group" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

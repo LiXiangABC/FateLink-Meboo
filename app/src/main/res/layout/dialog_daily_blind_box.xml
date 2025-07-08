@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        >
+        <ImageView
+            android:id="@+id/img_daily_blind_box_bg"
+            android:layout_width="match_parent"
+            android:layout_height="476dp"
+            android:src="@mipmap/icon_daily_blind_box_bg"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lo_daily_blind_box_not_poke"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_100dp"
+            app:lottie_fileName="daily_blind_box.json"
+            app:layout_constraintBottom_toBottomOf="@+id/img_daily_blind_box_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="121dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+        <com.crush.view.delay.DelayClickTextView
+            android:id="@+id/btn_poke_daily"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_60dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/img_daily_blind_box_bg"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:layout_marginHorizontal="@dimen/dimen_40dp"
+            />
+
+        <ImageView
+            android:id="@+id/dialog_cancel"
+            android:layout_width="@dimen/dimen_27dp"
+            android:layout_height="@dimen/dimen_27dp"
+            android:src="@mipmap/icon_gray_close"
+            app:layout_constraintTop_toBottomOf="@+id/img_daily_blind_box_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

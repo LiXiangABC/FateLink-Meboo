@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rc_ext_attached_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/fast_reply_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.crush.view.delay.DelayClickTextView
+                android:id="@+id/txt_call_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👅 Say Hi"
+                android:background="@drawable/select_call_press_bg"
+                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingVertical="@dimen/dimen_5dp"
+                android:textColor="@color/selector_call_color"
+                android:textSize="12sp"
+                android:fontFamily="@font/interregular"
+                android:layout_marginStart="@dimen/dimen_12dp"
+                />
+            <com.crush.view.delay.DelayClickTextView
+                android:id="@+id/txt_call_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🍌 Flirting"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:background="@drawable/select_call_press_bg"
+                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingVertical="@dimen/dimen_5dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/interregular"
+                android:textColor="@color/selector_call_color"
+
+                />
+            <com.crush.view.delay.DelayClickTextView
+                android:id="@+id/txt_call_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:background="@drawable/select_call_press_bg"
+                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingVertical="@dimen/dimen_5dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/interregular"
+                android:textColor="@color/selector_call_color"
+                android:visibility="gone"
+                />
+            <com.crush.view.delay.DelayClickTextView
+                android:id="@+id/txt_call_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:background="@drawable/select_call_press_bg"
+                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingVertical="@dimen/dimen_5dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/interregular"
+                android:textColor="@color/selector_call_color"
+                android:layout_marginEnd="@dimen/dimen_12dp"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rc_divider_height"
+        android:background="#EFF0F2"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/rc_ext_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rc_ext_board_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rc_extension_board_height"
+        android:visibility="gone" />
+</LinearLayout>

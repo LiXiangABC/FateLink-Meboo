@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_top_half_solid_white_radius_20">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/tv_cancel"
+            android:layout_width="@dimen/dimen_24dp"
+            android:layout_height="@dimen/dimen_24dp"
+            android:src="@mipmap/icon_black_close"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="@string/cancel"
+            />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="@dimen/dimen_72dp"
+            android:layout_height="@dimen/dimen_32dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:gravity="center"
+            android:text="Done"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shape_solid_black_radius_18"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:paddingStart="@dimen/dimen_12dp">
+
+        <com.crush.view.datepicker.PickerView
+            android:id="@+id/dpv_month"
+            android:layout_width="0dp"
+            android:layout_height="390dp"
+            android:layout_weight="1" />
+
+
+        <com.crush.view.datepicker.PickerView
+            android:id="@+id/dpv_day"
+            android:layout_width="0dp"
+            android:layout_height="390dp"
+            android:layout_weight="1" />
+
+        <com.crush.view.datepicker.PickerView
+            android:id="@+id/dpv_year"
+            android:layout_width="0dp"
+            android:layout_height="390dp"
+            android:layout_weight="1" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

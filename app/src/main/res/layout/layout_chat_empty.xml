@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/inside_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_180dp">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icon_empty_meet_more_people"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_17dp"
+            android:fontFamily="@font/cabin_bold"
+            android:text="@string/meet_more_people"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_76dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_76dp"
+            android:fontFamily="@font/cabin_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/meet_more_people_tip"
+            android:textColor="@color/color_84868E"
+            android:textSize="@dimen/dimen_15sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/conPwdExchangeMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_my_profile_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/dimen_48dp"
+            android:layout_height="@dimen/dimen_48dp"
+            android:layout_gravity="center"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="12dp"
+            android:src="@mipmap/icon_black_back_normal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_48dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/cabin_medium"
+            android:gravity="center"
+            android:text="Benefit Zone"
+            android:textColor="#1A1B1E"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--口令兑换界面v3.2-->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/img_pwd_exchange_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194"
+        app:layout_constraintWidth_percent="0.616" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conPwdExchangeContainer"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+
+        <com.kenny.separatededittext.SeparatedEditText
+            android:id="@+id/editPwdExchange"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="15dp"
+            app:blockColor="#EDEDED"
+            app:blockSpacing="4dp"
+            app:corner="10dp"
+            app:cursorColor="#FF5192"
+            app:cursorDuration="500"
+            app:cursorWidth="1dp"
+            app:highLightBefore="true"
+            app:highLightEnable="true"
+            app:highlightColor="#FEDEEA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h,345:54"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
+            app:maxLength="6"
+            app:separateType="@integer/type_solid"
+            app:showKeyboard="true"
+            app:textColor="#FF5192" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin_medium"
+        android:text="Enter your cord"
+        android:textColor="#999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conPwdExchangeContainer" />
+
+    <TextView
+        android:id="@+id/txtPwdExchangeNext"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/shape_solid_pink_radius_30"
+        android:fontFamily="@font/cabin_medium"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+</androidx.constraintlayout.widget.ConstraintLayout>

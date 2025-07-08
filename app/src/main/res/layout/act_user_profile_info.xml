@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/outside_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_user_profile_bg">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:overScrollMode="never"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.youth.banner.Banner
+                android:id="@+id/user_profile_info_banner"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                app:banner_auto_loop="true"
+                app:banner_infinite_loop="true"
+                app:banner_indicator_normal_width="@dimen/dimen_10dp"
+                app:banner_indicator_selected_width="@dimen/dimen_10dp"
+                app:banner_indicator_space="@dimen/dimen_12dp"
+                app:banner_loop_time="5000"
+                app:banner_indicator_normal_color="#99FFFFFF"
+                app:banner_indicator_selected_color="#B636F8"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_profile_info_banner"
+                >
+
+                <LinearLayout
+                    android:id="@+id/tag_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    >
+                    <TextView
+                        android:id="@+id/user_profile_online"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_b940f8_radius_11"
+                        android:fontFamily="@font/cabin_regular"
+                        android:paddingVertical="@dimen/dimen_3dp"
+                        android:paddingHorizontal="@dimen/dimen_6dp"
+                        android:text="@string/online"
+                        android:layout_marginEnd="@dimen/dimen_6dp"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:drawablePadding="@dimen/dimen_3dp"
+                        app:drawableStartCompat="@mipmap/icon_white_circle" />
+
+                    <TextView
+                        android:id="@+id/user_profile_positioning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_ed3fb7_radius_11"
+                        android:textSize="@dimen/dimen_12sp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:drawablePadding="@dimen/dimen_3dp"
+                        android:paddingHorizontal="@dimen/dimen_6dp"
+                        android:paddingVertical="@dimen/dimen_3dp"
+                        android:text="@string/nearby"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        app:drawableStartCompat="@mipmap/icon_landmark"
+                        />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_67dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:fontFamily="@font/cabin_bold"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tag_container" />
+
+                <TextView
+                    android:id="@+id/user_profile_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    />
+
+                <TextView
+                    android:id="@+id/user_profile_ad_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    android:fontFamily="@font/cabin_semibold"
+                    android:text="@string/ad"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_location" />
+
+                <TextView
+                    android:id="@+id/txt_user_want"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_ad_title"/>
+
+                <TextView
+                    android:id="@+id/txt_user_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_ad_title"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    app:layout_constraintLeft_toRightOf="@+id/txt_user_want"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    app:drawableStartCompat="@mipmap/icon_user_profile_height"
+                    />
+
+                <TextView
+                    android:id="@+id/user_profile_star_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_user_want"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/user_profile_about_me_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    android:fontFamily="@font/cabin_semibold"
+                    android:text="@string/about_me"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_star_sign"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+
+                <TextView
+                    android:id="@+id/user_profile_introduction"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_67dp"
+                    android:fontFamily="@font/cabin_regular"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_about_me_title" />
+
+
+
+
+                <TextView
+                    android:id="@+id/user_profile_my_interests_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    app:layout_goneMarginStart="@dimen/dimen_20dp"
+                    android:fontFamily="@font/cabin_semibold"
+                    android:text="@string/my_interests"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/user_profile_name"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_introduction"
+                    />
+
+
+                <com.crush.view.TagCloudView
+                    android:id="@+id/user_profile_tag_cloud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="@dimen/dimen_6dp"
+                    android:layout_marginEnd="@dimen/dimen_67dp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_my_interests_title"
+                    app:tcvBackground="@drawable/shape_user_profile_interests_bg"
+                    app:tcvBorder="8dp"
+                    app:tcvCanTagClick="false"
+                    app:tcvItemBorderHorizontal="5dp"
+                    app:tcvItemBorderVertical="5dp"
+                    app:tcvShowEndText="false"
+                    app:tcvSingleLine="false"
+                    app:tcvTextColor="#FF3437"
+                    app:tcvTextPaddingLeft="10"
+                    app:tcvTextPaddingRight="10"
+                    app:tcvTextPaddingTop="6"
+                    app:tcvTextPaddingBottom="6"
+                    app:tcvTextSize="14"
+                    />
+
+                <TextView
+                    android:id="@+id/user_profile_turn_ons_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    app:layout_goneMarginStart="@dimen/dimen_20dp"
+                    android:fontFamily="@font/cabin_semibold"
+                    android:text="@string/turn_ons"
+                    android:textColor="@color/color_202323"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/user_profile_name"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_tag_cloud" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/turn_ons_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_turn_ons_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/turn_ons_list"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@drawable/shape_gradation_index_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="@dimen/dimen_10dp">
+        <com.crush.view.delay.DelayClickImageView
+            android:id="@+id/user_profile_like"
+            android:layout_width="@dimen/dimen_54dp"
+            android:layout_height="@dimen/dimen_54dp"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:src="@mipmap/icon_profile_like"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/user_profile_dislike"
+            />
+        <com.crush.view.delay.DelayClickImageView
+            android:id="@+id/user_profile_dislike"
+            android:layout_width="@dimen/dimen_54dp"
+            android:layout_height="@dimen/dimen_54dp"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:src="@mipmap/icon_profile_dislike"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/user_profile_chat"
+            />
+
+
+
+        <com.crush.view.delay.DelayClickImageView
+            android:id="@+id/user_profile_chat"
+            android:layout_width="@dimen/dimen_46dp"
+            android:layout_height="@dimen/dimen_46dp"
+            android:layout_marginEnd="@dimen/dimen_18dp"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:src="@mipmap/icon_chat_new"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/container_back_arrow"
+        android:layout_width="@dimen/dimen_48dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:padding="@dimen/dimen_12dp"
+        android:src="@mipmap/icon_white_back_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.crush.view.delay.DelayClickImageView
+        android:id="@+id/container_more_operation"
+        android:layout_width="@dimen/dimen_48dp"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:padding="@dimen/dimen_12dp"
+        android:src="@mipmap/icon_more_operation"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

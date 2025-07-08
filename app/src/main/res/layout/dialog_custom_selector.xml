@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_dialog_edit_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="157dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius_top_left="@dimen/dimen_20dp"
+            app:riv_corner_radius_top_right="@dimen/dimen_20dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginBottom="34dp"
+            android:lines="1"
+            android:fontFamily="@font/cabin_medium"
+            tools:text="@string/now_i_want"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:paddingTop="@dimen/dimen_24dp"
+            android:paddingEnd="@dimen/dimen_22dp"
+            android:src="@drawable/icon_black_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_28dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:background="@drawable/shape_pay_failed_button"
+            android:gravity="center"
+            android:text="@string/new_save"
+            android:fontFamily="@font/cabin_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

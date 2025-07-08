@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.crush.view.delay.DelayClickConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimen_12dp"
+    android:layout_margin="@dimen/dimen_6dp"
+    android:background="@drawable/shape_solid_white_radius_12">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.crush.view.RoundImageView
+            android:id="@+id/item_user_bg"
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:scaleType="centerCrop"
+            app:radius="@dimen/dimen_12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:id="@+id/item_user_is_new"
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:src="@mipmap/icon_wlm_new"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+        <com.crush.view.delay.DelayClickImageView
+            android:id="@+id/item_user_chat"
+            android:layout_width="@dimen/dimen_48dp"
+            android:layout_height="@dimen/dimen_48dp"
+            android:paddingEnd="@dimen/dimen_5dp"
+            android:paddingStart="@dimen/dimen_9dp"
+            android:paddingTop="@dimen/dimen_9dp"
+            android:paddingBottom="@dimen/dimen_7dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_chat_new"
+            app:layout_constraintBottom_toBottomOf="@+id/item_user_bg"
+            app:layout_constraintRight_toRightOf="@+id/item_user_bg"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/item_user_bg"
+            android:layout_marginBottom="@dimen/dimen_9dp"
+            android:layout_marginStart="@dimen/dimen_9dp">
+
+            <TextView
+                android:id="@+id/item_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_70_b940f8_radius_11"
+                android:fontFamily="@font/cabin_regular"
+                android:paddingVertical="@dimen/dimen_3dp"
+                android:paddingHorizontal="@dimen/dimen_5dp"
+                android:text="@string/online"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/dimen_3dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:drawableStartCompat="@mipmap/icon_white_circle" />
+
+            <TextView
+                android:id="@+id/item_positioning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_70_ed3fb7_radius_11"
+                android:textSize="@dimen/dimen_10sp"
+                android:fontFamily="@font/cabin_regular"
+                android:drawablePadding="@dimen/dimen_3dp"
+                android:paddingHorizontal="@dimen/dimen_5dp"
+                android:paddingVertical="@dimen/dimen_3dp"
+                android:text="@string/nearby"
+                android:textColor="@color/white"
+                app:drawableStartCompat="@mipmap/icon_landmark"
+                app:layout_constraintLeft_toRightOf="@+id/item_online"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/item_user_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginHorizontal="@dimen/dimen_10dp"
+                android:fontFamily="@font/cabin_bold"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_15sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_name"
+                >
+                <com.crush.view.TagCloudView
+                    android:id="@+id/item_tag_cloud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tcvCanTagClick="false"
+                    app:tcvItemBorderHorizontal="4dp"
+                    app:tcvItemBorderVertical="4dp"
+                    app:tcvTextPaddingLeft="7"
+                    app:tcvTextPaddingRight="7"
+                    app:tcvTextPaddingTop="5"
+                    app:tcvTextPaddingBottom="5"
+                    app:tcvShowEndText="false"
+                    app:tcvSingleLine="false"
+                    app:tcvTextColor="#FF3437"
+                    app:tcvFontFamily="@font/cabin_regular"
+                    app:tcvTextSize="12"
+                    app:tcvTwoLine="true"
+                    app:tcvBackground="@drawable/shape_ed3fae_radius_4"
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/dimen_2dp"
+                    android:layout_marginBottom="@dimen/dimen_6dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/turn_ons_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dimen_2dp"
+                    android:paddingBottom="@dimen/dimen_2dp"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/shape_solid_turn_ons_bg"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_16dp"
+                        android:layout_height="@dimen/dimen_18dp"
+                        android:src="@mipmap/icon_user_turn_ons_size"/>
+                    <TextView
+                        android:id="@+id/txt_turn_ons_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_12sp"
+                        android:layout_marginStart="@dimen/dimen_4dp"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</com.crush.view.delay.DelayClickConstraintLayout>

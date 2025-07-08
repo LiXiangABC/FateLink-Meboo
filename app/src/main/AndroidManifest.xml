@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.crush">
+
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <permission-group android:name="${applicationId}.andpermission" /> <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- 多媒体 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 访问多媒体文件的权限 Android 13 上面使用的 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 以下是鹰眼SDK基础权限 -->
+
+    <uses-permission android:name="com.android.vending.BILLING" /><!--google pay-->
+
+
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <uses-sdk tools:overrideLibrary="androidx.camera.view,
+    androidx.camera:camera-camera2,
+    androidx.camera.camera2,androidx.camera.lifecycle,
+    androidx.camera.core" />
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <!--适配Android R包可见性 开始-->
+    <queries package="${applicationId}">
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"></action>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE"></action>
+        </intent>
+    </queries>
+    <!--适配Android R包可见性 结束-->
+    <application
+        android:name="com.crush.App"
+        android:allowBackup="true"
+        android:enableOnBackInvokedCallback="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="${package_name}"
+        android:persistent="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:theme,android:label"
+        tools:targetApi="tiramisu">
+
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+
+        <activity
+            android:name=".ui.start.StartActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.crush.ui.start.StartActivity" />
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="io.rong.sight.player.SightPlayerActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.HomeActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.my.settings.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.profile.AddProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+
+        <activity
+            android:name=".ui.index.location.LocationRequestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.look.LookImagesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.profile.info.ProfileInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.chat.profile.UserProfileInfoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.index.match.MatchUserActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.member.MemberSubscriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".ui.member.album.PrivateAlbumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.look.MyPictureVideoPlayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.member.album.PrivateAlbumViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.PhoneLoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".ui.my.account.MyAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.turnons.ChooseTurnOnsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.index.flash.FlashChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.like.ILikeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.benefit.PasswordExchangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.discount.TriggerDiscountActivity"
+            android:screenOrientation="portrait" />
+
+        <!--        <provider-->
+        <!--            android:name="androidx.core.content.FileProvider"-->
+        <!--            android:authorities="${applicationId}.fileProvider"-->
+        <!--            android:exported="false"-->
+        <!--            android:grantUriPermissions="true">-->
+        <!--            <meta-data-->
+        <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--                android:resource="@xml/picker_file_paths" />-->
+        <!--        </provider>-->
+
+
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:directBootAware="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="io.rong.push.platform.google.RongFirebaseMessagingService"
+            android:exported="false"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon_notification_white" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/color_040408" />
+
+
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
+
+        <activity
+            android:name="com.github.moduth.blockcanary.ui.DisplayActivity"
+            android:exported="false" />
+        <!--facebook-->
+        <!--        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>-->
+        <!--        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>-->
+        <!--        <activity android:name="com.facebook.FacebookActivity"-->
+        <!--            android:configChanges=-->
+        <!--                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
+        <!--            android:label="@string/app_name" />-->
+        <!--        <activity-->
+        <!--            android:name="com.facebook.CustomTabActivity"-->
+        <!--            android:exported="true">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.VIEW" />-->
+        <!--                <category android:name="android.intent.category.DEFAULT" />-->
+        <!--                <category android:name="android.intent.category.BROWSABLE" />-->
+        <!--                <data android:scheme="@string/fb_login_protocol_scheme" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+        <!--facebook-->
+
+    </application>
+
+</manifest>

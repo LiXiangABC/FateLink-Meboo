@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_logo"
+        android:layout_width="@dimen/dimen_55dp"
+        android:layout_height="@dimen/dimen_55dp"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginEnd="@dimen/dimen_12dp"
+        android:fontFamily="@font/cabin_semibold"
+        android:textColor="@color/color_202323"
+        android:textSize="@dimen/dimen_15sp"
+        app:layout_constraintLeft_toRightOf="@+id/item_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tool:text="Unlimited Matches, Likes, and Chats" />
+
+    <TextView
+        android:id="@+id/item_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_11dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_32dp"
+        android:layout_marginBottom="@dimen/dimen_15dp"
+        android:fontFamily="@font/cabin_regular"
+        android:lineSpacingExtra="@dimen/dimen_2dp"
+        android:textColor="@color/color_9C9FA6"
+        android:textSize="@dimen/dimen_13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/item_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_title"
+        tool:text="With unlimited daily swipes, won’t miss every chance to meet your crush." />
+</androidx.constraintlayout.widget.ConstraintLayout>

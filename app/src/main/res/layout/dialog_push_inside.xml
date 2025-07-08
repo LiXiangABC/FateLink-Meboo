@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Transparent">
+
+    <com.crush.view.delay.DelayClickConstraintLayout
+        android:id="@+id/push_container"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:background="@drawable/shape_push_bg"
+        android:elevation="10dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/color_1A000000"
+        android:translationY="@dimen/dimen_20dp"
+        android:translationZ="@dimen/dimen_20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <View
+            android:id="@+id/out_side_view"
+            android:layout_width="@dimen/dimen_51dp"
+            android:layout_height="@dimen/dimen_51dp"
+            android:background="@drawable/shape_purple_circle_stroke"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_avatar"
+            app:layout_constraintLeft_toLeftOf="@+id/dialog_avatar"
+            app:layout_constraintRight_toRightOf="@+id/dialog_avatar"
+            app:layout_constraintTop_toTopOf="@+id/dialog_avatar" />
+
+        <com.crush.view.CircleImageView
+            android:id="@+id/dialog_avatar"
+            android:layout_width="@dimen/dimen_43dp"
+            android:layout_height="@dimen/dimen_43dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginBottom="@dimen/dimen_18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/dialog_push_like"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:src="@mipmap/icon_push_like_heart"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_18dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@+id/dialog_avatar"
+            app:layout_constraintRight_toLeftOf="@+id/right_container"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/intersemibold"
+                android:maxLines="1"
+                android:textColor="@color/color_080808"
+                android:textSize="@dimen/dimen_14sp"
+
+                />
+
+            <TextView
+                android:id="@+id/dialog_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/interregular"
+                android:lineSpacingExtra="@dimen/dimen_1dp"
+                android:maxLines="2"
+                android:textColor="@color/color_84868E"
+                android:textSize="@dimen/dimen_12sp"
+                app:layout_constraintLeft_toRightOf="@+id/dialog_avatar"
+                app:layout_constraintRight_toLeftOf="@+id/right_container"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+
+            <TextView
+                android:id="@+id/txt_push_say_hi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:background="@drawable/shape_push_button_bg"
+                android:fontFamily="@font/intersemibold"
+                android:paddingStart="@dimen/dimen_14dp"
+                android:paddingTop="@dimen/dimen_1dp"
+                android:paddingEnd="@dimen/dimen_14dp"
+                android:paddingBottom="@dimen/dimen_1dp"
+                android:text="@string/say_hi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_12sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toRightOf="@+id/dialog_avatar"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_content" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/right_container"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_albums_container"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_marginTop="@dimen/dimen_11dp"
+                android:layout_marginEnd="@dimen/dimen_12dp"
+                android:layout_marginBottom="@dimen/dimen_11dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_push_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:background="@drawable/shape_solid_white_radius_8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.crush.view.RoundImageView
+                    android:id="@+id/dialog_user_photo"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:layout_marginEnd="@dimen/dimen_12dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:radius="@dimen/dimen_8dp" />
+
+                <ImageView
+                    android:id="@+id/dialog_private_logo"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:src="@mipmap/icon_push_private_logo"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/dialog_user_photo"
+                    app:layout_constraintLeft_toLeftOf="@+id/dialog_user_photo"
+                    app:layout_constraintRight_toRightOf="@+id/dialog_user_photo"
+                    app:layout_constraintTop_toTopOf="@+id/dialog_user_photo" />
+
+                <ImageView
+                    android:id="@+id/dialog_video_play_logo"
+                    android:layout_width="@dimen/dimen_18dp"
+                    android:layout_height="@dimen/dimen_18dp"
+                    android:src="@mipmap/icon_play_video"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/dialog_user_photo"
+                    app:layout_constraintLeft_toLeftOf="@+id/dialog_user_photo"
+                    app:layout_constraintRight_toRightOf="@+id/dialog_user_photo"
+                    app:layout_constraintTop_toTopOf="@+id/dialog_user_photo" />
+
+                <ImageView
+                    android:id="@+id/dialog_video_play_private_logo"
+                    android:layout_width="@dimen/dimen_12dp"
+                    android:layout_height="@dimen/dimen_12dp"
+                    android:layout_marginEnd="@dimen/dimen_3dp"
+                    android:layout_marginBottom="@dimen/dimen_3dp"
+                    android:src="@mipmap/icon_play_video"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/dialog_user_photo"
+                    app:layout_constraintRight_toRightOf="@+id/dialog_user_photo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.crush.view.delay.DelayClickConstraintLayout>
+
+    <com.crush.view.delay.DelayClickConstraintLayout
+        android:id="@+id/push_match_container"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:background="@mipmap/icon_push_match_bg"
+        android:elevation="10dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/color_1A000000"
+        android:translationY="@dimen/dimen_20dp"
+        android:translationZ="@dimen/dimen_20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dialog_right_avatar_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_42dp"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginBottom="@dimen/dimen_18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/dialog_left_avatar_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/right_out_side_view"
+                android:layout_width="@dimen/dimen_51dp"
+                android:layout_height="@dimen/dimen_51dp"
+                android:background="@drawable/shape_red_circle_stroke"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.CircleImageView
+                android:id="@+id/dialog_right_avatar"
+                android:layout_width="@dimen/dimen_43dp"
+                android:layout_height="@dimen/dimen_43dp"
+                app:layout_constraintBottom_toBottomOf="@+id/right_out_side_view"
+                app:layout_constraintLeft_toLeftOf="@+id/right_out_side_view"
+                app:layout_constraintRight_toRightOf="@+id/right_out_side_view"
+                app:layout_constraintTop_toTopOf="@+id/right_out_side_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dialog_left_avatar_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginBottom="@dimen/dimen_18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/left_out_side_view"
+                android:layout_width="@dimen/dimen_51dp"
+                android:layout_height="@dimen/dimen_51dp"
+                android:background="@drawable/shape_red_circle_stroke"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.crush.view.CircleImageView
+                android:id="@+id/dialog_left_avatar"
+                android:layout_width="@dimen/dimen_43dp"
+                android:layout_height="@dimen/dimen_43dp"
+                app:layout_constraintBottom_toBottomOf="@+id/left_out_side_view"
+                app:layout_constraintLeft_toLeftOf="@+id/left_out_side_view"
+                app:layout_constraintRight_toRightOf="@+id/left_out_side_view"
+                app:layout_constraintTop_toTopOf="@+id/left_out_side_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/img_lightning"
+            android:layout_width="@dimen/dimen_22dp"
+            android:layout_height="@dimen/dimen_22dp"
+            android:src="@mipmap/icon_push_lightning"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/dialog_left_avatar_content"
+            app:layout_constraintRight_toRightOf="@+id/dialog_right_avatar_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_red_heart_small"
+            android:layout_width="@dimen/dimen_5dp"
+            android:layout_height="@dimen/dimen_5dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_2dp"
+            android:src="@drawable/icon_match_push_red_heart"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="@+id/dialog_left_avatar_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_red_heart_big"
+            android:layout_width="@dimen/dimen_11dp"
+            android:layout_height="@dimen/dimen_9dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_2dp"
+            android:src="@drawable/icon_match_push_red_heart"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@+id/dialog_right_avatar_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/dialog_match_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/interbold"
+            android:maxLines="1"
+            android:textColor="@color/color_080808"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintLeft_toRightOf="@+id/dialog_right_avatar_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_match_content"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/interregular"
+            android:lineSpacingExtra="@dimen/dimen_2dp"
+            android:maxLines="1"
+            android:textColor="@color/color_84868E"
+            android:textSize="@dimen/dimen_12sp"
+            app:layout_constraintLeft_toRightOf="@+id/dialog_right_avatar_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_match_title" />
+
+        <TextView
+            android:id="@+id/txt_say_hi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_12dp"
+            android:background="@drawable/shape_push_button_bg"
+            android:fontFamily="@font/intersemibold"
+            android:paddingStart="@dimen/dimen_14dp"
+            android:paddingTop="@dimen/dimen_1dp"
+            android:paddingEnd="@dimen/dimen_14dp"
+            android:paddingBottom="@dimen/dimen_1dp"
+            android:text="@string/say_hi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_12sp"
+            app:layout_constraintLeft_toRightOf="@+id/dialog_right_avatar_content"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_match_content" />
+
+    </com.crush.view.delay.DelayClickConstraintLayout>
+
+    <com.crush.view.delay.DelayClickConstraintLayout
+        android:id="@+id/push_member_container"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_82dp"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:background="@drawable/shape_discount_push_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_member_logo"
+            android:layout_width="@dimen/dimen_71dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            android:src="@mipmap/icon_left_member"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_member_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:layout_marginTop="@dimen/dimen_11dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="Limited-time Special Premium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintLeft_toRightOf="@+id/img_member_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_member_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:fontFamily="@font/cabin_regular"
+            android:text="The original price will be restored soon"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_12sp"
+            app:layout_constraintLeft_toRightOf="@+id/img_member_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_member_title"
+            />
+        <TextView
+            android:id="@+id/txt_member_get_special_now"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_20dp"
+            app:layout_constraintLeft_toRightOf="@+id/img_member_logo"
+            app:layout_constraintTop_toBottomOf="@+id/txt_member_content"
+            android:background="@drawable/shape_solid_white_radius_12"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textSize="@dimen/dimen_12sp"
+            android:textColor="@color/color_D03AF7"
+            android:paddingHorizontal="@dimen/dimen_16dp"
+            android:paddingVertical="@dimen/dimen_1dp"
+            />
+
+    </com.crush.view.delay.DelayClickConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

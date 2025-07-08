@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rc_message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="23dp"
+        android:background="@mipmap/icon_tips_bg"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewHeadTipsCardBg">
+        <ImageView
+            app:layout_constraintTop_toTopOf="@+id/tvContentOne"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="6dp"
+            android:src="@mipmap/icon_tips_dot"/>
+        <TextView
+            android:id="@+id/tvContentOne"
+            style="@style/TextStyle.Alignment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="26dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="2dp"
+            android:includeFontPadding="false"
+            android:drawablePadding="7dp"
+            android:ellipsize="end"
+            android:textColor="#0B6B9D"
+            android:textSize="14sp"
+            tools:text="Be bold and ask her bra size" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@+id/tvContentTwo"
+            android:layout_marginTop="6dp"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="13dp"
+            android:src="@mipmap/icon_tips_dot"/>
+        <TextView
+            android:id="@+id/tvContentTwo"
+            style="@style/TextStyle.Alignment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentOne"
+            android:includeFontPadding="false"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="2dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:drawablePadding="7dp"
+            android:ellipsize="end"
+            android:textColor="#0B6B9D"
+            android:textSize="14sp"
+            tools:text="Be bold and ask her bra size" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@+id/tvContentThree"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="13dp"
+            android:src="@mipmap/icon_tips_dot"/>
+        <TextView
+            android:id="@+id/tvContentThree"
+            style="@style/TextStyle.Alignment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentTwo"
+            android:layout_marginStart="26dp"
+            android:includeFontPadding="false"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:drawablePadding="7dp"
+            android:textColor="#0B6B9D"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Be bold and ask her bra sizeBe bold and ask her bra size" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewHeadTipsCardBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/icon_head_tips_card_bg"
+        app:layout_constraintDimensionRatio="h,326:38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/cabin_bold"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewHeadTipsCardBg"
+        app:layout_constraintStart_toEndOf="@+id/beshyJson"
+        app:layout_constraintTop_toTopOf="@+id/viewHeadTipsCardBg"
+        tools:text="Don't be shy" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/beshyJson"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="@+id/viewHeadTipsCardBg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="beshy.json"
+        app:lottie_loop="true"
+        tools:background="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

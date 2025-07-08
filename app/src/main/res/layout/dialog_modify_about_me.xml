@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/outside_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View
+        android:id="@+id/outside_view"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/container_about"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_dialog_edit_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="157dp"
+            app:riv_corner_radius_top_left="@dimen/dimen_20dp"
+            app:riv_corner_radius_top_right="@dimen/dimen_20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/icon_update_info_bg"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:fontFamily="@font/cabin_medium"
+            android:text="@string/about_me"
+            android:textColor="@color/color_202323"
+            android:textSize="@dimen/dimen_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="@dimen/dimen_44dp"
+            android:layout_height="@dimen/dimen_44dp"
+            android:paddingTop="@dimen/dimen_24dp"
+            android:paddingEnd="@dimen/dimen_22dp"
+            android:src="@mipmap/icon_black_close_normal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_about_me"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_200dp"
+            android:layout_marginHorizontal="@dimen/dimen_28dp"
+            android:layout_marginTop="@dimen/dimen_35dp"
+            android:background="@drawable/shape_update_info_bg"
+            android:paddingVertical="@dimen/dimen_30dp"
+            android:paddingHorizontal="@dimen/dimen_15dp"
+            android:textColorHint="@color/color_9C9FA6"
+            android:textSize="@dimen/dimen_14sp"
+            android:fontFamily="@font/cabin_regular"
+            android:gravity="top|left"
+            android:maxLength="500"
+            android:hint="@string/about_me_tips"
+            android:textColor="@color/color_202323"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+
+        <TextView
+            android:id="@+id/txt_about_me_save"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_28dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/selector_button_isenable"
+            android:enabled="false"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/save"
+            android:textAllCaps="true"
+            android:textColor="@color/selector_button_color"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_about_me" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="121dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="1.5dp">
+    <RelativeLayout
+        android:id="@+id/private_album_add"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_solid_gray_radius_6">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_private_album_add"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <com.crush.view.RoundImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="121dp"
+        android:scaleType="centerCrop"
+        app:radius="@dimen/dimen_4dp"/>
+    <TextView
+        android:id="@+id/video_times"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/dimen_6dp"
+        android:layout_marginEnd="@dimen/dimen_6dp"
+        android:textSize="@dimen/dimen_12sp"
+        android:textColor="@color/white"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        style="@style/ProcessBarStyle"
+        />
+
+</FrameLayout>

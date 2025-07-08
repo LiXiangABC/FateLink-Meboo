@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_solid_white_radius_20"
+        android:layout_marginStart="@dimen/dimen_20dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:id="@+id/content_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_60dp"
+            android:background="@drawable/shape_first_into_wlm"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/dialog_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_15sp"
+            android:text="@string/first_into_wlm_tip"
+            android:textColor="@color/color_202323"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dimen_5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/intersemibold"
+            android:layout_marginTop="@dimen/dimen_70dp"
+            android:layout_marginStart="@dimen/dimen_32dp"
+            android:layout_marginEnd="@dimen/dimen_32dp" />
+
+        <TextView
+            android:id="@+id/dialog_confirm"
+            android:layout_width="137dp"
+            android:layout_height="@dimen/dimen_48dp"
+            android:background="@drawable/shape_solid_pink_radius_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:text="@string/get_it"
+            android:textSize="@dimen/dimen_17sp"
+            android:fontFamily="@font/intermedium"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_20dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/top_logo"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/content_container"
+        app:layout_constraintRight_toRightOf="@+id/content_container"
+        app:layout_constraintBottom_toBottomOf="@+id/content_container"
+        android:layout_marginBottom="@dimen/dimen_162dp"
+        android:src="@mipmap/icon_first_into_wlm"
+        />
+    <TextView
+        android:id="@+id/like_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x3"
+        app:layout_constraintTop_toTopOf="@+id/top_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/dimen_80dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_24sp"
+        android:layout_marginTop="@dimen/dimen_72dp"
+        android:fontFamily="@font/intersemibold"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

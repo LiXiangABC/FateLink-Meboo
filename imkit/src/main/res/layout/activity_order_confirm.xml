@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conOrderConfirmTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgOrderConfirmBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icom_black_back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_medium"
+            android:text="Order Summary"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/svOrderConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/conOrderConfirmBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conOrderConfirmTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conOrderConfirmTop"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@mipmap/img_order_confirm_member_bg"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintDimensionRatio="h,345:163"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/conOrderConfirmTopContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.662"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <!--project-->
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopProject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="Project : "
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txtOrderConfirmTopBenefits"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopProjectVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtOrderConfirmTopProject"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtOrderConfirmTopProject"
+                        tools:text="Project Name" />
+                    <!--benefits-->
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopBenefits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="Benefits:"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txtOrderConfirmTopPeriod"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmTopProject" />
+
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopBenefitsVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtOrderConfirmTopBenefits"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtOrderConfirmTopBenefits"
+                        tools:text="Project Name" />
+                    <!--period-->
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopPeriod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="Benefits Period : "
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txtOrderConfirmTopUse"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmTopBenefits" />
+
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopPeriodVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtOrderConfirmTopPeriod"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtOrderConfirmTopPeriod"
+                        tools:text="Project Name" />
+
+                    <TextView
+                        android:id="@+id/txtOrderConfirmTopUse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cabin_regular"
+                        android:text="Automatically deducted after use"
+                        android:textColor="#EFD3FE"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmTopPeriod" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/vOrderConfirmLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#80FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/conOrderConfirmTopContent" />
+                <!--total-->
+                <TextView
+                    android:id="@+id/txtOrderConfirmTopTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_regular"
+                    android:text="Order total : "
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vOrderConfirmLine" />
+
+                <TextView
+                    android:id="@+id/txtOrderConfirmTopTotalVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cabin_bold"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtOrderConfirmTopTotal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtOrderConfirmTopTotal"
+                    tools:text="$ 29.99" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/conOrderConfirmBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_white_radius_12_bottom"
+                app:layout_constraintTop_toBottomOf="@+id/conOrderConfirmTop">
+
+                <TextView
+                    android:id="@+id/txtOrderConfirmBottomTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/img_order_confirm_member_bottom_bg"
+                    android:fontFamily="@font/cabin_bold"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Exclusive Premium Picks" />
+                <!--会员-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOrderConfirmMember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmBottomTitle" />
+                <!--pp pv fc-->
+                <ImageView
+                    android:id="@+id/imgOrderConfirmPpPv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginVertical="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmBottomTitle"
+                    tools:src="@mipmap/img_order_confirm_pp" />
+
+                <ImageView
+                    android:id="@+id/imgOrderConfirmFc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="37dp"
+                    android:src="@mipmap/img_order_confirm_fc"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmBottomTitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conOrderConfirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/svOrderConfirm">
+
+        <TextView
+            android:id="@+id/txtOrderConfirmMemberBtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/selector_buy_member_subscription_btn"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/purchase_now"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderConfirmPPBtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/selector_buy_order_confirm_pp_btn"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/continues"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtOrderConfirmPVBtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/selector_buy_order_confirm_pv_btn"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/continues"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderConfirmFCBtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/selector_buy_order_confirm_fc_btn"
+            android:fontFamily="@font/cabin_semibold"
+            android:gravity="center"
+            android:text="@string/continues"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderConfirmProtocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_regular"
+            android:text="@string/agree_to_the_payment_agreement"
+            android:textColor="#9C9FA6"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrderConfirmMemberBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/out_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_my_profile_bg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ctb_scroll_view"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="wrap_content" >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@android:color/transparent"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/outside_top_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_80dp"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/top_container"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="@dimen/dimen_12dp"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_12dp"
+                    android:background="@mipmap/icon_me_member_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/member_tip"
+                        android:layout_width="@dimen/dimen_138dp"
+                        android:layout_height="24dp"
+                        android:background="@mipmap/icon_member_top_tip_bg"
+                        android:fontFamily="@font/cabin_regular"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_12sp"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tool:text="Monthly subscribed " />
+
+                    <TextView
+                        android:id="@+id/txt_member_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16dp"
+                        android:layout_marginTop="@dimen/dimen_37dp"
+                        android:fontFamily="@font/cabin_bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_20sp"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tool:text="Premium Privilege" />
+
+                    <TextView
+                        android:id="@+id/txt_member_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16dp"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_14sp"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_member_title"
+                        tool:text="Enjoy 7 premium benefits" />
+
+                    <TextView
+                        android:id="@+id/txt_get_premium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_31dp"
+                        android:layout_marginStart="@dimen/dimen_16dp"
+                        android:background="@drawable/shape_solid_white_radius_20"
+                        android:drawablePadding="@dimen/dimen_9dp"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/dimen_16dp"
+                        android:paddingEnd="@dimen/dimen_10dp"
+                        android:text="@string/get_premium"
+                        android:textColor="@color/color_0B6B9D"
+                        android:textSize="@dimen/dimen_14sp"
+                        android:visibility="gone"
+                        app:drawableEndCompat="@mipmap/icon_right_arrow_purple"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_member_content" />
+
+                    <TextView
+                        android:id="@+id/txt_member_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_14dp"
+                        android:layout_marginTop="@dimen/dimen_12dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_12sp"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_member_content"
+                        tool:text="Auto-subscription" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_95dp"
+                        android:layout_height="@dimen/dimen_75dp"
+                        android:layout_marginTop="@dimen/dimen_9dp"
+                        android:layout_marginEnd="@dimen/dimen_20dp"
+                        android:src="@mipmap/icon_my_privilege_member"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_80dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+                <!-- 标题栏内容 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/member_back_layout"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:adjustViewBounds="true"
+                            android:padding="8dp"
+                            android:src="@drawable/icon_back_black_arrow" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/member_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cabin_medium"
+                        android:gravity="center"
+                        android:text="@string/premium"
+                        android:textColor="@color/Black"
+                        android:textSize="17sp" />
+                </RelativeLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_top_half_solid_white_radius_12">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/quarter_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_7dp"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:background="@drawable/shape_member_unselect_bg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/monthly_container"
+                app:layout_constraintTop_toTopOf="@+id/item_quarter_title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/quarter_child_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:layout_margin="@dimen/dimen_3dp"
+                    android:background="@drawable/shape_solid_white_radius_9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_quarter_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_24sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_number" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_10sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_quarter_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_quarter_discounted_price"
+                            app:layout_constraintTop_toTopOf="@+id/item_quarter_discounted_price" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_name" />
+
+                        <TextView
+                            android:id="@+id/item_quarter_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_12sp"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_quarter_discounted_price" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/item_quarter_title"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_12dp"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:background="@drawable/shape_solid_purple_e1a7ff_radius_6"
+                android:fontFamily="@font/cabin_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingVertical="@dimen/dimen_3dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/quarter_container"
+                app:layout_constraintRight_toRightOf="@+id/quarter_container"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/monthly_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_7dp"
+                android:layout_marginEnd="@dimen/dimen_5dp"
+                android:background="@drawable/shape_member_select_bg"
+                app:layout_constraintLeft_toRightOf="@+id/quarter_container"
+                app:layout_constraintRight_toLeftOf="@+id/weeks_container"
+                app:layout_constraintTop_toTopOf="@+id/item_monthly_title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/monthly_child_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen_3dp"
+                    android:background="@drawable/shape_solid_white_radius_9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_monthly_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="@color/color_202323"
+                            android:textSize="@dimen/dimen_24sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_202323"
+                            android:textSize="@dimen/dimen_14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_number" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#FF3437"
+                            android:textSize="@dimen/dimen_10sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_monthly_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_monthly_discounted_price"
+                            app:layout_constraintTop_toTopOf="@+id/item_monthly_discounted_price" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="#FF3437"
+                            android:textSize="@dimen/dimen_18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_name" />
+
+                        <TextView
+                            android:id="@+id/item_monthly_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="#FF3437"
+                            android:textSize="@dimen/dimen_12sp"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_monthly_discounted_price" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/item_monthly_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:background="@drawable/shape_member_select_title_bg"
+                android:fontFamily="@font/cabin_regular"
+                android:gravity="center"
+                android:paddingStart="@dimen/dimen_8dp"
+                android:paddingTop="@dimen/dimen_1dp"
+                android:paddingEnd="@dimen/dimen_8dp"
+                android:paddingBottom="@dimen/dimen_2dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/monthly_container"
+                app:layout_constraintRight_toRightOf="@+id/monthly_container"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/weeks_container"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_22dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:background="@drawable/shape_member_unselect_bg"
+                app:layout_constraintLeft_toRightOf="@+id/monthly_container"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen_3dp"
+                    android:background="@drawable/shape_solid_white_radius_9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/item_weeks_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_24sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_number" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_dollar_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_10sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/item_weeks_discounted_price"
+                            app:layout_constraintRight_toLeftOf="@+id/item_weeks_discounted_price"
+                            app:layout_constraintTop_toTopOf="@+id/item_weeks_discounted_price" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_discounted_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:fontFamily="@font/cabin_bold"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_name" />
+
+                        <TextView
+                            android:id="@+id/item_weeks_original_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin_regular"
+                            android:textColor="@color/color_7F7F7F"
+                            android:textSize="@dimen/dimen_12sp"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_weeks_discounted_price" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txt_valid_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:fontFamily="@font/cabin_regular"
+                android:text="*The offer is valid for the first 1 month"
+                android:textColor="#7A000000"
+                android:textSize="@dimen/dimen_14sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quarter_container" />
+
+            <TextView
+                android:id="@+id/txt_premium_privilege"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_14dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:fontFamily="@font/cabin_bold"
+                android:text="@string/premium_privilege"
+                android:textColor="@color/color_202323"
+                android:textSize="@dimen/dimen_16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_valid_time" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/member_equity_list"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:overScrollMode="never"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_premium_privilege" />
+
+            <TextView
+                android:id="@+id/txt_subscription_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subscription_notice"
+                android:textSize="@dimen/dimen_16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/member_equity_list"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:fontFamily="@font/cabin_semibold"
+                />
+
+            <TextView
+                android:id="@+id/txt_subscription_notice_tips"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_subscription_notice"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dimen_13sp"
+                android:text="@string/subscription_notice_tip"
+                android:gravity="center"
+                android:fontFamily="@font/cabin_regular"
+                />
+            <View
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_105dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_subscription_notice_tips"
+
+                />
+
+            <TextView
+                android:id="@+id/member_action"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_marginStart="@dimen/dimen_12dp"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:layout_marginEnd="@dimen/dimen_12dp"
+                android:layout_marginBottom="@dimen/dimen_50dp"
+                android:background="@drawable/shape_stroke_gray_solid_white_radius_30"
+                android:fontFamily="@font/cabin_semibold"
+                android:gravity="center"
+                android:text="Unsubscribe"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_subscription_notice_tips" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_7dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.crush.view.delay.DelayClickTextView
+                android:id="@+id/member_action_buy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_52dp"
+                android:layout_marginHorizontal="@dimen/dimen_12dp"
+                android:background="@drawable/shape_member_subscription_buy_button"
+                android:fontFamily="@font/cabin_semibold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="Unsubscribe" />
+
+            <TextView
+                android:id="@+id/txt_payment_protocol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:layout_marginBottom="@dimen/dimen_12dp"
+                android:fontFamily="@font/cabin_regular"
+                android:text="@string/payment_agreement"
+                android:textColor="@color/color_9C9FA6"
+                android:textSize="@dimen/dimen_14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_action" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_discount_tag"
+            android:layout_width="@dimen/dimen_62dp"
+            android:layout_height="@dimen/dimen_28dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:background="@mipmap/icon_member_discount_tag"
+            android:fontFamily="@font/cabin_medium"
+            android:gravity="center"
+            android:paddingStart="@dimen/dimen_6dp"
+            android:rotation="8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_12sp"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="35% off" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

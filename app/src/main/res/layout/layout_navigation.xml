@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@color/white"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    <View
+        android:id="@+id/vTabFirst"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vTabSecond"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/vTabSecond"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vTabThird"
+        app:layout_constraintStart_toEndOf="@+id/vTabFirst"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <View
+        android:id="@+id/vTabThird"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vTabFour"
+        app:layout_constraintStart_toEndOf="@+id/vTabSecond"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/vTabFour"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vTabThird"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/tabHomeIndex"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@mipmap/tab_index_select"
+        app:layout_constraintBottom_toBottomOf="@+id/vTabFirst"
+        app:layout_constraintEnd_toEndOf="@+id/vTabFirst"
+        app:layout_constraintStart_toStartOf="@+id/vTabFirst"
+        app:layout_constraintTop_toTopOf="@+id/vTabFirst"
+        android:layout_marginStart="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/tabHomeWlm"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@mipmap/tab_wlm_select"
+        app:layout_constraintBottom_toBottomOf="@+id/vTabSecond"
+        app:layout_constraintEnd_toEndOf="@+id/vTabSecond"
+        app:layout_constraintStart_toStartOf="@+id/vTabSecond"
+        app:layout_constraintTop_toTopOf="@+id/vTabSecond" />
+    <TextView
+        android:id="@+id/txt_wlm_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/shape_solid_red_stroke_white_radius_10"
+        android:fontFamily="@font/cabin_medium"
+        android:paddingHorizontal="6dp"
+        android:paddingBottom="1dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="-2dp"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tabHomeWlm"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/tabHomeChat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@mipmap/tab_im_select"
+        app:layout_constraintBottom_toBottomOf="@+id/vTabThird"
+        app:layout_constraintEnd_toEndOf="@+id/vTabThird"
+        app:layout_constraintStart_toStartOf="@+id/vTabThird"
+        app:layout_constraintTop_toTopOf="@+id/vTabThird" />
+    <TextView
+        android:id="@+id/txt_unread_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/shape_solid_red_stroke_white_radius_10"
+        android:fontFamily="@font/cabin_medium"
+        android:paddingHorizontal="6dp"
+        android:paddingBottom="1dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="-2dp"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tabHomeChat"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/tabHomeMe"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:padding="2dp"
+        android:background="@drawable/shape_me_unselect_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/vTabFour"
+        app:layout_constraintEnd_toEndOf="@+id/vTabFour"
+        app:layout_constraintStart_toStartOf="@+id/vTabFour"
+        app:layout_constraintTop_toTopOf="@+id/vTabFour"
+        android:layout_marginEnd="20dp"/>
+
+
+</merge>
