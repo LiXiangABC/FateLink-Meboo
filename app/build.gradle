@@ -9,7 +9,7 @@ android {
     compileSdkVersion 34
 
     defaultConfig {
-        applicationId "com.blazeupa.auramix"
+        applicationId "com.starlit.fatelink"
         minSdkVersion 25
         targetSdkVersion 34
         versionCode 100
@@ -67,14 +67,14 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
             resValue("string", "type", "yyb")
-            manifestPlaceholders = [package_name: "Auramix(Test)"]
+            manifestPlaceholders = [package_name: "FateLink(Test)"]
             //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
         }
         release {
             zipAlignEnabled true
             signingConfig signingConfigs.release
-            manifestPlaceholders = [package_name: "Auramix"]
+            manifestPlaceholders = [package_name: "FateLink"]
             resValue("string", "type", "browser")
 
             // 不显示Log

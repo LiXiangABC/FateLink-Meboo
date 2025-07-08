@@ -176,8 +176,8 @@ class MyAccountPresenter : BasePresenterImpl<MyAccountContract.View>(),
                     txtGoogleBindStatus.setTextColor(
                         if (entity.data.googleBind) ContextCompat.getColor(
                             mActivity,
-                            R.color.color_EA4335
-                        ) else ContextCompat.getColor(mActivity, R.color.color_9C9FA6)
+                            R.color.color_44F3C4
+                        ) else ContextCompat.getColor(mActivity, R.color.color_6544F3C4)
                     )
                     txtGoogleBindStatus.text =
                         if (entity.data.googleBind) entity.data.googleName else mActivity.getString(
@@ -188,8 +188,8 @@ class MyAccountPresenter : BasePresenterImpl<MyAccountContract.View>(),
                     txtFacebookBindStatus.setTextColor(
                         if (entity.data.facebookBind) ContextCompat.getColor(
                             mActivity,
-                            R.color.color_1877F2
-                        ) else ContextCompat.getColor(mActivity, R.color.color_9C9FA6)
+                            R.color.color_202323
+                        ) else ContextCompat.getColor(mActivity, R.color.color_6544F3C4)
                     )
                     txtFacebookBindStatus.text =
                         if (entity.data.facebookBind) entity.data.facebookName else mActivity.getString(
@@ -200,8 +200,8 @@ class MyAccountPresenter : BasePresenterImpl<MyAccountContract.View>(),
                     txtPhoneNumberBindStatus.setTextColor(
                         if (entity.data.mobileBind) ContextCompat.getColor(
                             mActivity,
-                            R.color.color_2DD7A3
-                        ) else ContextCompat.getColor(mActivity, R.color.color_9C9FA6)
+                            R.color.color_202323
+                        ) else ContextCompat.getColor(mActivity, R.color.color_6544F3C4)
                     )
                     txtPhoneNumberBindStatus.text =
                         if (entity.data.mobileBind) entity.data.mobile else mActivity.getString(R.string.connect_now)

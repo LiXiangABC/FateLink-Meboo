@@ -56,7 +56,7 @@
             android:layout_marginTop="@dimen/dimen_48dp"
             android:gravity="center"
             android:textSize="@dimen/dimen_16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:background="@drawable/shape_solid_0d56cc_radius_26"
             android:text="Confirm"
             android:fontFamily="@font/cabin_semibold"

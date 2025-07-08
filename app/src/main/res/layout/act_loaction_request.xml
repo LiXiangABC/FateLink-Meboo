@@ -46,7 +46,7 @@
         android:layout_marginBottom="@dimen/dimen_20dp"
         android:textSize="@dimen/dimen_24sp"
         android:text="@string/want_to_create_real_touch"
-        android:textColor="@color/color_333333"
+        android:textColor="@color/white"
         android:fontFamily="@font/interbold"
         app:layout_constraintBottom_toTopOf="@+id/request_location_title_hit"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -56,7 +56,7 @@
         android:id="@+id/request_location_title_hit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/color_666666"
+        android:textColor="@color/color_80FFFFFF"
         android:textSize="@dimen/dimen_16sp"
         android:text="@string/want_to_create_real_touch_content"
         android:layout_marginHorizontal="@dimen/dimen_33dp"
@@ -90,12 +90,12 @@
             android:layout_width="@dimen/dimen_29dp"
             android:layout_height="@dimen/dimen_26dp"
             android:src="@mipmap/icon_location"
-            />
+            app:tint="@color/color_001912" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/dimen_16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:text="@string/turn_on_location"
             android:layout_marginStart="@dimen/dimen_14dp"
             android:fontFamily="@font/interbold"/>

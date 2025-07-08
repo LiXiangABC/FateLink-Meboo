@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.crush.R
 import com.crush.adapter.AddPhotoSelectAdapter
@@ -81,7 +82,7 @@ class AddProfilePresenter : BasePresenterImpl<AddProfileContact.View>() {
     private fun AddProfileContact.View.initLooking() {
 
         radioLookingGroup.setOnCheckedChangeListener { p0, p1 ->
-            textLookingNext.setTextColor(Color.WHITE)
+            textLookingNext.setTextColor(ContextCompat.getColor(appContext, R.color.color_001912))
             txtLookingNext.setBackgroundResource(R.drawable.shape_solid_pink_radius_26)
             txtLookingNext.isEnabled = true
         }

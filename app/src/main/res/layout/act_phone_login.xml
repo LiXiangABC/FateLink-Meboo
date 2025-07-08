@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dimen_48dp"
             android:fontFamily="@font/cabin_medium"
-            android:textColor="#1A1B1E"
+            android:textColor="@color/white"
             android:gravity="center"
             android:textSize="18sp"
             android:layout_marginStart="10dp"
@@ -43,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/viewTitle"
+        android:visibility="visible"
         >
 
         <TextView
@@ -53,7 +54,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interbold"
             android:text="@string/what_your_number"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +79,7 @@
                 android:layout_marginStart="@dimen/dimen_19dp"
                 android:fontFamily="@font/interregular"
                 android:text="+1"
-                android:textColor="@color/color_CDCDCD"
+                android:textColor="@color/color_44F3C4"
                 android:textSize="@dimen/dimen_14sp" />
 
             <EditText
@@ -92,7 +93,8 @@
                 android:hint="@string/phone_number"
                 android:inputType="number"
                 android:fontFamily="@font/interbold"
-                android:textColorHint="@color/color_CDCDCD"
+                android:textColorHint="@color/color_44F3C4"
+                android:textColor="@color/color_44F3C4"
                 android:textSize="@dimen/dimen_14sp"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -107,7 +109,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:layout_marginEnd="@dimen/dimen_33dp"
             android:text="@string/phone_number_tips"
-            android:textColor="@color/color_202323"
+            android:textColor="#80FFFFFF"
             android:textSize="@dimen/dimen_12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -119,7 +121,7 @@
             android:layout_marginStart="@dimen/dimen_33dp"
             android:layout_marginTop="@dimen/dimen_48dp"
             android:layout_marginEnd="@dimen/dimen_33dp"
-            android:background="@drawable/shape_solid_light_gray_radius_26"
+            android:background="@drawable/shape_solid_gray_radius_26"
             android:textColor="@color/selector_button_color"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -166,7 +168,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interbold"
             android:text="@string/verify_your_number"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -178,7 +180,7 @@
             android:layout_marginStart="@dimen/dimen_33dp"
             android:layout_marginTop="@dimen/dimen_15dp"
             android:textSize="@dimen/dimen_18sp"
-            android:textColor="@color/color_BBBBBB"
+            android:textColor="@color/color_80FFFFFF"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_code"
             />
@@ -198,7 +200,7 @@
             app:icv_et_number="6"
             app:icv_et_pwd="false"
             app:icv_et_pwd_radius="5dp"
-            app:icv_et_text_color="@color/black"
+            app:icv_et_text_color="@color/white"
             app:icv_et_width="@dimen/dimen_45dp"
             android:layout_marginStart="@dimen/dimen_33dp"/>
         <TextView
@@ -209,7 +211,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interregular"
             android:text="@string/verify_tip"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/color_80FFFFFF"
             android:textSize="@dimen/dimen_12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_code"
@@ -222,7 +224,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/selector_send_code"
+            android:textColor="@color/color_44F3C4"
             android:textSize="15sp"
             android:text="@string/resend_code"/>
         <com.airbnb.lottie.LottieAnimationView
@@ -255,7 +257,7 @@
             android:layout_marginStart="@dimen/dimen_33dp"
             android:layout_marginTop="@dimen/dimen_48dp"
             android:layout_marginEnd="@dimen/dimen_33dp"
-            android:background="@drawable/shape_solid_light_gray_radius_26"
+            android:background="@drawable/shape_solid_gray_radius_26"
             android:textColor="@color/selector_button_color"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

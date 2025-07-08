@@ -29,7 +29,7 @@
             android:layout_marginTop="@dimen/dimen_16dp"
             android:gravity="center"
             android:text="Done"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_alignParentRight="true"

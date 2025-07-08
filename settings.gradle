@@ -1,4 +1,4 @@
-rootProject.name='Auramix'
+rootProject.name='FateLink'
 include ':app'
 include ':imkit'
 include ':ucrop'

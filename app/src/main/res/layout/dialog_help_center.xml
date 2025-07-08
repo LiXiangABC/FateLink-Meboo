@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/bg_support"
+        android:background="@mipmap/bg_dialog_edit_info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -79,7 +79,7 @@
             android:fontFamily="@font/cabin_semibold"
             android:gravity="center"
             android:text="@string/get_help_from_auramix"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="@dimen/dimen_17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/dialog_cancel"

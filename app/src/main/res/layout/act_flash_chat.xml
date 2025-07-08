@@ -85,12 +85,12 @@
             android:layout_width="@dimen/dimen_22dp"
             android:layout_height="@dimen/dimen_22dp"
             android:src="@mipmap/icon_send_unedited_white"
-            />
+            app:tint="@color/color_001912" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_chatting"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="@dimen/dimen_16sp"
             android:fontFamily="@font/interbold"
             android:layout_marginStart="@dimen/dimen_14dp"

@@ -75,7 +75,7 @@ class PhotoSelectAdapter(
                     .into(itemPhoto)
             }
         }else{
-            itemPhotoContainer.setBackgroundResource(R.drawable.shape_solid_white_radius_12)
+            itemPhotoContainer.setBackgroundResource(R.drawable.shape_stroke_black_radius_12)
             itemPhoto.setImageResource(R.drawable.shape_dotted_stroke_gray)
             if (bean.loading){
                 itemPhotoAdd.visibility=View.GONE

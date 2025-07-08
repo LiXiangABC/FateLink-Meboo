@@ -12,6 +12,7 @@
         android:id="@+id/date_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,7 +26,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interbold"
             android:text="@string/select_birth_date"
-            android:textColor="@color/color_248399"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_28sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +39,7 @@
             android:layout_marginTop="@dimen/dimen_15dp"
             android:layout_marginEnd="@dimen/dimen_30dp"
             android:fontFamily="@font/interregular"
-            android:textColor="#50000000"
+            android:textColor="@color/color_80FFFFFF"
             android:textSize="@dimen/dimen_18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -76,13 +77,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="@dimen/dimen_30dp"
-                app:dividerColor="@color/color_0B6B9D"
+                app:dividerColor="@color/color_44F3C4"
                 app:isCyclic="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/select_date_tips"
-                app:textColorCenter="@color/color_0B6B9D"
+                app:textColorCenter="@color/color_44F3C4"
                 tools:ignore="MissingConstraints"
                 android:visibility="gone"/>
             <com.crush.view.DateWheelLayout
@@ -107,7 +108,7 @@
             android:layout_marginBottom="@dimen/dimen_15dp"
             android:fontFamily="@font/intermedium"
             android:gravity="center"
-            android:textColor="#FF3437"
+            android:textColor="@color/color_44F3C4"
             android:textSize="@dimen/dimen_14sp"
             app:layout_constraintBottom_toTopOf="@+id/txt_date_next"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -155,7 +156,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interbold"
             android:text="@string/your_nickname"
-            android:textColor="@color/color_0B6B9D"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_28sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -167,7 +168,7 @@
             android:layout_marginHorizontal="@dimen/dimen_30dp"
             android:layout_marginTop="@dimen/dimen_15dp"
             android:fontFamily="@font/interregular"
-            android:textColor="#50000000"
+            android:textColor="@color/color_80FFFFFF"
             android:text="Please provide a name that will help others remember you better"
             android:textSize="@dimen/dimen_18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,8 +190,8 @@
             android:hint="@string/enter_your_nickname"
             android:inputType="textCapWords"
             android:maxLength="30"
-            android:textColor="@color/black"
-            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_44F3C4"
+            android:textColorHint="@color/color_44F3C4"
             android:textSize="@dimen/dimen_20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -203,7 +204,7 @@
             android:layout_marginTop="@dimen/dimen_5dp"
             android:fontFamily="@font/interregular"
             android:text="@string/support_up_to_30_characters"
-            android:textColor="#c6c6c6"
+            android:textColor="@color/color_80FFFFFF"
             android:textSize="@dimen/dimen_14sp"
             android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -218,7 +219,7 @@
             android:layout_marginTop="@dimen/dimen_48dp"
             android:fontFamily="@font/intermedium"
             android:gravity="center"
-            android:textColor="#FF3437"
+            android:textColor="@color/color_44F3C4"
             android:textSize="@dimen/dimen_14sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -281,7 +282,7 @@
                     android:layout_marginTop="@dimen/dimen_10dp"
                     android:fontFamily="@font/interbold"
                     android:text="@string/choose_your_gender"
-                    android:textColor="@color/color_0B6B9D"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/dimen_28sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -307,16 +308,16 @@
                             android:id="@+id/img_gender_female"
                             android:layout_width="@dimen/dimen_38dp"
                             android:layout_height="@dimen/dimen_38dp"
+                            android:visibility="gone"
                             android:src="@drawable/selector_gender_female_press" />
 
                         <TextView
                             android:id="@+id/txt_gender_female"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/intermedium"
                             android:text="@string/female"
-                            android:textColor="@color/color_0B6B9D"
+                            android:textColor="@color/color_44F3C4"
                             android:textSize="@dimen/dimen_16sp" />
 
                     </LinearLayout>
@@ -339,16 +340,16 @@
                             android:id="@+id/img_gender_male"
                             android:layout_width="@dimen/dimen_38dp"
                             android:layout_height="@dimen/dimen_38dp"
+                            android:visibility="gone"
                             android:src="@mipmap/icon_press_male" />
 
                         <TextView
                             android:id="@+id/txt_gender_male"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/intermedium"
                             android:text="@string/male"
-                            android:textColor="@color/color_0B6B9D"
+                            android:textColor="@color/color_001912"
                             android:textSize="@dimen/dimen_16sp" />
 
                     </LinearLayout>
@@ -371,17 +372,17 @@
                             android:id="@+id/img_gender_queer"
                             android:layout_width="@dimen/dimen_38dp"
                             android:layout_height="@dimen/dimen_38dp"
+                            android:visibility="gone"
                             android:src="@drawable/selector_gender_queer_press" />
 
                         <TextView
                             android:id="@+id/txt_gender_queer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/intermedium"
                             android:gravity="center"
                             android:text="@string/gender_queer"
-                            android:textColor="@color/color_0B6B9D"
+                            android:textColor="@color/color_44F3C4"
                             android:textSize="@dimen/dimen_16sp" />
 
 
@@ -404,7 +405,7 @@
                         android:layout_marginStart="@dimen/dimen_30dp"
                         android:layout_marginTop="@dimen/dimen_20dp"
                         android:fontFamily="@font/interbold"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/dimen_21sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -417,7 +418,7 @@
                         android:layout_marginTop="@dimen/dimen_10dp"
                         android:layout_marginEnd="@dimen/dimen_30dp"
                         android:fontFamily="@font/interregular"
-                        android:textColor="#50000000"
+                        android:textColor="@color/color_80FFFFFF"
                         android:textSize="@dimen/dimen_18sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -516,7 +517,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/interbold"
             android:text="@string/select_your_photo"
-            android:textColor="@color/color_0B6B9D"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_28sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -530,7 +531,7 @@
             android:layout_marginEnd="@dimen/dimen_30dp"
             android:fontFamily="@font/interregular"
             android:text="@string/add_profile_photo_tip"
-            android:textColor="#50000000"
+            android:textColor="@color/color_80FFFFFF"
             android:textSize="@dimen/dimen_18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -575,7 +576,7 @@
             android:fontFamily="@font/intermedium"
             android:gravity="center"
             android:text="@string/skip"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/dimen_16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -617,7 +618,7 @@
                     android:layout_marginEnd="@dimen/dimen_30dp"
                     android:fontFamily="@font/interbold"
                     android:text="Now I want..."
-                    android:textColor="@color/color_0B6B9D"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/dimen_28sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -631,7 +632,7 @@
                     android:layout_marginTop="@dimen/dimen_20dp"
                     android:layout_marginEnd="@dimen/dimen_30dp"
                     android:fontFamily="@font/interregular"
-                    android:textColor="#50000000"
+                    android:textColor="@color/color_80FFFFFF"
                     android:visibility="gone"
                     android:textSize="@dimen/dimen_18sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -660,7 +661,7 @@
                     android:layout_marginEnd="@dimen/dimen_30dp"
                     android:fontFamily="@font/interbold"
                     android:text="You accept..."
-                    android:textColor="@color/color_0B6B9D"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/dimen_28sp"
                     android:visibility="gone"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -706,7 +707,7 @@
                 android:fontFamily="@font/interbold"
                 android:gravity="center"
                 android:text="@string/next"
-                android:textColor="@color/color_BBBBBB"
+                android:textColor="@color/black"
                 android:textSize="@dimen/dimen_16sp" />
 
             <com.airbnb.lottie.LottieAnimationView

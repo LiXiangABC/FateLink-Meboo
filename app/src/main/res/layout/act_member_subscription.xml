@@ -5,7 +5,7 @@
     android:id="@+id/out_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/icon_my_profile_bg">
+    android:background="@mipmap/bg_app_main">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ctb_scroll_view"
@@ -86,14 +86,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/dimen_31dp"
                         android:layout_marginStart="@dimen/dimen_16dp"
-                        android:background="@drawable/shape_solid_white_radius_20"
+                        android:background="@drawable/shape_solid_get_premium"
                         android:drawablePadding="@dimen/dimen_9dp"
                         android:fontFamily="@font/cabin_medium"
                         android:gravity="center"
                         android:paddingStart="@dimen/dimen_16dp"
                         android:paddingEnd="@dimen/dimen_10dp"
                         android:text="@string/get_premium"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/dimen_14sp"
                         android:visibility="gone"
                         app:drawableEndCompat="@mipmap/icon_right_arrow_purple"
@@ -115,15 +115,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/txt_member_content"
                         tool:text="Auto-subscription" />
 
-                    <ImageView
-                        android:layout_width="@dimen/dimen_95dp"
-                        android:layout_height="@dimen/dimen_75dp"
-                        android:layout_marginTop="@dimen/dimen_9dp"
-                        android:layout_marginEnd="@dimen/dimen_20dp"
-                        android:src="@mipmap/icon_my_privilege_member"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="@dimen/dimen_95dp"-->
+<!--                        android:layout_height="@dimen/dimen_75dp"-->
+<!--                        android:layout_marginTop="@dimen/dimen_9dp"-->
+<!--                        android:layout_marginEnd="@dimen/dimen_20dp"-->
+<!--                        android:src="@mipmap/icon_my_privilege_member"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintRight_toRightOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -190,13 +190,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_top_half_solid_white_radius_12">
+            android:layout_height="match_parent" >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/quarter_container"
                 android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_130dp"
                 android:layout_marginStart="@dimen/dimen_10dp"
                 android:layout_marginTop="@dimen/dimen_7dp"
                 android:layout_marginEnd="@dimen/dimen_5dp"
@@ -229,7 +228,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_24sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -240,7 +239,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_14sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -251,7 +250,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_10sp"
                             android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="@+id/item_quarter_discounted_price"
@@ -264,7 +263,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_18sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -275,7 +274,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_12sp"
                             android:visibility="gone"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -307,7 +306,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/monthly_container"
                 android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_130dp"
                 android:layout_marginStart="@dimen/dimen_5dp"
                 android:layout_marginTop="@dimen/dimen_7dp"
                 android:layout_marginEnd="@dimen/dimen_5dp"
@@ -321,7 +320,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen_3dp"
-                    android:background="@drawable/shape_solid_white_radius_9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -340,7 +338,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="@color/color_202323"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_24sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -351,7 +349,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_202323"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_14sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -362,7 +360,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="#FF3437"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_10sp"
                             android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="@+id/item_monthly_discounted_price"
@@ -375,7 +373,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="#FF3437"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_18sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -386,7 +384,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="#FF3437"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_12sp"
                             android:visibility="gone"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -419,7 +417,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/weeks_container"
                 android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_130dp"
                 android:layout_marginStart="@dimen/dimen_5dp"
                 android:layout_marginTop="@dimen/dimen_22dp"
                 android:layout_marginEnd="@dimen/dimen_10dp"
@@ -432,7 +430,6 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen_3dp"
-                    android:background="@drawable/shape_solid_white_radius_9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -451,7 +448,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_24sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -462,7 +459,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_14sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -473,7 +470,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin_regular"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_10sp"
                             android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="@+id/item_weeks_discounted_price"
@@ -486,7 +483,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dimen_5dp"
                             android:fontFamily="@font/cabin_bold"
-                            android:textColor="@color/color_7F7F7F"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/dimen_18sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -532,8 +529,33 @@
                 android:text="@string/premium_privilege"
                 android:textColor="@color/color_202323"
                 android:textSize="@dimen/dimen_16sp"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:drawablePadding="@dimen/dimen_7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:drawableStartCompat="@mipmap/ic_premium_privilege"
+                app:drawableEndCompat="@mipmap/ic_premium_privilege"
                 app:layout_constraintTop_toBottomOf="@+id/txt_valid_time" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:src="@mipmap/icon_min_white_line"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_premium_privilege"
+                app:layout_constraintEnd_toStartOf="@+id/txt_premium_privilege"
+                app:layout_constraintTop_toTopOf="@+id/txt_premium_privilege" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:rotation="180"
+                android:src="@mipmap/icon_min_white_line"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_premium_privilege"
+                app:layout_constraintStart_toEndOf="@+id/txt_premium_privilege"
+                app:layout_constraintTop_toTopOf="@+id/txt_premium_privilege" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/member_equity_list"
@@ -638,7 +660,7 @@
                 android:background="@drawable/shape_member_subscription_buy_button"
                 android:fontFamily="@font/cabin_semibold"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/color_001912"
                 android:textSize="@dimen/dimen_16sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

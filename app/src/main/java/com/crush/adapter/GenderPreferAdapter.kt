@@ -39,8 +39,8 @@ class GenderPreferAdapter(
         val itemText = holder.getView<TextView>(R.id.item_text)
         GlideUtil.setImageView(model.iconUrl, itemLogo, placeholderImageId = 0)
 
-        itemLogoOut.setCardBackgroundColor(if (model.selected==0) Color.TRANSPARENT else ContextCompat.getColor(ctx,R.color.color_0B6B9D))
-        itemText.setTextColor(if (model.selected==0) Color.WHITE else ContextCompat.getColor(ctx,R.color.color_0B6B9D))
+        itemLogoOut.setCardBackgroundColor(if (model.selected==0) Color.TRANSPARENT else ContextCompat.getColor(ctx,R.color.color_44F3C4))
+        itemText.setTextColor(if (model.selected==0) ContextCompat.getColor(ctx,R.color.color_44F3C4) else ContextCompat.getColor(ctx,R.color.color_001912))
         itemText.text=model.value
 
 

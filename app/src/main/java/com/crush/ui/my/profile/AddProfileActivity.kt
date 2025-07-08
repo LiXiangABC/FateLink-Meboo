@@ -456,6 +456,10 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
             imgGenderQueer.setImageResource(R.mipmap.icon_unpress_queer)
             queerContainer.setBackgroundResource(R.drawable.shape_stroke_gender_unselect)
 
+            txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
+            txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+            txtGenderQueer.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+
             noPreferencesClickToSelectMoreWoman.visibility = View.GONE
             genderStream?.let {
                 if (it.secondTitle != null) {//根据2级标题判断prefer是否展示
@@ -502,6 +506,11 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
             imgGenderQueer.setImageResource(R.mipmap.icon_unpress_queer)
             queerContainer.setBackgroundResource(R.drawable.shape_stroke_gender_unselect)
 
+
+            txtGenderFemale.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
+            txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+            txtGenderQueer.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+
             noPreferencesClickToSelectMore.visibility = View.GONE
             genderStream?.let {
                 if (it.secondTitle != null) {//根据2级标题判断prefer是否展示
@@ -546,6 +555,10 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
             femaleContainer.setBackgroundResource(R.drawable.shape_stroke_gender_unselect)
             imgGenderMale.setImageResource(R.mipmap.icon_unpress_male)
             maleContainer.setBackgroundResource(R.drawable.shape_stroke_gender_unselect)
+
+            txtGenderQueer.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
+            txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+            txtGenderFemale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
 
             getAllGenderSelect()
             noPreferencesClickToSelectMore.visibility = View.GONE
@@ -1010,7 +1023,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
         dateSelectLayout.setIndicatorColor(
             ContextCompat.getColor(
                 this,
-                R.color.color_0B6B9D
+                R.color.color_44F3C4
             )
         )
         dateSelectLayout.setIndicatorSize(DensityUtil.dp2pxF(this, 1f))
@@ -1018,7 +1031,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
         dateSelectLayout.setSelectedTextColor(
             ContextCompat.getColor(
                 this,
-                R.color.color_0B6B9D
+                R.color.color_44F3C4
             )
         )
         //设置字体

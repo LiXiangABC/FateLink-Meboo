@@ -33,7 +33,7 @@
             android:fontFamily="@font/cabin_medium"
             android:gravity="center"
             android:text="Benefit Zone"
-            android:textColor="#1A1B1E"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

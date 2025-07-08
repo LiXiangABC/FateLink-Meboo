@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    android:background="@color/white"
+    android:background="@drawable/bg_main_nav"
+    android:paddingHorizontal="@dimen/dimen_20dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
     <View
         android:id="@+id/vTabFirst"
