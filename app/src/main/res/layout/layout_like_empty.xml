@@ -74,7 +74,7 @@
         android:fontFamily="@font/intersemibold"
         android:text="@string/go_flirt_with_all"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/color_001912"
         android:textSize="@dimen/dimen_16sp"
         />
 

@@ -71,6 +71,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="@dimen/dimen_20dp"
                 android:layout_marginTop="@dimen/dimen_20dp"
+                android:rotation="30"
                 android:src="@mipmap/icon_nope" />
 
         </FrameLayout>

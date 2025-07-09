@@ -323,7 +323,7 @@
             android:fontFamily="@font/cabin_semibold"
             android:gravity="center"
             android:text="@string/continues"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

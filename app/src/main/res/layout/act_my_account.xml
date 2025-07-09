@@ -226,7 +226,7 @@
         android:layout_marginStart="@dimen/dimen_12dp"
         android:layout_marginTop="@dimen/dimen_20dp"
         android:layout_marginEnd="@dimen/dimen_12dp"
-        android:background="@drawable/shape_solid_white_radius_12"
+        android:background="@drawable/shape_solid_44f3c4_radius_12"
         android:fontFamily="@font/cabin_regular"
         android:gravity="center"
         android:text="@string/log_out"

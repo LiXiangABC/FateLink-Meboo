@@ -76,7 +76,7 @@ class AddPhotoSelectAdapter(
                 itemPhotoClose.visibility=View.GONE
                 progressBar.visibility = View.VISIBLE
             }else{
-                itemPhotoAdd.setImageResource(if (position==0) R.mipmap.icon_image_add_puple else R.mipmap.icon_image_add)
+                itemPhotoAdd.setImageResource(if (position==0) R.mipmap.icon_image_add else R.mipmap.icon_image_add)
                 itemPhotoAdd.visibility=View.VISIBLE
                 itemPhotoClose.visibility=View.GONE
                 progressBar.visibility = View.GONE

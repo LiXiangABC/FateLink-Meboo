@@ -29,11 +29,16 @@ class PhoneLoginActivity : MVPBaseActivity<PhoneLoginContract.View, PhoneLoginPr
     }
 
     override fun getTitleView(toolbar: RelativeLayout) {
-        toolbar.setBackgroundColor(Color.parseColor("#FFF7FA"))
+//        toolbar.setBackgroundColor(Color.parseColor("#FFF7FA"))
     }
 
     override fun initView() {
-        ImmersionBar.with(this).statusBarColor("#FFF7FA")
+//        ImmersionBar.with(this).statusBarColor("#FFF7FA")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ImmersionBar.with(this).statusBarDarkFont(false).init()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

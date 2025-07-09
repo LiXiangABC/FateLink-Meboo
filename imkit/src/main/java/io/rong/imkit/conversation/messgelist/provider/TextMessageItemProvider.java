@@ -120,7 +120,7 @@ public class TextMessageItemProvider extends BaseMessageItemProvider<TextMessage
             uiMessage.setContentSpannable(spannable);
         }
         if (uiMessage.getMessage().getMessageDirection().getValue() == 1) {
-            textView.setTextColor(Color.parseColor("#FFFFFF"));
+            textView.setTextColor(Color.parseColor("#000000"));
         } else {
             textView.setTextColor(Color.parseColor("#000000"));
         }

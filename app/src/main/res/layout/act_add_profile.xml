@@ -453,7 +453,7 @@
             android:fontFamily="@font/inter_medium_italic"
             android:gravity="center"
             android:text="@string/no_preferences_click_to_select_more"
-            android:textColor="@color/color_D375FF"
+            android:textColor="@color/color_44F3C4"
             android:textSize="@dimen/dimen_14sp"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/txt_gender_next"

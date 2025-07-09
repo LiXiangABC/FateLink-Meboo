@@ -144,7 +144,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
 
                             override fun updateDrawState(ds: TextPaint) {
                                 ds.isUnderlineText = true
-                                ds.color = Color.WHITE
+                                ds.color = Color.BLACK
                                 ds.clearShadowLayer()
                             }
                         }, 34, 39, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -162,7 +162,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
 
                             override fun updateDrawState(ds: TextPaint) {
                                 ds.isUnderlineText = true
-                                ds.color = Color.WHITE
+                                ds.color = Color.BLACK
                                 ds.clearShadowLayer()
                             }
                         }, 42, 56, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

@@ -51,8 +51,7 @@
                 android:src="@drawable/icon_pay_failed_one"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#3DC6F2" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/title_one"
@@ -97,7 +96,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="15dp"
-                app:tint="#3DC6F2"
                 android:src="@drawable/icon_pay_failed_two"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -131,7 +129,6 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="14dp"
-                app:tint="#3DC6F2"
                 android:layout_marginBottom="15dp"
                 android:src="@drawable/icon_pay_failed_three"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -168,7 +165,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/intermedium"
             android:text="@string/email_address_logo"
-            android:textColor="@color/color_0B6B9D"
+            android:textColor="@color/color_44F3C4"
             android:textSize="18sp" />
 
         <TextView
@@ -181,7 +178,7 @@
             android:fontFamily="@font/intersemibold"
             android:gravity="center"
             android:text="Try It Again"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="16sp" />
 
         <TextView

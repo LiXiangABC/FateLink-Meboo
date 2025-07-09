@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:overScrollMode="never"
-    tools:background="@color/color_999999"
+    tools:background="@mipmap/bg_app_main"
     android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -268,6 +268,7 @@
                 android:layout_height="@dimen/dimen_37dp"
                 android:paddingBottom="@dimen/dimen_15dp"
                 android:paddingHorizontal="@dimen/dimen_20dp"
+                android:tint="@color/color_001912"
                 android:src="@mipmap/icon_new_about_modify"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -321,6 +322,7 @@
                 android:paddingBottom="@dimen/dimen_15dp"
                 android:paddingTop="@dimen/dimen_20dp"
                 android:paddingHorizontal="@dimen/dimen_20dp"
+                android:tint="@color/color_001912"
                 android:src="@mipmap/icon_new_my_interests_add"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -347,7 +349,7 @@
                 app:tcvItemBorderVertical="5dp"
                 app:tcvShowEndText="false"
                 app:tcvSingleLine="false"
-                app:tcvTextColor="#FF3437"
+                app:tcvTextColor="@color/color_001912"
                 app:tcvTextSize="15" />
             <TextView
                 android:id="@+id/tv_empty_interests_tag_cloud"
@@ -396,6 +398,7 @@
                 android:paddingHorizontal="@dimen/dimen_20dp"
                 android:paddingTop="@dimen/dimen_20dp"
                 android:paddingBottom="@dimen/dimen_15dp"
+                android:tint="@color/color_001912"
                 android:src="@mipmap/icon_black_in"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -462,6 +465,7 @@
                 android:paddingHorizontal="@dimen/dimen_20dp"
                 android:paddingTop="@dimen/dimen_20dp"
                 android:paddingBottom="@dimen/dimen_15dp"
+                android:tint="@color/color_001912"
                 android:src="@mipmap/icon_black_in"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -485,7 +489,7 @@
                 app:tcvTextPaddingBottom="7"
                 app:tcvShowEndText="false"
                 app:tcvSingleLine="false"
-                app:tcvTextColor="#FF3437"
+                app:tcvTextColor="@color/color_001912"
                 app:tcvTextSize="16"  />
             <TextView
                 android:id="@+id/tv_empty_tag_you_accept"

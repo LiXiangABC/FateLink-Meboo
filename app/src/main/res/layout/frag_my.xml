@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/icon_my_profile_bg">
+    android:background="@mipmap/bg_app_main">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ctb_scroll_view"
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_12dp"
                     android:fontFamily="@font/cabin_semibold"
-                    android:textColor="@color/color_202323"
+                    android:textColor="@color/color_001912"
                     android:textSize="@dimen/dimen_20sp"
                     android:visibility="invisible"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -140,7 +140,7 @@
                     android:drawablePadding="@dimen/dimen_15dp"
                     android:text="I Like"
                     android:textSize="@dimen/dimen_18sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/color_001912"
                     android:fontFamily="@font/cabin_regular"
                     />
                 <TextView
@@ -152,7 +152,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:textSize="@dimen/dimen_18sp"
                     android:layout_marginStart="@dimen/dimen_3dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/color_001912"
                     android:fontFamily="@font/cabin_bold"
                     app:layout_constraintLeft_toRightOf="@+id/txt_me_i_like"
 
@@ -179,6 +179,7 @@
                     android:layout_height="@dimen/dimen_75dp"
                     android:layout_marginEnd="@dimen/dimen_26dp"
                     android:scaleType="centerCrop"
+                    android:visibility="gone"
                     android:src="@mipmap/icon_my_privilege_member"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -222,7 +223,7 @@
                     android:paddingStart="@dimen/dimen_16dp"
                     android:paddingEnd="@dimen/dimen_10dp"
                     android:text="@string/get_premium"
-                    android:textColor="@color/color_0B6B9D"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/dimen_14sp"
                     android:visibility="gone"
                     app:drawableEndCompat="@mipmap/icon_right_arrow_purple"
@@ -317,7 +318,7 @@
                         android:fontFamily="@font/cabin_medium"
                         android:gravity="center"
                         android:text="@string/purchase"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/color_001912"
                         android:textSize="@dimen/dimen_12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -375,7 +376,7 @@
                         android:fontFamily="@font/cabin_medium"
                         android:gravity="center"
                         android:text="@string/purchase"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/color_001912"
                         android:textSize="@dimen/dimen_12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -424,7 +425,7 @@
                         android:fontFamily="@font/cabin_medium"
                         android:gravity="center"
                         android:text="@string/purchase"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/color_001912"
                         android:textSize="@dimen/dimen_12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -475,7 +476,7 @@
                         android:fontFamily="@font/cabin_medium"
                         android:gravity="center"
                         android:text="@string/purchase"
-                        android:textColor="@color/color_0B6B9D"
+                        android:textColor="@color/color_001912"
                         android:textSize="@dimen/dimen_12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"

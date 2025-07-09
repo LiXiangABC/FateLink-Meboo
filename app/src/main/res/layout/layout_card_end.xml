@@ -74,7 +74,7 @@
         android:layout_marginTop="@dimen/dimen_14dp"
         android:fontFamily="@font/interbold"
         android:text="@string/refresh_times_after"
-        android:textColor="@color/color_0B6B9D"
+        android:textColor="@color/color_001912"
         android:textSize="@dimen/dimen_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +101,7 @@
         android:fontFamily="@font/interregular"
         android:gravity="center"
         android:lineSpacingExtra="@dimen/dimen_3dp"
-        android:textColor="@color/color_0B6B9D"
+        android:textColor="@color/color_001912"
         android:textSize="@dimen/dimen_15sp"
         app:layout_constraintBottom_toTopOf="@+id/three_days_ago_unlock_now"
         tools:layout_editor_absoluteX="30dp" />
@@ -116,7 +116,7 @@
         android:background="@drawable/shape_solid_pink_gradient_radius_30"
         android:gravity="center"
         android:text="@string/unlock_now"
-        android:textColor="@color/white"
+        android:textColor="@color/color_001912"
         android:textSize="@dimen/dimen_16sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 

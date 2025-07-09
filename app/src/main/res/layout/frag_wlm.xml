@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/icon_wlm_bg">
+    android:background="@mipmap/bg_app_main">
 
     <View
         android:id="@+id/index_top_bg"
@@ -33,7 +33,8 @@
         android:layout_marginTop="@dimen/dimen_40dp"
         android:src="@mipmap/icon_wlm_title_new"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color_001912" />
 
     <ImageView
         android:id="@+id/wlm_tips_dialog_show"
@@ -44,7 +45,8 @@
         android:paddingVertical="@dimen/dimen_15dp"
         app:layout_constraintLeft_toRightOf="@+id/title_wlm"
         app:layout_constraintBottom_toBottomOf="@+id/title_wlm"
-        app:layout_constraintTop_toTopOf="@+id/title_wlm"/>
+        app:layout_constraintTop_toTopOf="@+id/title_wlm"
+        app:tint="@color/color_001912" />
     <TextView
         android:id="@+id/txt_wlm_number"
         android:layout_width="@dimen/dimen_0dp"
@@ -91,7 +93,7 @@
             android:paddingHorizontal="@dimen/dimen_10dp"
             android:paddingVertical="@dimen/dimen_5dp"
             android:text="@string/premium"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="@dimen/dimen_12sp"
             android:visibility="gone"
             app:drawableStartCompat="@mipmap/icon_user_member_logo"

@@ -32,7 +32,7 @@
         android:layout_marginTop="@dimen/dimen_19dp"
         android:fontFamily="@font/cabin_bold"
         android:text="@string/your_admirer"
-        android:textColor="@color/color_AB27EE"
+        android:textColor="@color/color_44F3C4"
         android:textSize="@dimen/dimen_16sp"
         app:layout_constraintLeft_toRightOf="@+id/ivHeadImg"
         app:layout_constraintTop_toTopOf="parent" />

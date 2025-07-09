@@ -2,6 +2,7 @@ package com.crush.ui.my.profile
 
 import android.Manifest
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
@@ -325,6 +326,14 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
             radioButton.setBackgroundResource(R.drawable.selector_i_want_bg)
             radioButton.setTextColor(Color.BLACK)
 
+            radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+            radioButton.setOnCheckedChangeListener { compoundButton, b ->
+                if (b){
+                    radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
+                }else {
+                    radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+                }
+            }
             radioButton.isChecked = false
             radioButton.buttonDrawable = null
             radioButton.text = iwantList[i].value
@@ -349,7 +358,16 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
                 radioButton.layoutParams = layoutParams
                 radioButton.setPadding(DensityUtil.dp2px(this, 31f), 0, 0, 0)
                 radioButton.setBackgroundResource(R.drawable.selector_i_want_bg)
-                radioButton.setTextColor(Color.BLACK)
+
+
+                radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+                radioButton.setOnCheckedChangeListener { compoundButton, b ->
+                    if (b){
+                        radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
+                    }else {
+                        radioButton.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+                    }
+                }
 
                 radioButton.isChecked = false
                 radioButton.buttonDrawable = null
@@ -390,7 +408,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
 
     override fun onResume() {
         super.onResume()
-        ImmersionBar.with(this).statusBarDarkFont(true).init()
+        ImmersionBar.with(this).statusBarDarkFont(false).init()
     }
 
     override fun initView() {
@@ -457,7 +475,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
             queerContainer.setBackgroundResource(R.drawable.shape_stroke_gender_unselect)
 
             txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_001912))
-            txtGenderMale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
+            txtGenderFemale.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
             txtGenderQueer.setTextColor(ContextCompat.getColor(this, R.color.color_44F3C4))
 
             noPreferencesClickToSelectMoreWoman.visibility = View.GONE
@@ -1052,7 +1070,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
         val spannableString =
             SpannableString(String.format(getString(R.string.you_re_18_years_old), "18"))
         spannableString.setSpan(
-            ForegroundColorSpan(ContextCompat.getColor(this, R.color.color_0B6B9D)),
+            ForegroundColorSpan(ContextCompat.getColor(this, R.color.color_44F3C4)),
             7,
             9,
             Spannable.SPAN_INCLUSIVE_EXCLUSIVE

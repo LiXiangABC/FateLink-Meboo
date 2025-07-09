@@ -17,7 +17,7 @@
         android:id="@+id/container_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/bg_dialog_edit_info"
+        android:background="@drawable/shape_dialog_edit_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -29,7 +29,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/icon_update_info_bg"
             android:scaleType="fitXY"/>
         <TextView
             android:id="@+id/dialog_title"
@@ -38,7 +37,7 @@
             android:layout_marginTop="@dimen/dimen_20dp"
             android:fontFamily="@font/cabin_medium"
             android:text="@string/about_me"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -69,7 +68,7 @@
             android:gravity="top|left"
             android:maxLength="500"
             android:hint="@string/about_me_tips"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
@@ -89,7 +88,7 @@
             android:orientation="horizontal"
             android:text="@string/save"
             android:textAllCaps="true"
-            android:textColor="@color/selector_button_color"
+            android:textColor="@color/color_001912"
             android:textSize="@dimen/dimen_16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

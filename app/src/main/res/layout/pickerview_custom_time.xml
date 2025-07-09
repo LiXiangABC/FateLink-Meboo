@@ -36,7 +36,7 @@
             android:fontFamily="@font/intersemibold"
             android:padding="8dp"
             android:text="@string/done"
-            android:textColor="@color/white"
+            android:textColor="@color/color_001912"
             android:textSize="15sp" />
 
     </RelativeLayout>

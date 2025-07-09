@@ -15,7 +15,7 @@ class MemberSubscriptionAdapter(
     activity: Context
 ) : BaseRecyclerContextAdapter<MemberSubscribeEntity.Data.Subscriptions>(listModel, activity){
     override val layoutId: Int
-        get() = R.layout.item_member_subscription
+        get() = R.layout.item_member_subscription1
 
     override fun onBindItemHolder(position: Int, holder: SuperViewHolder, model: MemberSubscribeEntity.Data.Subscriptions, payloads: List<Any>?) {
         val itemLogo = holder.getView<ImageView>(R.id.item_logo)
