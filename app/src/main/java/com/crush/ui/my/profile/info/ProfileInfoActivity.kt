@@ -163,7 +163,7 @@ class ProfileInfoActivity : MVPBaseActivity<ProfileInfoContact.View, ProfileInfo
     override fun onResume() {
         super.onResume()
         ImmersionBar.with(this)
-            .statusBarDarkFont(true)
+            .statusBarDarkFont(false)
             .init()
     }
 }

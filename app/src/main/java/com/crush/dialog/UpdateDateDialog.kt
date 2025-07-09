@@ -68,7 +68,7 @@ class UpdateDateDialog(var ctx: Activity,var nowDate: String, var listener: onCa
                 )
             )
         spannableString.setSpan(
-            ForegroundColorSpan(ContextCompat.getColor(ctx, R.color.color_B954FF)),
+            ForegroundColorSpan(ContextCompat.getColor(ctx, R.color.color_44F3C4)),
             7,
             9,
             Spannable.SPAN_INCLUSIVE_EXCLUSIVE

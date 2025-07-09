@@ -57,17 +57,17 @@ class NavigationLayout @JvmOverloads constructor(
                         SpName.trafficSource,
                         0
                     ) != 1
-                ) R.mipmap.tab_index_select else R.mipmap.tab_index_white_select
+                ) R.mipmap.tab_index_select else R.mipmap.tab_index_select
                 1 -> if (BaseConfig.getInstance.getInt(
                         SpName.trafficSource,
                         0
                     ) != 1
-                ) R.mipmap.tab_wlm_select else R.mipmap.tab_wlm_white_select
+                ) R.mipmap.tab_wlm_select else R.mipmap.tab_wlm_select
                 2 -> if (BaseConfig.getInstance.getInt(
                         SpName.trafficSource,
                         0
                     ) != 1
-                ) R.mipmap.tab_im_select else R.mipmap.tab_im_white_select
+                ) R.mipmap.tab_im_select else R.mipmap.tab_im_select
                 else -> R.mipmap.tab_my_select
             }
             select(itemViews[target], animId,target)
@@ -83,17 +83,17 @@ class NavigationLayout @JvmOverloads constructor(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_index_select else R.mipmap.tab_index_white_select
+                        ) R.mipmap.tab_index_select else R.mipmap.tab_index_select
                         1 -> if (BaseConfig.getInstance.getInt(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_wlm_select else R.mipmap.tab_wlm_white_select
+                        ) R.mipmap.tab_wlm_select else R.mipmap.tab_wlm_select
                         2 -> if (BaseConfig.getInstance.getInt(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_im_select else R.mipmap.tab_im_white_select
+                        ) R.mipmap.tab_im_select else R.mipmap.tab_im_select
                         else -> R.mipmap.tab_my_select
                     }
                     select(view, animId,index)
@@ -103,17 +103,17 @@ class NavigationLayout @JvmOverloads constructor(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_index_unselect else R.mipmap.tab_index_white_unselect
+                        ) R.mipmap.tab_index_white_select else R.mipmap.tab_index_white_select
                         1 -> if (BaseConfig.getInstance.getInt(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_wlm_unselect else R.mipmap.tab_wlm_white_unselect
+                        ) R.mipmap.tab_wlm_white_select else R.mipmap.tab_wlm_white_select
                         2 -> if (BaseConfig.getInstance.getInt(
                                 SpName.trafficSource,
                                 0
                             ) != 1
-                        ) R.mipmap.tab_im_unselect else R.mipmap.tab_im_white_unselect
+                        ) R.mipmap.tab_im_white_select else R.mipmap.tab_im_white_select
                         else -> R.mipmap.tab_my_unselect
                     }
                     reset(view, restId,index)

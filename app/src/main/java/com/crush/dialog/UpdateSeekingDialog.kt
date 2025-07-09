@@ -35,6 +35,32 @@ class UpdateSeekingDialog(var ctx: Activity, var lookingFor: Int, var listener: 
         queerDrawable?.setBounds(0, 0, DensityUtil.dp2px(ctx, 38f), DensityUtil.dp2px(ctx, 38f))
         rbQueer.setCompoundDrawables(null, queerDrawable, null, null);
 
+        rbFemale.setOnCheckedChangeListener { compoundButton, b ->
+            if (b){
+                rbFemale.setTextColor(ContextCompat.getColor(context, R.color.color_001912))
+            }else {
+                rbFemale.setTextColor(ContextCompat.getColor(context, R.color.color_44F3C4))
+            }
+        }
+
+        rbMale.setOnCheckedChangeListener { compoundButton, b ->
+            if (b){
+                rbMale.setTextColor(ContextCompat.getColor(context, R.color.color_001912))
+            }else {
+                rbMale.setTextColor(ContextCompat.getColor(context, R.color.color_44F3C4))
+            }
+        }
+
+
+        rbQueer.setOnCheckedChangeListener { compoundButton, b ->
+            if (b){
+                rbQueer.setTextColor(ContextCompat.getColor(context, R.color.color_001912))
+            }else {
+                rbQueer.setTextColor(ContextCompat.getColor(context, R.color.color_44F3C4))
+            }
+        }
+
+
         when (lookingFor) {
             0 -> {
                 rbQueer.isChecked=true

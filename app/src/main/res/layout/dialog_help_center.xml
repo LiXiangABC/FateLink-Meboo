@@ -19,7 +19,7 @@
             android:layout_marginTop="@dimen/dimen_30dp"
             android:fontFamily="@font/cabin_bold"
             android:text="@string/support"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -33,7 +33,8 @@
             android:paddingEnd="@dimen/dimen_20dp"
             android:src="@drawable/icon_black_close"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/dialog_content"
@@ -46,7 +47,7 @@
             android:gravity="center"
             android:lineSpacingExtra="@dimen/dimen_5dp"
             android:text="@string/help_tip"
-            android:textColor="@color/color_202323"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_17sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

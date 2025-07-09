@@ -23,7 +23,7 @@ class HelpCenterDialog(var ctx: Activity) :  BasePopupWindow(ctx) {
     private fun initView() {
         val dialogContent = findViewById<TextView>(R.id.dialog_content)
         val spannableStringBuilder = SpannableStringBuilder(ctx.getString(R.string.help_tip))
-        spannableStringBuilder.setSpan(ForegroundColorSpan(Color.parseColor("#FF3437")), 14, 39, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableStringBuilder.setSpan(ForegroundColorSpan(Color.parseColor("#44F3C4")), 14, 39, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         dialogContent.text = spannableStringBuilder
         val dialogCancel = findViewById<TextView>(R.id.dialog_cancel)
         val imgDialogCancel = findViewById<ImageView>(R.id.img_dialog_cancel)

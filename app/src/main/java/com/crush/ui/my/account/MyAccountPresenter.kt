@@ -200,7 +200,7 @@ class MyAccountPresenter : BasePresenterImpl<MyAccountContract.View>(),
                     txtPhoneNumberBindStatus.setTextColor(
                         if (entity.data.mobileBind) ContextCompat.getColor(
                             mActivity,
-                            R.color.color_202323
+                            R.color.color_44F3C4
                         ) else ContextCompat.getColor(mActivity, R.color.color_6544F3C4)
                     )
                     txtPhoneNumberBindStatus.text =

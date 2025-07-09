@@ -44,6 +44,9 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:paddingHorizontal="@dimen/dimen_12dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:background="@drawable/bg_main_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 </LinearLayout>

@@ -44,7 +44,7 @@ class MyAccountActivity : MVPBaseActivity<MyAccountContract.View, MyAccountPrese
     }
     override fun initView() {
         ImmersionBar.with(this)
-            .barAlpha(0f).statusBarDarkFont(true)
+            .barAlpha(0f).statusBarDarkFont(false)
             .init()
     }
 

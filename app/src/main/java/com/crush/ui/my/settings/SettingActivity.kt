@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.crush.R
 import com.crush.mvp.MVPBaseActivity
+import com.gyf.immersionbar.ImmersionBar
 import com.yalantis.ucrop.util.DensityUtil
 
 class SettingActivity : MVPBaseActivity<SettingContact.View, SettingPresenter>(), SettingContact.View{
@@ -34,6 +35,13 @@ class SettingActivity : MVPBaseActivity<SettingContact.View, SettingPresenter>()
             0,
             0
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ImmersionBar.with(this)
+            .statusBarDarkFont(false)
+            .init()
     }
 
     override val imgUserAvatar: ImageView
