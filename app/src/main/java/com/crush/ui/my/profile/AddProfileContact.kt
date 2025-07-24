@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
 import com.crush.mvp.BaseView
 import com.crush.view.DateWheelLayout
+import com.crush.view.TagCloudView
 
 class AddProfileContact {
     interface View : BaseView {
@@ -64,7 +65,6 @@ class AddProfileContact {
         val purposeContainer:ConstraintLayout
         val txtLookingNext:LinearLayout
         val radioLookingGroup:RadioGroup
-        val actionLoading:LottieAnimationView
         val textLookingNext:TextView
         val txtWantTitle:TextView
         val txtWantTip:TextView
@@ -74,6 +74,14 @@ class AddProfileContact {
 
         val imgTopBack:ImageView
         val dateSelectLayout:DateWheelLayout
+
+
+        val interestContainer:ConstraintLayout
+        val txtInterestTitle:TextView
+        val interestsTagCloud:TagCloudView
+        val txtInterestNext:TextView
+        val txtInterestNextContainer:LinearLayout
+        val actionLoading:LottieAnimationView
 
     }
 }

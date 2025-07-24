@@ -13,7 +13,6 @@ import com.crush.bean.ImagesBean
 import com.crush.entity.PrivateAlbumAddEntity
 import com.crush.entity.PrivateAlbumEntity
 import io.rong.imkit.event.EnumEventTag
-import com.crush.util.PermissionUtils
 import com.crush.util.SelectPictureUtil
 import com.crush.util.UploadPhoto
 import com.custom.base.entity.OkHttpBodyEntity
@@ -21,12 +20,14 @@ import com.custom.base.http.OkHttpFromBoy
 import com.custom.base.http.OkHttpManager
 import com.custom.base.http.SDOkHttpResoutCallBack
 import com.crush.mvp.BasePresenterImpl
+import com.crush.util.PermissionUtil
 import com.custom.base.util.Md5Util
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.entity.LocalMedia
 import com.sunday.eventbus.SDEventManager
 import io.rong.imkit.IMCenter
+import io.rong.imkit.activity.Activities
 import io.rong.imkit.utils.KitStorageUtils
 import io.rong.imkit.utils.videocompressor.VideoCompress
 import java.io.File
@@ -62,24 +63,29 @@ class PrivateAlbumPresenter : BasePresenterImpl<PrivateAlbumContract.View>(), Pr
                         object : PrivatePhotoAdapter.OnCallBack {
                             override fun callback() {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                    if (!PermissionUtils.lacksPermission(Manifest.permission.READ_MEDIA_IMAGES) && !PermissionUtils.lacksPermission(Manifest.permission.READ_MEDIA_VIDEO)) {
-                                        SelectPictureUtil.selectNoTailor(mActivity)
-                                    } else {
-                                        PermissionUtils.requestPermission(mActivity, 4, {
-                                                SelectPictureUtil.selectNoTailor(mActivity)
-                                            },
-                                            Manifest.permission.READ_MEDIA_IMAGES,
-                                            Manifest.permission.READ_MEDIA_VIDEO
-                                        )
+                                    Activities.get().top?.let {activity->
+                                        if (!PermissionUtil.checkPermission(activity,Manifest.permission.READ_MEDIA_IMAGES) && !PermissionUtil.checkPermission(mActivity,Manifest.permission.READ_MEDIA_VIDEO)) {
+                                            SelectPictureUtil.selectNoTailor(activity)
+                                        } else {
+                                            PermissionUtil.requestPermissionCallBack(Manifest.permission.READ_MEDIA_IMAGES,
+                                                Manifest.permission.READ_MEDIA_VIDEO, activity = activity, type =  4) {
+                                                if (it) {
+                                                    SelectPictureUtil.selectNoTailor(activity)
+                                                }
+                                            }
+                                        }
                                     }
                                 } else {
-                                    if (!PermissionUtils.lacksPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                                        SelectPictureUtil.selectNoTailor(mActivity)
-                                    } else {
-                                        PermissionUtils.requestPermission(mActivity, 4, {
-                                                SelectPictureUtil.selectP(mActivity) },
-                                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                                        )
+                                    Activities.get().top?.let {activity->
+                                        if (!PermissionUtil.checkPermission(activity,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                                            SelectPictureUtil.selectNoTailor(activity)
+                                        } else {
+                                            PermissionUtil.requestPermissionCallBack(Manifest.permission.WRITE_EXTERNAL_STORAGE, activity = activity, type = 4) {
+                                                if (it){
+                                                    SelectPictureUtil.selectP(activity)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

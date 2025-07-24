@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.crush.R
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 import com.crush.ui.index.helper.IndexHelper
 import com.crush.view.ViewMinDown
 import com.custom.base.config.BaseConfig

@@ -12,6 +12,7 @@ import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.ConsumeParams
 import com.android.billingclient.api.ConsumeResponseListener
+import com.android.billingclient.api.PendingPurchasesParams
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
@@ -134,6 +135,7 @@ class PayUtils {
         if (billingResult.responseCode != BillingResponseCode.OK) {
             payFail()
         }
+        showPayLoading(false)
 
         //针对新手礼包支付报错，不会继续走下面
         if (data != null) {
@@ -217,7 +219,8 @@ class PayUtils {
 
     private var billingClient: BillingClient = BillingClient.newBuilder(activity!!)
         .setListener(purchasesUpdatedListener)
-        .enablePendingPurchases()
+        .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+        .enableAutoServiceReconnection() // Add this line to enable reconnection
         .build()
     private var callBack: EmptySuccessCallBack? = null
     private var mEntity: OrderCreateEntity? = null
@@ -419,10 +422,10 @@ class PayUtils {
         val featureSupported =
             billingClient.isFeatureSupported(BillingClient.FeatureType.PRODUCT_DETAILS)
         handleBillingResult(315, featureSupported)
-        if (featureSupported.responseCode == BillingResponseCode.FEATURE_NOT_SUPPORTED) {
-            getOldProductDetail(entity)
-            return
-        }
+//        if (featureSupported.responseCode == BillingResponseCode.FEATURE_NOT_SUPPORTED) {
+//            getOldProductDetail(entity)
+//            return
+//        }
         mEntity = entity
         val queryProductDetailsParams =
             QueryProductDetailsParams.newBuilder().setProductList(
@@ -438,7 +441,7 @@ class PayUtils {
             if (billingResult.responseCode != BillingClient.BillingResponseCode.OK) {
                 handleBillingResult(312, billingResult)
             } else {
-                bugProduct(productDetailsList, entity)
+                bugProduct(productDetailsList.productDetailsList, entity)
             }
             payCenterDetail(billingResult)
             showPayLoading(false)
@@ -449,23 +452,23 @@ class PayUtils {
      * 向下兼容消耗性产品
      */
     private fun getOldProductDetail(entity: OrderCreateEntity) {
-        mEntity = entity
-        val queryProductDetailsParams =
-            SkuDetailsParams.newBuilder().setSkusList(
-                mutableListOf(
-                    if (entity.data.purchaseType == 1) entity.data.productCode else entity.data.purchaseProductName
-                )
-            )
-                .setType(if (entity.data.purchaseType == 1) BillingClient.ProductType.INAPP else BillingClient.ProductType.SUBS)
-                .build()
-        billingClient.querySkuDetailsAsync(queryProductDetailsParams) { billingResult,
-                                                                        productDetailsList ->
-            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                productDetailsList?.let { buyOldProduct(it, entity) }
-            }
-            payCenterDetail(billingResult)
-            showPayLoading(false)
-        }
+//        mEntity = entity
+//        val queryProductDetailsParams =
+//            SkuDetailsParams.newBuilder().setSkusList(
+//                mutableListOf(
+//                    if (entity.data.purchaseType == 1) entity.data.productCode else entity.data.purchaseProductName
+//                )
+//            )
+//                .setType(if (entity.data.purchaseType == 1) BillingClient.ProductType.INAPP else BillingClient.ProductType.SUBS)
+//                .build()
+//        billingClient.querySkuDetailsAsync(queryProductDetailsParams) { billingResult,
+//                                                                        productDetailsList ->
+//            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+//                productDetailsList?.let { buyOldProduct(it, entity) }
+//            }
+//            payCenterDetail(billingResult)
+//            showPayLoading(false)
+//        }
     }
 
     /**
@@ -526,7 +529,7 @@ class PayUtils {
                         .setSubscriptionUpdateParams(
                             BillingFlowParams.SubscriptionUpdateParams.newBuilder()
                                 .setOldPurchaseToken(mEntity?.data?.latestPaidOrderPurchaseToken!!)
-                                .setReplaceSkusProrationMode(BillingFlowParams.ProrationMode.IMMEDIATE_AND_CHARGE_FULL_PRICE)
+                                .setSubscriptionReplacementMode(BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.CHARGE_FULL_PRICE)
                                 .build()
                         )
                         .build()

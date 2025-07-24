@@ -15,7 +15,6 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.lifecycleScope
@@ -24,13 +23,10 @@ import com.crush.App
 import com.crush.BuildConfig
 import com.crush.Constant
 import com.crush.R
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 import com.crush.dialog.NotificationPermissionDialog
 import com.crush.dot.AFDotLogUtil
-import com.crush.dot.DotLogEventName
-import com.crush.dot.DotLogUtil
 import com.crush.entity.BaseEntity
-import com.crush.entity.ConfigsEntity
 import com.crush.entity.ConversationListEntity
 import com.crush.entity.IMTokenGetEntity
 import com.crush.entity.UserBaseInfoEntity
@@ -49,12 +45,14 @@ import com.custom.base.http.SDOkHttpResoutCallBack
 import com.crush.mvp.MVPBaseActivity
 import com.crush.ui.chat.WLMFragment
 import com.crush.ui.index.IndexFragment
+import com.crush.ui.index.match.MatchUserActivity
 import com.crush.ui.my.MyFragment
 import com.crush.util.CollectionUtils
-import com.crush.util.PermissionUtils
+import com.crush.util.IntentUtil
+import com.crush.util.PermissionUtil
 import com.crush.view.NavigationLayout
 import com.crush.view.ScrollableCustomViewPager
-import com.crush.view.ViewChatHeaderWlm
+import io.rong.imkit.widget.ViewChatHeaderWlm
 import com.crush.view.ViewMinDown
 import com.custom.base.util.ToastUtil
 import com.google.android.gms.tasks.OnCompleteListener
@@ -62,10 +60,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.JsonObject
 import com.sunday.eventbus.SDBaseEvent
 import com.sunday.eventbus.SDEventManager
-import io.rong.imkit.RongIM
 import io.rong.imkit.SpName
-import io.rong.imkit.config.BaseDataProcessor
-import io.rong.imkit.config.RongConfigCenter
 import io.rong.imkit.conversationlist.ConversationListFragment
 import io.rong.imkit.entity.DiscountInfoEntity
 import io.rong.imkit.entity.OrderCreateEntity
@@ -79,11 +74,6 @@ import io.rong.imlib.RongCoreClient
 import io.rong.imlib.RongIMClient
 import io.rong.imlib.model.Conversation
 import io.rong.imlib.model.UserInfo
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.Timer
 import java.util.TimerTask
@@ -133,7 +123,7 @@ class HomeActivity : MVPBaseActivity<HomeContract.View, HomePresenter>(), HomeCo
                 }
             }
         }
-        IMConfig(conversationListFragment)
+        setRongInfo()
 
         navigation.attach(viewPager)
         navigation.setAvatar(BaseConfig.getInstance.getString(SpName.avatarUrl, ""))
@@ -239,112 +229,112 @@ class HomeActivity : MVPBaseActivity<HomeContract.View, HomePresenter>(), HomeCo
     /**
      * 融云配置
      */
-    fun IMConfig(conversationListFragment: ConversationListFragment) {
-        val inflate = View.inflate(mActivity, R.layout.layout_chat_header, null)
-        conversationListFragment.addHeaderView(inflate)
-        emptyView = View.inflate(mActivity, R.layout.layout_chat_empty, null)
-        val insideContainer = emptyView?.findViewById<LinearLayout>(R.id.inside_container)
-        conversationListFragment.setEmptyView(emptyView)
-        imgNotificationClose = inflate?.findViewById(R.id.img_notification_close)
-        viewChatHeaderWlm = inflate?.findViewById(R.id.viewChatHeaderWlm)
-        viewChatDowm = inflate?.findViewById(R.id.view_chat_dowm)
-        notificationContainer = inflate?.findViewById(R.id.notification_container)
-        loRingTheBell = inflate?.findViewById(R.id.lo_ring_the_bell)
-
-        viewChatHeaderWlm?.getBanner()?.addBannerLifecycleObserver(this)
-        mPresenter?.wlmLiveData?.observe(this) { list ->
-            viewChatHeaderWlm?.setData(member, list)
-        }
-        //系统客服信息请求
-        OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
-            override fun addBody(requestBody: OkHttpBodyEntity) {
-                requestBody.setPost(Constant.user_config_url)
-                requestBody.add("code", 1)
-            }
-        }, object : SDOkHttpResoutCallBack<ConfigsEntity>(false) {
-            override fun onSuccess(entity: ConfigsEntity) {
-                if (entity.data.isNotEmpty()) {
-                    serverUserCode = entity.data[0].userCode.toString()
-                    BaseConfig.getInstance.setString(SpName.serverUserCode, serverUserCode)
-                    RongIM.getInstance().refreshUserInfoCache(
-                        UserInfo(
-                            entity.data[0].userCode,
-                            entity.data[0].name,
-                            Uri.parse(entity.data[0].iocn)
-                        )
-                    )
-                    //加白用户不显示系统消息
-                    if (trafficSource == 1) {
-                        RongConfigCenter.conversationListConfig()
-                            .setDataProcessor(object : BaseDataProcessor<Conversation?>() {
-                                override fun filtered(data: List<Conversation?>): List<Conversation?> {
-                                    val newList: ArrayList<Conversation?> = arrayListOf()
-                                    for (item in data) {
-                                        val targetId = item?.targetId
-                                        if (serverUserCode != "" && serverUserCode == targetId) {
-                                            serverCount = item.unreadMessageCount
-                                        } else {
-                                            newList.add(item)
-                                        }
-                                    }
-                                    //过滤后的数据
-                                    return super.filtered(newList)
-                                }
-                            })
-                    }
-
-                }
-            }
-        })
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtils.lacksPermission(
-                Manifest.permission.POST_NOTIFICATIONS
-            )
-        ) {
-            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_IN_CHAT_LIST)
-                .commit(mActivity)
-        }
-
-        //通知权限栏是否展示
-        notificationContainer?.visibility =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtils.lacksPermission(
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) && BaseConfig.getInstance.getBoolean(SpName.firstShowNotification, false)
-            ) View.VISIBLE else View.GONE
-        insideContainer?.isVisible = notificationContainer?.isVisible != true
-
-        //通知权限请求
-        notificationContainer?.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                PermissionUtils.requestPermission(mActivity,
-                    {
-                        loRingTheBell?.cancelAnimation()
-                        notificationContainer?.visibility = View.GONE
-//                        HttpRequest.commonNotify(503, "502")
-                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED)
-                            .setRemark("502").commit(mActivity)
-                    }, {
-                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        val uri = Uri.fromParts("package", mActivity.packageName, null)
-                        intent.data = uri
-                        mActivity.startActivityForResult(intent, Permission_Request)
-//                        HttpRequest.commonNotify(503, "502")
-                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED)
-                            .setRemark("502").commit(mActivity)
-                    }, Manifest.permission.POST_NOTIFICATIONS
-                )
-            }
-        }
-
-        //关闭通知权限请求栏
-        imgNotificationClose?.setOnClickListener {
-            loRingTheBell?.cancelAnimation()
-            notificationContainer?.visibility = View.GONE
-            insideContainer?.visibility = View.VISIBLE
-        }
-
-        setRongInfo()
-    }
+//    fun IMConfig(conversationListFragment: ConversationListFragment) {
+//        val inflate = View.inflate(mActivity, R.layout.layout_chat_header, null)
+//        conversationListFragment.addHeaderView(inflate)
+//        emptyView = View.inflate(mActivity, R.layout.layout_chat_empty, null)
+//        val insideContainer = emptyView?.findViewById<LinearLayout>(R.id.inside_container)
+//        conversationListFragment.setEmptyView(emptyView)
+//        imgNotificationClose = inflate?.findViewById(R.id.img_notification_close)
+//        viewChatHeaderWlm = inflate?.findViewById(R.id.viewChatHeaderWlm)
+//        viewChatDowm = inflate?.findViewById(R.id.view_chat_dowm)
+//        notificationContainer = inflate?.findViewById(R.id.notification_container)
+//        loRingTheBell = inflate?.findViewById(R.id.lo_ring_the_bell)
+//
+//        viewChatHeaderWlm?.getBanner()?.addBannerLifecycleObserver(this)
+//        mPresenter?.wlmLiveData?.observe(this) { list ->
+//            viewChatHeaderWlm?.setData(member, list)
+//        }
+//        //系统客服信息请求
+//        OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
+//            override fun addBody(requestBody: OkHttpBodyEntity) {
+//                requestBody.setPost(Constant.user_config_url)
+//                requestBody.add("code", 1)
+//            }
+//        }, object : SDOkHttpResoutCallBack<ConfigsEntity>(false) {
+//            override fun onSuccess(entity: ConfigsEntity) {
+//                if (entity.data.isNotEmpty()) {
+//                    serverUserCode = entity.data[0].userCode.toString()
+//                    BaseConfig.getInstance.setString(SpName.serverUserCode, serverUserCode)
+//                    RongIM.getInstance().refreshUserInfoCache(
+//                        UserInfo(
+//                            entity.data[0].userCode,
+//                            entity.data[0].name,
+//                            Uri.parse(entity.data[0].iocn)
+//                        )
+//                    )
+//                    //加白用户不显示系统消息
+//                    if (trafficSource == 1) {
+//                        RongConfigCenter.conversationListConfig()
+//                            .setDataProcessor(object : BaseDataProcessor<Conversation?>() {
+//                                override fun filtered(data: List<Conversation?>): List<Conversation?> {
+//                                    val newList: ArrayList<Conversation?> = arrayListOf()
+//                                    for (item in data) {
+//                                        val targetId = item?.targetId
+//                                        if (serverUserCode != "" && serverUserCode == targetId) {
+//                                            serverCount = item.unreadMessageCount
+//                                        } else {
+//                                            newList.add(item)
+//                                        }
+//                                    }
+//                                    //过滤后的数据
+//                                    return super.filtered(newList)
+//                                }
+//                            })
+//                    }
+//
+//                }
+//            }
+//        })
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtils.lacksPermission(
+//                Manifest.permission.POST_NOTIFICATIONS
+//            )
+//        ) {
+//            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_IN_CHAT_LIST)
+//                .commit(mActivity)
+//        }
+//
+//        //通知权限栏是否展示
+//        notificationContainer?.visibility =
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtils.lacksPermission(
+//                    Manifest.permission.POST_NOTIFICATIONS
+//                ) && BaseConfig.getInstance.getBoolean(SpName.firstShowNotification, false)
+//            ) View.VISIBLE else View.GONE
+//        insideContainer?.isVisible = notificationContainer?.isVisible != true
+//
+//        //通知权限请求
+//        notificationContainer?.setOnClickListener {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//                PermissionUtils.requestPermission(mActivity,
+//                    {
+//                        loRingTheBell?.cancelAnimation()
+//                        notificationContainer?.visibility = View.GONE
+////                        HttpRequest.commonNotify(503, "502")
+//                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED)
+//                            .setRemark("502").commit(mActivity)
+//                    }, {
+//                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+//                        val uri = Uri.fromParts("package", mActivity.packageName, null)
+//                        intent.data = uri
+//                        mActivity.startActivityForResult(intent, Permission_Request)
+////                        HttpRequest.commonNotify(503, "502")
+//                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED)
+//                            .setRemark("502").commit(mActivity)
+//                    }, Manifest.permission.POST_NOTIFICATIONS
+//                )
+//            }
+//        }
+//
+//        //关闭通知权限请求栏
+//        imgNotificationClose?.setOnClickListener {
+//            loRingTheBell?.cancelAnimation()
+//            notificationContainer?.visibility = View.GONE
+//            insideContainer?.visibility = View.VISIBLE
+//        }
+//
+//        setRongInfo()
+//    }
 
     private fun setRongInfo() {
         //设置用户头像/昵称
@@ -490,7 +480,7 @@ class HomeActivity : MVPBaseActivity<HomeContract.View, HomePresenter>(), HomeCo
         if (trafficSource == 1) {
             return
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtils.lacksPermission(
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && PermissionUtil.checkPermission(this,
                 Manifest.permission.POST_NOTIFICATIONS
             ) && !BaseConfig.getInstance.getBoolean(SpName.firstShowNotification + nickName, false)
         ) {
@@ -647,6 +637,11 @@ class HomeActivity : MVPBaseActivity<HomeContract.View, HomePresenter>(), HomeCo
                 } else {
                     mPresenter?.lowerLimitDebitDialog()
                 }
+            }
+
+            EnumEventTag.GO_MATCH -> {
+                val bundle = event.data as Bundle
+                IntentUtil.startActivity(MatchUserActivity::class.java, bundle)
             }
 
 

@@ -6,12 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.recyclerview.widget.ItemTouchHelper
 import com.crush.R
-import com.crush.bean.WLMListBean
-import com.crush.callback.WLMSwipedCallBack
+import io.rong.imkit.entity.WLMListBean
 import com.crush.ui.chat.UpSourceEnum
-import com.crush.ui.chat.ktl.WlmClick
 import com.crush.ui.chat.profile.UserProfileInfoActivity
 import com.crush.ui.index.flash.FlashChatActivity
 import com.crush.util.GlideUtil
@@ -21,8 +18,6 @@ import com.crush.view.delay.DelayClickImageView
 import com.custom.base.base.BaseRecyclerAdapter
 import com.crush.util.IntentUtil
 import com.github.jdsjlzx.util.SuperViewHolder
-import io.rong.imkit.event.FirebaseEventTag
-import io.rong.imkit.utils.FirebaseEventUtils
 
 class ILikeAdapter(
     listModel: ArrayList<WLMListBean>,
@@ -49,7 +44,7 @@ class ILikeAdapter(
             itemUserBg
         )
 
-        if (model.turnOnsListSize != null && model.turnOnsListSize > 0) {
+        if (model.turnOnsListSize != null && model.turnOnsListSize!! > 0) {
             turnOnsContainer.visibility = View.VISIBLE
             txtTurnOnsSize.text =
                 "${model.turnOnsListSize} ${mActivity.getString(R.string.turns_ons)}"

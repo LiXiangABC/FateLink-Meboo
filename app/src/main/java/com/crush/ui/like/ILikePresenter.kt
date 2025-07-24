@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.crush.Constant
 import com.crush.adapter.ILikeAdapter
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 import com.crush.entity.ILikeEntity
 import com.crush.view.Loading.LoadingDialog
 import com.custom.base.entity.OkHttpBodyEntity

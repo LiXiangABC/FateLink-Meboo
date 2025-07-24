@@ -1,7 +1,6 @@
 package com.crush.view;
 
 import android.graphics.Canvas;
-import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -10,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.crush.R;
 import com.crush.adapter.WhoLikeMeAdapter;
-import com.crush.bean.WLMListBean;
-import com.crush.callback.EmptyCallBack;
+import io.rong.imkit.entity.WLMListBean;
+
 import com.crush.callback.EmptyRefreshCallBack;
 import com.crush.callback.WLMSwipedCallBack;
 import com.crush.util.HttpRequest;

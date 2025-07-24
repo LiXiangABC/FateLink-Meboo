@@ -1,16 +1,17 @@
-package com.crush.adapter
+package io.rong.imkit.adapter
 
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.crush.R
-import com.crush.bean.WLMListBean
-import com.crush.util.GlideUtil
-import com.crush.view.CircleImageView
 import com.custom.base.util.SDViewUtil
+import com.makeramen.roundedimageview.RoundedImageView
 import com.youth.banner.adapter.BannerAdapter
+import de.hdodenhof.circleimageview.CircleImageView
+import io.rong.imkit.R
+import io.rong.imkit.entity.WLMListBean
+import io.rong.imkit.utils.GlideUtil
 import io.rong.imkit.utils.RongDateUtils
 
 class ViewChatHeaderPageLoaderAdapter(

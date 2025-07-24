@@ -1,0 +1,79 @@
+apply plugin: "com.bytedance.android.aabResGuard"
+
+aabResGuard {
+    mappingFile = file("mapping01.txt").toPath() // 用于增量混淆的 mapping 文件
+    // 白名单规则
+    whiteList = [
+            //Whitelist rule (directory name to exclude)
+            "res/raw", // raw dir will not be obfuscated
+            "res/xml", // xml dir will not be obfuscated
+
+            //Whitelist rule (file name to exclude)
+            "res/raw/*", // all files inside raw directory will not be obfuscated
+            "res/raw/success_tick.json", // success_tick.json file will not be obfuscated
+
+            // White list rules (resource name to exclude)
+            "*.R.raw.*",
+//            "*.R.xml.*",
+
+            "*.R.array.*",
+            "*.R.integer.*",
+//            "*.R.dimen.*",
+//            "*.R.drawable.*",
+//            "*.R.styleable.*",
+//            "*.R.style.*",
+            "*.R.attr.*",
+//            "*.R.id.*",
+//            "*.R.color.*",
+//            "*.R.mipmap.*",
+//            "*.R.layout.*",
+//            "*.R.mipmap-anydpi-v26.*",
+//            "*.R.mipmap-hdpi.*",
+//            "*.R.mipmap-mdpi.*",
+//            "*.R.mipmap-xhdpi.*",
+//            "*.R.mipmap-xxhdpi.*",
+//            "*.R.mipmap-xxxhdpi.*",
+
+            // for google-services
+            "*.R.string.google_api_key",
+            "*.R.string.google_app_id",
+            "*.R.string.default_web_client_id",
+            "*.R.string.gcm_defaultSenderId",
+            "*.R.string.ga_trackingId",
+            "*.R.string.firebase_database_url",
+            "*.R.string.google_crash_reporting_api_key",
+            "*.R.string.google_storage_bucket",
+            "*.R.integer.google_play_services_version",
+
+            //firebase
+            "*.R.string.project_id",
+            //firebase crashlytics
+            "*.R.string.com.google.firebase.crashlytics.mapping_file_id",
+            "*.R.bool.com.crashlytics.useFirebaseAppId",
+            "*.R.string.com.crashlytics.useFirebaseAppId",
+            "*.R.string.google_app_id",
+            "*.R.bool.com.crashlytics.CollectDeviceIdentifiers",
+            "*.R.string.com.crashlytics.CollectDeviceIdentifiers",
+            "*.R.bool.com.crashlytics.CollectUserIdentifiers",
+            "*.R.string.com.crashlytics.CollectUserIdentifiers",
+            "*.R.string.com.crashlytics.ApiEndpoint",
+            "*.R.string.com.crashlytics.android.build_id",
+            "*.R.bool.com.crashlytics.RequireBuildId",
+            "*.R.string.com.crashlytics.RequireBuildId",
+            "*.R.bool.com.crashlytics.CollectCustomLogs",
+            "*.R.string.com.crashlytics.CollectCustomLogs",
+            "*.R.bool.com.crashlytics.Trace",
+            "*.R.string.com.crashlytics.Trace",
+            "*.R.string.com.crashlytics.CollectCustomKeys"
+    ]
+    obfuscatedBundleFileName = "duplicated-app.aab" // 混淆后的文件名称，必须以 `.aab` 结尾
+//    mergeDuplicatedRes = false // 是否允许去除重复资源
+//    enableFilterFiles = false // 是否允许过滤文件
+//    // 文件过滤规则
+//    filterList = [
+//            "META-INF/*"
+//    ]
+//    enableFilterStrings = true // 过滤文案
+//    unusedStringPath = file("unused.txt").toPath() // 过滤文案列表路径 默认在mapping同目录查找
+//    languageWhiteList = ["en", "zh"] // 保留en,en-xx,zh,zh-xx等语言，其余均删除
+}

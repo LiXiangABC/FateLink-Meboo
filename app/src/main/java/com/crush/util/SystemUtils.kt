@@ -107,7 +107,7 @@ object SystemUtils {
 
     @SuppressLint("MissingPermission")
     fun getGPS(context: Activity):JsonObject? {
-        if (!PermissionUtils.lacksPermission(Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtils.lacksPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (!PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_COARSE_LOCATION)) {
             // 获取位置管理服务
             val locationManager: LocationManager
             val serviceName = Context.LOCATION_SERVICE
@@ -149,7 +149,7 @@ object SystemUtils {
 
     @SuppressLint("MissingPermission")
     fun getRefreshGPS(context: Activity):JsonObject? {
-        if (!PermissionUtils.lacksPermission(Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtils.lacksPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (!PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_COARSE_LOCATION)) {
             // 获取位置管理服务
             val locationManager: LocationManager
             val serviceName = Context.LOCATION_SERVICE
@@ -240,7 +240,7 @@ object SystemUtils {
     }
 
     fun calculateDistance(context: Context,lat1: Double, lon1: Double, lat2: Double, lon2: Double): String {
-        if (!PermissionUtils.lacksPermission(Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtils.lacksPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (!PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_FINE_LOCATION) || !PermissionUtil.checkPermission(context,Manifest.permission.ACCESS_COARSE_LOCATION)) {
             val earthRadius = 6371 // 地球半径，单位为千米
             val dLat = Math.toRadians(lat2 - lat1)
             val dLon = Math.toRadians(lon2 - lon1)

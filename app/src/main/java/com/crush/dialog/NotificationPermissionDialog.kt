@@ -9,20 +9,21 @@ import android.widget.TextView
 import com.crush.R
 import com.crush.dot.DotLogEventName
 import com.crush.dot.DotLogUtil
-import com.crush.util.PermissionUtils
+import com.crush.util.PermissionUtil
 import com.custom.base.config.BaseConfig
 import io.rong.imkit.SpName
+import io.rong.imkit.activity.Activities
 import razerdp.basepopup.BasePopupWindow
 
 /**
  * 权限请求
  */
-class NotificationPermissionDialog(var ctx: Activity, var nickName:String,var listener:OnListener) :  BasePopupWindow(ctx) {
+class NotificationPermissionDialog(var activity: Activity, var nickName:String,var listener:OnListener) :  BasePopupWindow(activity) {
     init {
         setContentView(R.layout.dialog_notification_permission)
         initView()
-        showAnimation = AnimationUtils.loadAnimation(ctx, R.anim.dialog_anim_enter)
-        dismissAnimation=AnimationUtils.loadAnimation(ctx, R.anim.dialog_anim_exit)
+        showAnimation = AnimationUtils.loadAnimation(activity, R.anim.dialog_anim_enter)
+        dismissAnimation=AnimationUtils.loadAnimation(activity, R.anim.dialog_anim_exit)
         setOutSideDismiss(true)
     }
 
@@ -32,13 +33,13 @@ class NotificationPermissionDialog(var ctx: Activity, var nickName:String,var li
         val dialogConfirm = findViewById<TextView>(R.id.dialog_confirm)
 
         if (nickName!= ""){
-            dialogTitle.text="${ctx.getString(R.string.want_to_stay_in_touch_with)} $nickName ?"
+            dialogTitle.text="${activity.getString(R.string.want_to_stay_in_touch_with)} $nickName ?"
 //            HttpRequest.commonNotify(501,"")
-            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_WITH_EFFECTIVE_CHAT).commit(ctx)
+            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_WITH_EFFECTIVE_CHAT).commit(activity)
 
         }else{
 //            HttpRequest.commonNotify(500,"")
-            DotLogUtil.setEventName(DotLogEventName.FIRST_NOTIFICATION_PAGE).commit(ctx)
+            DotLogUtil.setEventName(DotLogEventName.FIRST_NOTIFICATION_PAGE).commit(activity)
         }
         val dialogCancel = findViewById<ImageView>(R.id.dialog_cancel)
         dialogCancel.setOnClickListener {
@@ -46,17 +47,18 @@ class NotificationPermissionDialog(var ctx: Activity, var nickName:String,var li
         }
         dialogConfirm.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                PermissionUtils.requestPermission(ctx,
+                Activities.get().top?.let { it1 ->
+                    PermissionUtil.requestPermissionCallBack(Manifest.permission.POST_NOTIFICATIONS, activity = it1)
                     {
-                        listener.onGrantedListener()
-//                        HttpRequest.commonNotify(503,if (nickName!= "")"501" else "500")
-                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED).setRemark(if (nickName!= "")"501" else "500").commit(ctx)
-
-                    }, {
-                        listener.onDeniedListener()
-//                        HttpRequest.commonNotify(503,if (nickName!= "")"501" else "500")
-                        DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED).setRemark(if (nickName!= "")"501" else "500").commit(ctx)
-                    },Manifest.permission.POST_NOTIFICATIONS)
+                        if(it) {
+                            listener.onGrantedListener()
+                            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED).setRemark(if (nickName != "") "501" else "500").commit(activity)
+                        }else {
+                            listener.onDeniedListener()
+                            DotLogUtil.setEventName(DotLogEventName.NOTIFICATION_PAGE_GRANTED).setRemark(if (nickName != "") "501" else "500").commit(activity)
+                        }
+                    }
+                }
             }
             dismiss()
         }

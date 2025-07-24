@@ -4,6 +4,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.crush.R
 import com.crush.mvp.MVPBaseActivity
+import com.crush.view.Loading.LoadingDialog
 
 
 class LocationRequestActivity : MVPBaseActivity<LocationRequestContract.View, LocationRequestPresenter>(), LocationRequestContract.View {
@@ -23,11 +24,13 @@ class LocationRequestActivity : MVPBaseActivity<LocationRequestContract.View, Lo
         mPresenter?.getIMToken(mActivity)
     }
 
+    override fun onPause() {
+        super.onPause()
+        LoadingDialog.dismissLoading(this.mActivity)
+    }
+
     override val requestLocationContainer: LinearLayout
         get() = findViewById(R.id.request_location_container)
     override val requestLocationClose: ImageView
         get() = findViewById(R.id.request_location_close)
-    override val outSideView: ImageView
-        get() = findViewById(R.id.out_side_view)
-
 }

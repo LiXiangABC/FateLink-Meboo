@@ -8,7 +8,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -20,14 +19,23 @@
             android:adjustViewBounds="false"
             android:scaleType="center"
             />
-        <com.airbnb.lottie.LottieAnimationView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/image_loading"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="false"
+            android:scaleType="center"
+            android:src="@mipmap/img_photo_loading"
+            android:background="#59333333"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
+            app:lottie_autoPlay="false"
             app:lottie_fileName="image_loading_black.json"
             android:layout_centerInParent="true"
-            app:lottie_loop="true"/>
+            app:lottie_loop="true"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 

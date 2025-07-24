@@ -1,4 +1,4 @@
-package com.crush.view
+package io.rong.imkit.widget
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -10,21 +10,18 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.crush.R
-import com.crush.adapter.ViewChatHeaderPageLoaderAdapter
-import com.crush.bean.WLMListBean
-import com.crush.callback.EmptyCallBack
-import com.crush.ui.chat.ktl.WlmClick
-import com.crush.ui.index.match.MatchUserActivity
-import com.crush.util.CollectionUtils
 import com.custom.base.config.BaseConfig
-import com.crush.util.IntentUtil
+import com.google.android.gms.common.util.CollectionUtils
 import com.sunday.eventbus.SDEventManager
 import com.youth.banner.Banner
 import com.youth.banner.listener.OnBannerListener
+import io.rong.imkit.R
 import io.rong.imkit.SpName
 import io.rong.imkit.activity.Activities
+import io.rong.imkit.adapter.ViewChatHeaderPageLoaderAdapter
+import io.rong.imkit.entity.WLMListBean
 import io.rong.imkit.event.EnumEventTag
+import io.rong.imkit.utils.ktl.WlmClick
 
 
 class ViewChatHeaderWlm(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs){
@@ -71,6 +68,7 @@ class ViewChatHeaderWlm(context: Context, attrs: AttributeSet?) : FrameLayout(co
                 if (position >= wlmList.size){
                     return
                 }
+
                 wLMListBean?.apply {
                     WlmClick.benefitsReduceWLM(wLMListBean.userCodeFriend, 1, object :
                         EmptyCallBack {
@@ -82,13 +80,13 @@ class ViewChatHeaderWlm(context: Context, attrs: AttributeSet?) : FrameLayout(co
                                 "avatarUrl",
                                 wLMListBean.avatarUrl
                             )
-                            IntentUtil.startActivity(MatchUserActivity::class.java, bundle)
 
-                            wlmList.remove(wLMListBean)
-                            banner?.adapter?.notifyDataSetChanged()
-
+                            SDEventManager.post(bundle, EnumEventTag.GO_MATCH.ordinal)
 //                            SDEventManager.post("$position", EnumEventTag.WLM_DISLIKE_SWIPED.ordinal)
+                            wlmList.remove(wLMListBean)
+                            setData(true,wlmList)
                             SDEventManager.post(wlmList.size, EnumEventTag.REFRESH_WLM_LIKE_SIZE.ordinal)
+
                         }
 
                         override fun OnFailListener() {
@@ -97,6 +95,7 @@ class ViewChatHeaderWlm(context: Context, attrs: AttributeSet?) : FrameLayout(co
                                     WlmClick.openPay(it, orderCreateEntity, 1) { isSuccess ->
                                         if (isSuccess) {
                                             BaseConfig.getInstance.setBoolean(SpName.isMember, true)
+                                            wlmList.remove(wLMListBean)
                                             setData(true,wlmList)
                                         }
                                     }

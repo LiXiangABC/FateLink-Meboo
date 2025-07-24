@@ -234,3 +234,68 @@
 #MMKV
 -keep class com.tencent.** {*;}
 -keep class com.tencent.mmkv.** {*;}
+
+
+
+#===============================================================================================
+######################################
+# MVP架构基础混淆保护（防止ClassCastException）
+######################################
+
+# 保留MVP基础类和Presenter，不要被混淆
+-keep class com.crush.mvp.** { *; }
+-keep class com.crush.ui.start.** { *; }
+-keep class * extends com.crush.mvp.BasePresenterImpl { *; }
+-keep class * extends com.crush.mvp.MVPBaseActivity { *; }
+
+# 保留构造函数（反射常用）
+-keepclassmembers class * {
+    public <init>(...);
+}
+
+# 保留泛型信息与注解
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# 如果用到了反射工厂创建Presenter（推荐也保留实现类）
+-keep class com.crush.mvp.BasePresenterImpl { *; }
+-keep class com.crush.mvp.MVPBaseActivity { *; }
+
+# 保留所有带有特定包名的类和方法（可根据实际情况调整包名）
+-keep class com.crush.** { *; }
+
+######################################
+# Android通用配置（已混淆就不用再重复）
+######################################
+# Gson、反射等
+-keep class com.google.gson.** { *; }
+-keep class sun.misc.Unsafe { *; }
+# 保证WebView能用JS接口
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+# 友盟、极光、推送、三方库（如有根据需求添加）
+
+# 忽略警告
+-dontwarn com.crush.**
+
+# 其它已有规则可保留
+
+# Google Sign-In
+-keep class com.google.android.gms.auth.api.signin.** { *; }
+-keep class com.google.android.gms.common.api.ResultCallback { *; }
+-keep class com.google.android.gms.tasks.** { *; }
+
+
+# Firebase Auth
+-keep class com.google.firebase.auth.** { *; }
+-keep class com.google.android.gms.** { *; }
+
+#===============================================================================================
+
+
+-obfuscationdictionary bt-proguard.txt
+-classobfuscationdictionary bt-proguard.txt
+-packageobfuscationdictionary bt-proguard.txt
+

@@ -1,8 +1,12 @@
 package com.crush.mvp
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.RelativeLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.crush.util.IntentUtil
 import com.gyf.immersionbar.ImmersionBar
 import com.custom.base.R
@@ -29,6 +33,14 @@ abstract class MVPBaseActivity<V : BaseView, T : BasePresenterImpl<V>> : BaseAct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 在Activity的onCreate中添加
+        if (Build.MANUFACTURER.equals("samsung", ignoreCase = true)) {
+            window.decorView.apply {
+                systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            }
+        }
         Activities.get().add(this)
         mPresenter = getInstance<T>(this, 1)
         mPresenter?.attachView(this as V,mActivity)
@@ -46,7 +58,15 @@ abstract class MVPBaseActivity<V : BaseView, T : BasePresenterImpl<V>> : BaseAct
         ImmersionBar.with(this)
             .statusBarDarkFont(true)
             .init()
+
+//      手动处理WindowInsets
+        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { v, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            findViewById<RelativeLayout>(R.id.actBaseLl).setPadding(0, 0, 0, bottomInset)
+            insets
+        }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

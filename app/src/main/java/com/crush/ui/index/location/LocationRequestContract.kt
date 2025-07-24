@@ -7,9 +7,8 @@ import com.crush.mvp.BaseView
 
 class LocationRequestContract {
     interface View : BaseView {
-        val  requestLocationContainer:LinearLayout
+        val requestLocationContainer:LinearLayout
         val requestLocationClose:ImageView
-        val outSideView:ImageView
     }
 
     internal interface Presenter : BasePresenter<View> {

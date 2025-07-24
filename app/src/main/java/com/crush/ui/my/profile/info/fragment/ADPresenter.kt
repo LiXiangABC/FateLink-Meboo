@@ -1,11 +1,10 @@
 package com.crush.ui.my.profile.info.fragment
 
-import android.os.Bundle
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.crush.Constant
 import com.crush.R
-import com.crush.bean.TagBean
+import io.rong.imkit.entity.IMTagBean
 import com.crush.bean.UserWantOrYouAcceptBean
 import com.crush.dialog.CustomSelectorDialog
 import com.crush.dialog.SelectInterestDialog
@@ -34,11 +33,8 @@ class ADPresenter : BasePresenterImpl<ADContract.View>(), ADContract.Presenter {
     var lookingFor = 0
     var hideHeight = false
     var data: UserProfileEntity.Data? = null
-    override fun initBundle(bundle: Bundle) {
+    fun updateUI(data: UserProfileEntity.Data) {
         mView?.apply {
-            if (data == null) {
-                data = bundle.getSerializable("entity") as UserProfileEntity.Data
-            }
             data?.apply {
                 this@ADPresenter.hideHeight = hideHeight
 
@@ -180,9 +176,9 @@ class ADPresenter : BasePresenterImpl<ADContract.View>(), ADContract.Presenter {
                         it1,
                         interestsTags,
                         object : SelectInterestDialog.onCallBack {
-                            override fun onCallback(tags: MutableList<TagBean>) {
+                            override fun onCallback(tags: MutableList<IMTagBean>) {
                                 val checkedTags: MutableList<String> = ArrayList()
-                                val checkedTagsBean: MutableList<TagBean> = ArrayList()
+                                val checkedTagsBean: MutableList<IMTagBean> = ArrayList()
                                 repeat(tags.size) {
                                     if (tags[it].check) {
                                         checkedTags.add(tags[it].interest)
@@ -338,7 +334,7 @@ class ADPresenter : BasePresenterImpl<ADContract.View>(), ADContract.Presenter {
         nickName: String = "",
         birthday: String = "",
         lookingFor: String = "",
-        interests: MutableList<TagBean> = arrayListOf(),
+        interests: MutableList<IMTagBean> = arrayListOf(),
         aboutMe: String = "",
         socialConnections: String = "",
         height: String = "",

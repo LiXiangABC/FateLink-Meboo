@@ -1,41 +1,26 @@
 package com.crush.adapter
 
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.crush.R
 import com.crush.bean.MatchIndexBean
 import com.crush.dot.DotLogEventName
 import com.crush.dot.DotLogUtil
-import com.crush.ui.HomeActivity
 import com.crush.ui.chat.profile.UserProfileInfoActivity
-import com.crush.ui.index.IndexFragment
 import com.crush.ui.my.turnons.ChooseTurnOnsActivity
 import com.crush.util.AnimUtil
 import com.crush.util.CollectionUtils
-import com.crush.util.DateUtils
-import com.crush.util.DensityUtil
-import com.crush.util.MathUtil
-import com.crush.util.PermissionUtils
 import com.crush.view.LinearLineIndicator
 import com.crush.view.TagCloudView
 import com.custom.base.config.BaseConfig
-import com.custom.base.type.AnimationActivityType
 import com.crush.util.IntentUtil
 import com.sunday.eventbus.SDEventManager
 import com.youth.banner.Banner
@@ -47,9 +32,7 @@ import io.rong.imkit.event.EnumEventTag
 import io.rong.imkit.event.FirebaseEventTag
 import io.rong.imkit.utils.FirebaseEventUtils
 import io.rong.imkit.utils.JsonUtils
-import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
-import java.util.Date
 
 class CardStackAdapter(
     private var spots: List<MatchIndexBean> = emptyList(),

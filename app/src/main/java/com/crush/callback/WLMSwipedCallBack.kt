@@ -1,6 +1,6 @@
 package com.crush.callback
 
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 
 interface WLMSwipedCallBack {
    fun swipedCallback(direction:Int,wlmListBean: WLMListBean)

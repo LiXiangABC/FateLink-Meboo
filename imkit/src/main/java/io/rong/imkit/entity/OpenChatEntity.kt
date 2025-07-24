@@ -10,6 +10,8 @@ data class OpenChatEntity(
         val member: Boolean,//是否会员
         val userType: Int,//2 CM 3 M
         val messagesNumber: Int,//可发送消息数量
+        val canSendImageNum: Int,//可发送照片消息数量
+        val canSendUnlockImageNum: Int,//可发送照片消息不加锁数量
         val onlineStatus: Int,//1-在线，其它-离线
         val flashchatFlag: Int,//1-flash chat，其它-离线
         val turnOnsList: ArrayList<TagBean>,

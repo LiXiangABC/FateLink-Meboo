@@ -20,6 +20,7 @@ import com.crush.ui.index.loadImage
 import com.custom.base.util.SDViewUtil
 import com.facebook.drawee.view.SimpleDraweeView
 import com.luck.picture.lib.utils.ActivityCompatHelper
+import com.makeramen.roundedimageview.RoundedImageView
 import com.youth.banner.adapter.BannerAdapter
 
 class PageLoaderAdapter(
@@ -42,15 +43,15 @@ class PageLoaderAdapter(
     override fun onBindView(holder: BannerViewHolder?, bean: Avatar, position: Int, size: Int) {
         holder?.apply {
             val iv = view.findViewById<SimpleDraweeView>(R.id.item_start_page_iv)
-            val imageLoading = view.findViewById<LottieAnimationView>(R.id.image_loading)
+            val imageLoading = view.findViewById<RoundedImageView>(R.id.image_loading)
             imageLoading.visibility=View.GONE
             if (load.indexOf(position) == -1){
                 imageLoading.visibility = View.VISIBLE
-                imageLoading.playAnimation()
+//                imageLoading.playAnimation()
                 if (!ActivityCompatHelper.isDestroy(mActivity)) {
                     iv.loadImage(mActivity, bean.imageUrl, position) {
                         imageLoading.visibility = View.GONE
-                        imageLoading.cancelAnimation()
+//                        imageLoading.cancelAnimation()
                         load.add(position)
                     }
                 }

@@ -31,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/icon_organic_start"
+        android:src="@mipmap/img_start_bg"
+        android:adjustViewBounds="true"
         android:visibility="gone"
         />
     <LinearLayout

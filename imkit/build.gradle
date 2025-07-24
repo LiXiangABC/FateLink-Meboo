@@ -58,9 +58,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
     implementation("com.google.firebase:firebase-appcheck-playintegrity")
     implementation("com.google.firebase:firebase-appcheck-ktx")
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //google pay
-    implementation "com.android.billingclient:billing:6.1.0"
+    implementation "com.android.billingclient:billing:8.0.0"
 
     implementation 'com.alibaba:fastjson:1.2.73'
 

@@ -31,13 +31,14 @@ class PhotoPresenter : BasePresenterImpl<PhotoContract.View>(), PhotoContract.Pr
     private lateinit var photoSelectAdapter: PhotoSelectAdapter
     private var photoSelectPosition: Int = 0 //选择照片
     private var userImages = arrayListOf<UserPhotoBean>()
-    override fun initBundle(bundle: Bundle) {
+    fun updateUI(data: UserProfileEntity.Data) {
         mView?.apply {
-            val data = bundle.getSerializable("entity") as UserProfileEntity.Data
-            data?.apply {
+            data.apply {
                 Activities.get().top?.let {
                     for (i in 0 until imagesV2.size) {
-                        userImages.add(UserPhotoBean(imagesV2[i].imageUrl, imagesV2[i].imageCode,imagesV2[i].imageUrl,false))
+                        if (imagesV2[i].imageCode!=null) {
+                            userImages.add(UserPhotoBean(imagesV2[i].imageUrl, imagesV2[i].imageCode, imagesV2[i].imageUrl, false))
+                        }
                     }
                     if (userImages.size < 6) {
                         userImages.add(UserPhotoBean("", "","", false))

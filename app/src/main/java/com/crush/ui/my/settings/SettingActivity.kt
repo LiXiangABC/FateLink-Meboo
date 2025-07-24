@@ -35,6 +35,10 @@ class SettingActivity : MVPBaseActivity<SettingContact.View, SettingPresenter>()
             0,
             0
         )
+
+        findViewById<ImageView>(R.id.ivBack).setOnClickListener {
+            finish()
+        }
     }
 
     override fun onResume() {

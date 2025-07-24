@@ -2,7 +2,6 @@ package com.crush.util
 
 import android.Manifest
 import android.app.Activity
-import android.util.Log
 import com.custom.base.config.BaseConfig
 import io.rong.imkit.SpName
 import java.util.Date
@@ -22,7 +21,7 @@ class MathUtil {
     }
 
     fun isShowLocationCard(number: Int,limitNumber: Int,mActivity:Activity):Boolean{
-        if (PermissionUtils.lacksPermission( Manifest.permission.ACCESS_FINE_LOCATION) && PermissionUtils.lacksPermission(Manifest.permission.ACCESS_COARSE_LOCATION)){
+        if (PermissionUtil.checkPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) && PermissionUtil.checkPermission(mActivity,Manifest.permission.ACCESS_COARSE_LOCATION)){
             var remainder = 0
             if (BaseConfig.getInstance.getBoolean(SpName.passFeedBackShow+DateUtils.getTime(Date()),false)){
                 remainder++

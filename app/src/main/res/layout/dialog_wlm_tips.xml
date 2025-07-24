@@ -41,12 +41,5 @@
             android:gravity="center"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:layout_width="@dimen/dimen_59dp"
-        android:layout_height="@dimen/dimen_41dp"
-        android:src="@mipmap/icon_wlm_tip_dialog_icon"
-        app:layout_constraintEnd_toEndOf="@+id/content_container"
-        app:layout_constraintBottom_toBottomOf="@+id/content_container"
-        android:layout_marginBottom="-9dp"
-        android:layout_marginEnd="-8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

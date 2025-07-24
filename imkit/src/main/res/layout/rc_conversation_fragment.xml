@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@drawable/bg_coversation">
     <ImageView
         android:id="@+id/img_conversation_bg"
         android:layout_width="0dp"
@@ -15,6 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/icon_im_chat_bg"
         android:scaleType="centerCrop"
+        android:visibility="gone"
         />
     <io.rong.imkit.widget.refresh.SmartRefreshLayout
         android:id="@+id/rc_refresh"

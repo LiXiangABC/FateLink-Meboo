@@ -11,11 +11,19 @@
         android:scaleType="centerCrop"
         android:layout_height="match_parent"
         />
-    <com.airbnb.lottie.LottieAnimationView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/image_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="false"
+        android:scaleType="center"
+        android:src="@mipmap/img_photo_loading"
+        android:background="#59333333"
+        />
+    <com.airbnb.lottie.LottieAnimationView
         android:layout_width="@dimen/dimen_82dp"
         android:layout_height="@dimen/dimen_62dp"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         app:lottie_fileName="image_load.json"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dimen_230dp"

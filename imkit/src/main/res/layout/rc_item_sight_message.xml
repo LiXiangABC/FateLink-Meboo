@@ -99,11 +99,14 @@
             android:src="@drawable/icon_play_video" />
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/private_logo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/icon_im_private_video"
+            android:layout_width="112dp"
+            android:layout_height="149dp"
+            android:src="@drawable/img_suo"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
+            android:background="@drawable/private_bg"
+            android:paddingVertical="55dp"
+            android:paddingHorizontal="35dp"
             android:visibility="gone"
             />
         <ProgressBar

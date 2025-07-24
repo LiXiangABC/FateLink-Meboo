@@ -88,18 +88,8 @@ public class ImageMessageItemProvider extends BaseMessageItemProvider<ImageMessa
         if (context != null) {
             Resources resources = context.getResources();
             try {
-                THUMB_COMPRESSED_SIZE =
-                        resources.getInteger(
-                                resources.getIdentifier(
-                                        "rc_thumb_compress_size",
-                                        "integer",
-                                        context.getPackageName()));
-                THUMB_COMPRESSED_MIN_SIZE =
-                        resources.getInteger(
-                                resources.getIdentifier(
-                                        "rc_thumb_compress_min_size",
-                                        "integer",
-                                        context.getPackageName()));
+                THUMB_COMPRESSED_SIZE = resources.getInteger(R.integer.rc_thumb_compress_size);
+                THUMB_COMPRESSED_MIN_SIZE = resources.getInteger(R.integer.rc_thumb_compress_min_size);
             } catch (Resources.NotFoundException e) {
                 e.printStackTrace();
             }
@@ -210,8 +200,13 @@ public class ImageMessageItemProvider extends BaseMessageItemProvider<ImageMessa
 
                 Glide.with(view)
                         .load(path)
-                        .error(R.drawable.image_error)
-                        .apply(options)
+                        .error(
+                                Glide.with(view)
+                                        .load(path) // 第二次加载尝试（重试）
+                                        .apply(options.timeout(15000))
+                                        .error(R.drawable.image_error)
+                        )
+                        .apply(options.timeout(15000))
                         .into(view);
             }
         } else {

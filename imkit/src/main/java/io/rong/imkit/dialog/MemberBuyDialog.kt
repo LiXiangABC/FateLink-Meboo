@@ -38,6 +38,7 @@ import io.rong.imkit.entity.MemberSubscribeEntity
 import io.rong.imkit.event.EnumEventTag
 import io.rong.imkit.pay.PayOrderLogUtils
 import io.rong.imkit.picture.tools.ToastUtils
+import io.rong.imkit.utils.DensityUtil
 import io.rong.imkit.utils.TextUtils
 import io.rong.imkit.utils.ktl.subDiscountPice
 import io.rong.imkit.widget.SnapUpCountDownTimerView
@@ -51,6 +52,7 @@ class MemberBuyDialog(
     init {
         setContentView(R.layout.dialog_member_buy)
         initView()
+        setOverlayMask(true)
     }
     //是否存在倒计时并且倒计时已完成
     private var beDownTime: Boolean = false
@@ -117,18 +119,36 @@ class MemberBuyDialog(
                 conBuyMemberWai.visibility = View.VISIBLE
                 dialogPurchaseNow.visibility = View.VISIBLE
                 val subscriptions = entity.data.subscriptions
-                if (!CollectionUtils.checkNullOrEmptyOrContainsNull(entity.data.subscriptions)) {
-                    if (subscriptions.size == 7) {
-                        subscriptions.removeLast()
+//                if (!CollectionUtils.checkNullOrEmptyOrContainsNull(entity.data.subscriptions)) {
+//                    if (subscriptions.size == 7) {
+//                        subscriptions.removeLast()
+//                    }
+//                }
+
+                subscriptions.forEachIndexed { index, item ->
+                    val radioButton = RadioButton(context).apply {
+                        id = View.generateViewId() // Generate a unique ID for each RadioButton
+                        layoutParams = RadioGroup.LayoutParams(
+                            RadioGroup.LayoutParams.WRAP_CONTENT,
+                            RadioGroup.LayoutParams.WRAP_CONTENT
+                        ).apply {
+                            width = DensityUtil.dp2px(context,6f)
+                            height = DensityUtil.dp2px(context,6f)
+                            marginStart = DensityUtil.dp2px(context,6f)
+                        }
+                        setBackgroundResource(R.drawable.selector_buy_member_in)
                     }
+
+                    // Add the RadioButton to the RadioGroup
+                    itemIndicatorRg.addView(radioButton)
                 }
 
-                if (subscriptions.size != itemIndicatorRg.childCount) {
-                    itemIndicatorRg.removeViews(
-                        subscriptions.size,
-                        itemIndicatorRg.childCount - subscriptions.size
-                    )
-                }
+//                if (subscriptions.size != itemIndicatorRg.childCount) {
+//                    itemIndicatorRg.removeViews(
+//                        subscriptions.size,
+//                        itemIndicatorRg.childCount - subscriptions.size
+//                    )
+//                }
                 dialogCycleBanner.setStartPosition(currentItem + 1)
                 val pageBuyMemberAdapter = PageBuyMemberAdapter(ctx, subscriptions)
                 dialogCycleBanner.adapter = pageBuyMemberAdapter

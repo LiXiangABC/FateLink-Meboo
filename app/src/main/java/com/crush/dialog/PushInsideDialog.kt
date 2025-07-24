@@ -245,7 +245,7 @@ class PushInsideDialog(var ctx: Context,var remoteMessage: RemoteMessage) :  Bas
                 txtPushSayHi.visibility=View.VISIBLE
                 SDEventManager.post(EnumEventTag.WLM_REFRESH.ordinal)
                 outSideView.setBackgroundResource(R.drawable.shape_red_circle_stroke_push_like)
-                pushContainer.setBackgroundResource(R.drawable.shape_push_bg_like)
+                pushContainer.setBackgroundResource(R.drawable.shape_push_bg)
             }
             "8"->{
                 pushMatchContainer.visibility=View.VISIBLE
@@ -351,7 +351,7 @@ class PushInsideDialog(var ctx: Context,var remoteMessage: RemoteMessage) :  Bas
 //            benefitsReduceWLM(remoteMessage.data["targetId"].toString(),1,remoteMessage.data["imageUrl"].toString())
 //            dismiss()
 //        }
-        txtPushSayHi.setOnClickListener {
+        pushContainer.setOnClickListener {
             benefitsReduceWLM(remoteMessage.data["targetId"].toString(),1,remoteMessage.data["imageUrl"].toString())
             dismiss()
         }

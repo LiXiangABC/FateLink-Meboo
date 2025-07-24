@@ -12,7 +12,6 @@
         android:id="@+id/date_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0dp"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -701,6 +700,98 @@
 
             <TextView
                 android:id="@+id/text_looking_next"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_52dp"
+                android:enabled="false"
+                android:fontFamily="@font/interbold"
+                android:gravity="center"
+                android:text="@string/next"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16sp" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/interest_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_top_back">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/txt_interest_next_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_interest_title"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:fontFamily="@font/interbold"
+                    android:text="Now I Interests..."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_28sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.crush.view.TagCloudView
+                    android:id="@+id/interests_tag_cloud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_12dp"
+                    android:layout_marginTop="@dimen/dimen_34dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_interest_title"
+                    app:tcvBackground="@drawable/shape_interest_unselect_bg"
+                    app:tcvBorder="@dimen/dimen_6dp"
+                    app:tcvTextPaddingLeft="20"
+                    app:tcvTextPaddingRight="20"
+                    app:tcvTextPaddingTop="10"
+                    app:tcvTextPaddingBottom="10"
+                    app:tcvCanTagClick="true"
+                    app:tcvItemBorderVertical="6dp"
+                    app:tcvShowEndText="false"
+                    app:tcvSingleLine="false"
+                    app:tcvTextColor="@color/black"
+                    app:tcvTextSize="14" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/txt_interest_next_container"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:background="@drawable/shape_solid_gray_f5f7f9_radius_26"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/text_interest_next"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_52dp"
                 android:enabled="false"

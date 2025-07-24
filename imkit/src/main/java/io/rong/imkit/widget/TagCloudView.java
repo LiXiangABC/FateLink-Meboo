@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.rong.imkit.R;
+import io.rong.imkit.entity.IMTagBean;
 import io.rong.imkit.entity.TagBean;
 import io.rong.imkit.utils.DensityUtil;
 
@@ -25,7 +26,8 @@ public class TagCloudView extends ViewGroup {
     private static final String TAG = TagCloudView.class.getSimpleName();
     private static final int TYPE_TEXT_NORMAL = 1;
     private List<String> tags;
-    private List<TagBean> tagBeans;
+    private List<TagBean> tagBeanList;
+    private List<IMTagBean> tagBeans;
 
     private LayoutInflater mInflater;
     private OnTagClickListener onTagClickListener;
@@ -354,10 +356,9 @@ public class TagCloudView extends ViewGroup {
         postInvalidate();
     }
     public void setTagBeans(List<TagBean> tagList) {
-        this.tagBeans = tagList;
         this.removeAllViews();
-        if (tagBeans != null && tagBeans.size() > 0) {
-            for (int i = 0; i < tagBeans.size(); i++) {
+        if (tagList != null && tagList.size() > 0) {
+            for (int i = 0; i < tagList.size(); i++) {
                 TextView tagView = (TextView) mInflater.inflate(mTagResId, null);
                 if (mTagResId == DEFAULT_TAG_RESID) {
                     tagView.setBackgroundResource(mBackground);
@@ -368,7 +369,7 @@ public class TagCloudView extends ViewGroup {
 
                 LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 tagView.setLayoutParams(layoutParams);
-                tagView.setText(tagBeans.get(i).getName());
+                tagView.setText(tagList.get(i).getName());
 //                tagView.setBackgroundResource(R.drawable.shape_tag_bg);
                 tagView.setTag(TYPE_TEXT_NORMAL);
                 final int finalI = i;

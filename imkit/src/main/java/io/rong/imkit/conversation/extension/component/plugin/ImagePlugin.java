@@ -21,6 +21,7 @@ import io.rong.imkit.IMCenter;
 import io.rong.imkit.R;
 import io.rong.imkit.config.RongConfigCenter;
 import io.rong.imkit.conversation.extension.RongExtension;
+import io.rong.imkit.dialog.PictureMessageLimitDialog;
 import io.rong.imkit.http.HttpRequest;
 import io.rong.imkit.manager.SendImageManager;
 import io.rong.imkit.manager.SendMediaManager;
@@ -102,6 +103,12 @@ public class ImagePlugin implements IPluginModule, IPluginRequestPermissionResul
                             if (messagesNumber <= 0) {
                                 HttpRequest.INSTANCE.showBuyMember(IMCenter.getInstance().getContext(), mimeType.startsWith("image") ? 3 : 4, conversationIdentifier.getTargetId());
                                 return;
+                            }
+                            if (HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue()!= null) {
+                                if (HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue() <= 0 && mimeType.startsWith("image")) {
+                                    new PictureMessageLimitDialog(IMCenter.getInstance().getContext(),conversationIdentifier.getTargetId()).showPopupWindow();
+                                    return;
+                                }
                             }
                         }
                         if (mimeType.startsWith("image")) {

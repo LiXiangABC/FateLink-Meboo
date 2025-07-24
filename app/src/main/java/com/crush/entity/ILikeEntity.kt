@@ -1,7 +1,6 @@
 package com.crush.entity
 
-import com.crush.bean.WLMListBean
-import java.io.Serializable
+import io.rong.imkit.entity.WLMListBean
 
 data class ILikeEntity(
     val code: Int, // 200

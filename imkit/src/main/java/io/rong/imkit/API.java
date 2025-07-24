@@ -28,5 +28,8 @@ public class API {
     public static final String pay_fail_url = "api/apy/payFail";// 支付失败通知接口
     public static final String pay_fail_notice_url = "api/apy/send/payment/notice";// 支付失败通知接口
 
+    public static final String user_benefits_reduceWLM_url="api/benefits/reduceWLM";  //用户福利扣减接口
+
+
 
 }

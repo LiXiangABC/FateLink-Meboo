@@ -1,6 +1,6 @@
 package com.crush.entity
 
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 import java.io.Serializable
 
 data class WhoLikeMeEntity(

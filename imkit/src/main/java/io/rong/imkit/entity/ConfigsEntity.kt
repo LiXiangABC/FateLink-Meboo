@@ -1,4 +1,4 @@
-package com.crush.entity
+package io.rong.imkit.entity
 
 data class ConfigsEntity(
     val code: Int, // 200

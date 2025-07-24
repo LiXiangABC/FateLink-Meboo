@@ -245,7 +245,7 @@ class StartActivity : MVPBaseActivity<StartContract.View, StartPresenter>(), Sta
                     }
                 }
             }
-        })
+        },true)
         HttpRequestInterceptor.addInterceptor()
     }
 

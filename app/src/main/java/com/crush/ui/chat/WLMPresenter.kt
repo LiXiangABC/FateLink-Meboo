@@ -1,6 +1,5 @@
 package com.crush.ui.chat
 
-import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -14,15 +13,14 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.crush.Constant
 import com.crush.R
 import com.crush.adapter.WhoLikeMeAdapter
-import com.crush.bean.WLMListBean
-import com.crush.callback.EmptyCallBack
+import io.rong.imkit.entity.WLMListBean
+import io.rong.imkit.widget.EmptyCallBack
 import com.crush.callback.WLMSwipedCallBack
 import com.crush.dialog.WlmTipsDialog
 import com.crush.entity.WhoLikeMeEntity
-import com.crush.ui.chat.ktl.WlmClick
+import io.rong.imkit.utils.ktl.WlmClick
 import com.crush.ui.index.match.MatchUserActivity
 import com.crush.util.CollectionUtils
-import com.crush.view.Loading.LoadingDialog
 import com.crush.view.SwipeCardCallback
 import com.custom.base.config.BaseConfig
 import com.custom.base.entity.OkHttpBodyEntity
@@ -46,7 +44,6 @@ import io.rong.imkit.event.FirebaseEventTag
 import io.rong.imkit.pay.EmptySuccessCallBack
 import io.rong.imkit.pay.PayUtils
 import io.rong.imkit.utils.FirebaseEventUtils
-import io.rong.imkit.utils.RongUtils
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch

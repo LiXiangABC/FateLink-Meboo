@@ -153,7 +153,7 @@ object HttpRequest {
                     .method("POST", body)
                     .addHeader(
                         "basicParams",
-                        "{\"channel\":\"l1\",\"appCode\":\"auramix\",\"appVersion\":1}"
+                        "{\"channel\":\"l1\",\"appCode\":\"fatelink\",\"appVersion\":1}"
                     )
                     .addHeader("Content-Type", "application/json")
                     .build()

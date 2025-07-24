@@ -79,7 +79,7 @@
             android:background="@drawable/shape_solid_pink_radius_30"
             android:fontFamily="@font/cabin_semibold"
             android:gravity="center"
-            android:text="@string/get_help_from_auramix"
+            android:text="@string/get_help_from"
             android:textColor="@color/color_001912"
             android:textSize="@dimen/dimen_17sp"
             app:layout_constraintBottom_toBottomOf="parent"

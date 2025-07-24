@@ -58,7 +58,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
             jsonObject.put("timestamp", System.currentTimeMillis())
             jsonObject.put("channel", ChannelUtil.getChannel())
             jsonObject.put("appsFlyerUID", "")
-            jsonObject.put("appCode", "auramix")
+            jsonObject.put("appCode", "fatelink")
             jsonObject.put("applicationID", BuildConfig.APPLICATION_ID)
             jsonObject.put("appVersion", BuildConfig.VERSION_CODE)
             jsonObject.put("token", "")
@@ -70,40 +70,6 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
             val loginWay = bundle.getString("loginWay") ?: ""
             if (loginWay != "") {
                 if (JsonUtils.isJSON(loginWay)) {//是json格式
-                    val channel = BaseConfig.getInstance.getString(SpName.channel, "")
-                    val drawableId = if (channel != "" && JsonUtils.isJSON(channel)) {
-                        val jsonObject = JSONObject(channel)
-                        if (jsonObject.has("af_status")) {
-                            val afStatus = jsonObject.getString("af_status")
-                            if (!afStatus.equals("Organic",true)) {
-                                R.mipmap.icon_start_afid
-                            } else {
-                                R.mipmap.icon_start_no_afid
-                            }
-                        } else {
-                            R.mipmap.icon_start_no_afid
-                        }
-                    } else {
-                        R.mipmap.icon_start_no_afid
-                    }
-                    val sLoganDrawableId = if (channel != "" && JsonUtils.isJSON(channel)) {
-                        val jsonObject = JSONObject(channel)
-                        if (jsonObject.has("af_status")) {
-                            val afStatus = jsonObject.getString("af_status")
-                            if (!afStatus.equals("Organic",true)) {
-                                R.mipmap.icon_login_afid_text
-                            } else {
-                                R.mipmap.icon_login_text
-                            }
-                        } else {
-                            R.mipmap.icon_login_text
-                        }
-                    } else {
-                        R.mipmap.icon_login_text
-                    }
-                    loginRealBg.setImageResource(drawableId)
-                    imgLoginText.setImageResource(sLoganDrawableId)
-
                     txtLoginPhone.visibility = if (JSONObject(loginWay).getString("loginChannel")
                             .contains("phone")
                     ) View.VISIBLE else View.GONE
@@ -207,7 +173,7 @@ class LoginPresenter : BasePresenterImpl<LoginContract.View>(), LoginContract.Pr
                 jsonObject.addProperty("timestamp", System.currentTimeMillis())
                 jsonObject.addProperty("appsFlyerUID", "")
                 jsonObject.addProperty("channel", ChannelUtil.getChannel())
-                jsonObject.addProperty("appCode", "auramix")
+                jsonObject.addProperty("appCode", "fatelink")
                 jsonObject.addProperty("appVersion", BuildConfig.VERSION_CODE)
                 jsonObject.addProperty("token", entity.data.token)
                 jsonObject.addProperty("appVersionName", BuildConfig.VERSION_NAME)

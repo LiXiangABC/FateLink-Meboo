@@ -29,18 +29,11 @@
                 android:id="@+id/txt_call_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👅 Say Hi"
+                android:text="Say Hi"
                 android:textSize="12sp"
                 android:fontFamily="@font/interregular"
                 />
-            <TextView
-                android:id="@+id/txt_call_two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🍌 Flirting"
-                android:textSize="12sp"
-                android:fontFamily="@font/interregular"
-                />
+
             <TextView
                 android:id="@+id/txt_call_three"
                 android:layout_width="wrap_content"

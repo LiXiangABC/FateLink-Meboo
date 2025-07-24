@@ -77,12 +77,15 @@
         android:id="@+id/private_logo"
         android:layout_width="112dp"
         android:layout_height="149dp"
-        android:src="@drawable/icon_im_private_photo"
+        android:src="@drawable/img_suo"
         app:layout_constraintStart_toStartOf="@+id/rc_image"
         app:layout_constraintEnd_toEndOf="@+id/rc_image"
         app:layout_constraintTop_toTopOf="@+id/rc_image"
         app:layout_constraintBottom_toBottomOf="@+id/rc_image"
         app:riv_corner_radius="12dp"
+        android:background="@drawable/private_bg"
+        android:paddingVertical="55dp"
+        android:paddingHorizontal="35dp"
         android:visibility="gone"
         />
     <LinearLayout

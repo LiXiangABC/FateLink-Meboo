@@ -131,35 +131,43 @@
                     android:layout_marginStart="@dimen/dimen_20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/user_profile_location" />
-
-                <TextView
-                    android:id="@+id/txt_user_want"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/user_profile_ad_container"
+                    android:layout_width="@dimen/dimen_0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/dimen_14sp"
-                    android:fontFamily="@font/cabin_regular"
-                    android:layout_marginStart="@dimen/dimen_20dp"
-                    android:layout_marginTop="@dimen/dimen_15dp"
-                    android:drawablePadding="@dimen/dimen_10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/user_profile_ad_title"/>
-
-                <TextView
-                    android:id="@+id/txt_user_height"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_20dp"
-                    android:fontFamily="@font/cabin_regular"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/dimen_14sp"
-                    app:drawableTint="@color/color_44F3C4"
                     app:layout_constraintTop_toBottomOf="@+id/user_profile_ad_title"
-                    android:layout_marginTop="@dimen/dimen_15dp"
-                    app:layout_constraintLeft_toRightOf="@+id/txt_user_want"
-                    android:drawablePadding="@dimen/dimen_10dp"
-                    app:drawableStartCompat="@mipmap/icon_user_profile_height"
-                    />
+                    app:layout_constraintStart_toStartOf="parent">
+                    <TextView
+                        android:id="@+id/txt_user_want"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/dimen_14sp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:layout_marginStart="@dimen/dimen_20dp"
+                        android:layout_marginTop="@dimen/dimen_15dp"
+                        android:drawablePadding="@dimen/dimen_10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txt_user_height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_20dp"
+                        android:fontFamily="@font/cabin_regular"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/dimen_14sp"
+                        app:drawableTint="@color/color_44F3C4"
+                        android:layout_marginTop="@dimen/dimen_15dp"
+                        app:layout_constraintLeft_toRightOf="@+id/txt_user_want"
+                        android:drawablePadding="@dimen/dimen_10dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:drawableStartCompat="@mipmap/icon_user_profile_height"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 <TextView
                     android:id="@+id/user_profile_star_sign"
@@ -167,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dimen_20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_user_want"
+                    app:layout_constraintTop_toBottomOf="@+id/user_profile_ad_container"
                     android:layout_marginTop="@dimen/dimen_8dp"
                     android:textColor="@color/color_666666"
                     android:textSize="@dimen/dimen_14sp"
@@ -303,21 +311,21 @@
         android:layout_marginBottom="@dimen/dimen_10dp">
         <com.crush.view.delay.DelayClickImageView
             android:id="@+id/user_profile_like"
-            android:layout_width="@dimen/dimen_54dp"
-            android:layout_height="@dimen/dimen_54dp"
+            android:layout_width="@dimen/dimen_46dp"
+            android:layout_height="@dimen/dimen_46dp"
             android:layout_marginEnd="@dimen/dimen_15dp"
             android:layout_marginBottom="@dimen/dimen_15dp"
-            android:src="@mipmap/icon_profile_like"
+            android:src="@drawable/selector_user_like_click_status_img"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/user_profile_dislike"
             />
         <com.crush.view.delay.DelayClickImageView
             android:id="@+id/user_profile_dislike"
-            android:layout_width="@dimen/dimen_54dp"
-            android:layout_height="@dimen/dimen_54dp"
+            android:layout_width="@dimen/dimen_46dp"
+            android:layout_height="@dimen/dimen_46dp"
             android:layout_marginEnd="@dimen/dimen_15dp"
             android:layout_marginBottom="@dimen/dimen_15dp"
-            android:src="@mipmap/icon_profile_dislike"
+            android:src="@mipmap/icon_dislike_new"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/user_profile_chat"
             />

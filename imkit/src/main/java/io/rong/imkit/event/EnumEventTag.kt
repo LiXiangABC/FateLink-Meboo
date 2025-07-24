@@ -65,6 +65,7 @@ enum class EnumEventTag{
     REFRESH_CHAT_HEAD_WLM,//刷新聊天列表wlm
     REFRESH_GET_FLASH_DATA,//购买会员成功=获取查询权益接口=刷新首页fc次数
     INDEX_LOCATION_SWIPED,//点击了首页请求位置功能卡=权限
+    GO_MATCH,//
     CLOSE_PAY_BUY_DIALOG;//用户购买成功，支付失败，显示支付报错提示弹窗都关闭当前购买弹窗
 
     companion object {

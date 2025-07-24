@@ -209,7 +209,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_0dp"
                     android:layout_margin="@dimen/dimen_3dp"
-                    android:background="@drawable/shape_solid_white_radius_9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"

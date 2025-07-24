@@ -1,6 +1,7 @@
 package com.crush.entity
 
 import com.crush.bean.GenderPreferListBean
+import com.crush.bean.RegisterTagBean
 import java.io.Serializable
 
 data class RegisterConfigEntity(
@@ -24,6 +25,7 @@ data class RegisterConfigEntity(
         val secondContent: String?,//2级内容 ,
         val secondTitle: String?,//2级标题：Gender、I want页面，该字段无值时，body shape和You accept不予选择，同时取消至少选择一项控制 ,
         val youAcceptForMan: ArrayList<GenderPreferListBean>?,//男&Queer: You accept选项 ,
-        val youAcceptForWomen: ArrayList<GenderPreferListBean>?//You accept选项
+        val youAcceptForWomen: ArrayList<GenderPreferListBean>?,//You accept选项
+        val interestList: ArrayList<RegisterTagBean>?= arrayListOf()//You accept选项
     ):Serializable
 }

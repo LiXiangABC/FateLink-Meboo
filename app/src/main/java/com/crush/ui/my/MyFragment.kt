@@ -119,9 +119,6 @@ class MyFragment : MVPBaseFragment<MyContract.View, MyPresenter>(), MyContract.V
         val calendar = Calendar.getInstance()
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
         month = calendar.get(Calendar.MONTH)
-        imgMyTitleChristmas.visibility =
-            if (month == 11 && dayOfMonth < 27) View.VISIBLE else View.GONE
-//        myChristmasContainer.setBackgroundResource(if (month == 11 && dayOfMonth < 27) R.drawable.icon_my_christmas else R.color.color_background)
 
 
         containerHelpCenter.setOnClickListener {

@@ -54,9 +54,9 @@ import io.rong.message.TextMessage;
 
 public class TextMessageItemProvider extends BaseMessageItemProvider<TextMessage> {
 
-    public static final String GoogleUrl = "https://play.google.com/store/apps/details?id=com.blazeupa.auramix&pli=1";
+    public static final String GoogleUrl = "https://play.google.com/store/apps/details?id=com.starlit.fatelink&pli=1";
     public static final String memberDialogClickText = "click here to get limited-time special premium.";
-    public static final String emailClickText = "auraMix-Official@outlook.com";
+    public static final String emailClickText = "FateLink.Official@outlook.com";
 
     public TextMessageItemProvider() {
         mConfig.showReadState = true;

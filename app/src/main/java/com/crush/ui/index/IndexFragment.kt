@@ -42,7 +42,6 @@ import com.crush.ui.my.turnons.ChooseTurnOnsActivity
 import com.crush.util.CollectionUtils
 import com.crush.util.DateUtils
 import com.crush.util.MemberDialogShow.memberBuyShow
-import com.crush.util.PermissionUtils
 import com.crush.util.SystemUtils
 import com.crush.video.PrepareView
 import com.crush.video.StandardVideoController
@@ -67,6 +66,7 @@ import com.custom.base.http.OkHttpManager
 import com.custom.base.http.SDOkHttpResoutCallBack
 import com.crush.mvp.MVPBaseFragment
 import com.crush.util.IntentUtil
+import com.crush.util.PermissionUtil
 import com.custom.base.util.ToastUtil
 import com.gyf.immersionbar.ImmersionBar
 import com.sunday.eventbus.SDBaseEvent
@@ -724,23 +724,22 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
         manager.setSwipeAnimationSetting(swipeAnimationSetting)
         cardStackView.swipe()
         //判断权限是否请求过了
-        if (PermissionUtils.lacksPermission(
+        if (PermissionUtil.checkPermission(mActivity,
                 Manifest.permission.ACCESS_FINE_LOCATION
-            ) && PermissionUtils.lacksPermission(
+            ) && PermissionUtil.checkPermission(mActivity,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             )
         ) {
             Activities.get().top?.let {fragmentActivity->
                 cardShowNum++
-                PermissionUtils.requestPermission(fragmentActivity, {}, {
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", fragmentActivity.packageName, null)
-                    intent.data = uri
-                    fragmentActivity.startActivityForResult(intent, 10008)
-                },
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                )
+                PermissionUtil.requestPermissionCallBack(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, activity = fragmentActivity) {
+                    if (it) {
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        val uri = Uri.fromParts("package", fragmentActivity.packageName, null)
+                        intent.data = uri
+                        fragmentActivity.startActivityForResult(intent, 10008)
+                    }
+                }
             }
 
         }
@@ -1122,16 +1121,16 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
     override fun onCardDragging(direction: Direction, ratio: Float) {
         isFlashChat = false
         if (direction == Direction.Left) {
-            userDislike.setImageResource(R.mipmap.icon_black_dislike)
+            userDislike.setImageResource(R.mipmap.icon_dislike_new)
             userDislike.setBackgroundResource(R.drawable.shape_dislike_move_bg)
 
             userLike.setImageResource(R.drawable.selector_user_like_click_status_img)
             userLike.setBackgroundResource(R.drawable.selector_user_like_click_status_transfer)
         } else {
-            userLike.setImageResource(R.mipmap.icon_white_like)
+            userLike.setImageResource(R.drawable.selector_user_like_click_status_img)
             userLike.setBackgroundResource(R.drawable.shape_like_move_bg)
 
-            userDislike.setImageResource(R.drawable.selector_user_dislike_click_status_img)
+            userDislike.setImageResource(R.mipmap.icon_dislike_new)
             userDislike.setBackgroundResource(R.drawable.selector_user_dislike_click_status_transfer)
         }
     }
@@ -1163,24 +1162,23 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
                     IntentUtil.startActivity(ChooseTurnOnsActivity::class.java, bundle)
                     isFlashChat = false
 
-                } else if (CollectionUtils.isNotEmpty(locationRequestArray) && manager.topPosition - 1 == locationRequestArray[locationRequestArray.size - 1] && PermissionUtils.lacksPermission(
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) && PermissionUtils.lacksPermission(
+                } else if (CollectionUtils.isNotEmpty(locationRequestArray) && manager.topPosition - 1 == locationRequestArray[locationRequestArray.size - 1] && PermissionUtil.checkPermission(
+                        mActivity,Manifest.permission.ACCESS_FINE_LOCATION
+                    ) && PermissionUtil.checkPermission(mActivity,
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     )
                 ) {
                     Activities.get().top?.let {fac->
                         cardShowNum++
-                        PermissionUtils.requestPermission(fac, {}, {
-                            val intent =
-                                Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            val uri = Uri.fromParts("package", fac.packageName, null)
-                            intent.data = uri
-                            fac.startActivityForResult(intent, 10008)
-                        },
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                        )
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION, activity = fac) {
+                            if (it) {
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                val uri = Uri.fromParts("package", fac.packageName, null)
+                                intent.data = uri
+                                fac.startActivityForResult(intent, 10008)
+                            }
+                        }
                     }
 
 //                } else if (MathUtil().isMultipleOfEight(
@@ -1212,23 +1210,23 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
 
                 }
             } else {
-                if (!getLocationAgain() && PermissionUtils.lacksPermission(
+                if (!getLocationAgain() && PermissionUtil.checkPermission(mActivity,
                         Manifest.permission.ACCESS_FINE_LOCATION
-                    ) && PermissionUtils.lacksPermission(
+                    ) && PermissionUtil.checkPermission(mActivity,
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     )
                 ) {
                     Activities.get().top?.let {fac->
                         cardShowNum++
-                        PermissionUtils.requestPermission(fac, {}, {
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            val uri = Uri.fromParts("package", fac.packageName, null)
-                            intent.data = uri
-                            fac.startActivityForResult(intent, 10008)
-                        },
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                        )
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION, activity = fac) {
+                            if (it) {
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                val uri = Uri.fromParts("package", fac.packageName, null)
+                                intent.data = uri
+                                fac.startActivityForResult(intent, 10008)
+                            }
+                        }
                     }
 
                 }
@@ -1252,9 +1250,9 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
 
             } else {
                 //当下标索引不符合权限请求索引时或者权限已有时，进入以下逻辑
-                if (getLocationAgain() || !(PermissionUtils.lacksPermission(
+                if (getLocationAgain() || !(PermissionUtil.checkPermission(mActivity,
                         Manifest.permission.ACCESS_FINE_LOCATION
-                    ) && PermissionUtils.lacksPermission(
+                    ) && PermissionUtil.checkPermission(mActivity,
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     ))
                 ) {
@@ -1406,7 +1404,7 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
      * 卡片取消滑动监听
      */
     override fun onCardCanceled() {
-        userDislike.setImageResource(R.drawable.selector_user_dislike_click_status_img)
+        userDislike.setImageResource(R.mipmap.icon_dislike_new)
         userDislike.setBackgroundResource(R.drawable.selector_user_dislike_click_status_transfer)
         userLike.setImageResource(R.drawable.selector_user_like_click_status_img)
         userLike.setBackgroundResource(R.drawable.selector_user_like_click_status_transfer)
@@ -1458,9 +1456,9 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
         userActionContainer.visibility =
             if (!turnOns && manager.topPosition == turnOnsLimit)
                 View.GONE
-            else if (CollectionUtils.isNotEmpty(locationRequestArray) && manager.topPosition == locationRequestArray[locationRequestArray.size - 1] && PermissionUtils.lacksPermission(
+            else if (CollectionUtils.isNotEmpty(locationRequestArray) && manager.topPosition == locationRequestArray[locationRequestArray.size - 1] && PermissionUtil.checkPermission(mActivity,
                     Manifest.permission.ACCESS_FINE_LOCATION
-                ) && PermissionUtils.lacksPermission(
+                ) && PermissionUtil.checkPermission(mActivity,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 )
             )
@@ -1485,7 +1483,7 @@ class IndexFragment : MVPBaseFragment<IndexContract.View, IndexPresenter>(), Ind
      * 卡片消失监听
      */
     override fun onCardDisappeared(view: View, position: Int) {
-        userDislike.setImageResource(R.drawable.selector_user_dislike_click_status_img)
+        userDislike.setImageResource(R.mipmap.icon_dislike_new)
         userDislike.setBackgroundResource(R.drawable.selector_user_dislike_click_status_transfer)
         userLike.setImageResource(R.drawable.selector_user_like_click_status_img)
         userLike.setBackgroundResource(R.drawable.selector_user_like_click_status_transfer)

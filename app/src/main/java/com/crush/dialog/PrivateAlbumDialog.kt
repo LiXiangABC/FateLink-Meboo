@@ -7,8 +7,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.crush.R
-import com.crush.util.PermissionUtils
+import com.crush.util.PermissionUtil
 import com.crush.util.SelectPictureUtil
+import io.rong.imkit.activity.Activities
 import razerdp.basepopup.BasePopupWindow
 
 class PrivateAlbumDialog(var ctx:Activity, var isMember:Boolean, var listener: onCallBack ) :  BasePopupWindow(ctx) {
@@ -28,37 +29,33 @@ class PrivateAlbumDialog(var ctx:Activity, var isMember:Boolean, var listener: o
         ownPrivateAlbum.setOnClickListener {
             if (isMember){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    if (!PermissionUtils.lacksPermission(
-                            Manifest.permission.READ_MEDIA_IMAGES
-                        ) && !PermissionUtils.lacksPermission(
-                            Manifest.permission.READ_MEDIA_VIDEO
-                        )
+                    if (!PermissionUtil.checkPermission(ctx,Manifest.permission.READ_MEDIA_IMAGES) && !PermissionUtil.checkPermission(ctx,Manifest.permission.READ_MEDIA_VIDEO)
                     ) {
                         SelectPictureUtil.selectNoTailor(ctx)
                     } else {
-                        PermissionUtils.requestPermission(
-                            ctx, 4,
+                        Activities.get().top?.let { it1 ->
+                            PermissionUtil.requestPermissionCallBack(
+                                Manifest.permission.READ_MEDIA_IMAGES,
+                                Manifest.permission.READ_MEDIA_VIDEO,
+                                activity = it1, type =  4)
                             {
-                                SelectPictureUtil.selectNoTailor(ctx)
-                            },
-                            Manifest.permission.READ_MEDIA_IMAGES,
-                            Manifest.permission.READ_MEDIA_VIDEO
-                        )
+                                if (it) {
+                                    SelectPictureUtil.selectNoTailor(ctx)
+                                }
+                            }
+                        }
                     }
                 } else {
-                    if (!PermissionUtils.lacksPermission(
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        )
+                    if (!PermissionUtil.checkPermission(ctx,Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     ) {
                         SelectPictureUtil.selectNoTailor(ctx)
                     } else {
-                        PermissionUtils.requestPermission(
-                            ctx, 4,
+                        Activities.get().top?.let { it1 ->
+                            PermissionUtil.requestPermissionCallBack(Manifest.permission.WRITE_EXTERNAL_STORAGE, activity = it1, type = 4)
                             {
                                 SelectPictureUtil.selectNoTailor(ctx)
-                            },
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        )
+                            }
+                        }
                     }
                 }
                 dismiss()

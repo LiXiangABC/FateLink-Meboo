@@ -176,7 +176,7 @@ public class SightMessageItemProvider extends BaseMessageItemProvider<SightMessa
             }
 
 
-            // 融云的存储链接包含https，所以无法单独用https做融云视频与auramix视频的区分，且融云的存储链接存在过期行为，直接用MediaUrl会导致视频消息不展示封面
+            // 融云的存储链接包含https，所以无法单独用https做融云视频与APP视频的区分，且融云的存储链接存在过期行为，直接用MediaUrl会导致视频消息不展示封面
             // https://sight-short-aws-or.ronghub.com/QVFTWwcHUQVBWgBCWwYIAgsGAQIKBAUGBQYBBwcFAAIDAAIBBAYJBgYyNzAy.mp4
             if (holder.getView(R.id.rc_sight_thumb).getVisibility()==View.VISIBLE) {
                 File file = new File(thumbUri.getPath());

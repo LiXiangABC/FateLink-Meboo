@@ -1,6 +1,7 @@
 package io.rong.imkit.dialog
 
 import android.content.Context
+import android.widget.ImageView
 import android.widget.TextView
 import com.custom.base.config.BaseConfig
 import io.rong.imkit.R
@@ -15,6 +16,7 @@ class FirstClickPrivateDialog(var ctx: Context, var type:Int,var listener: First
     private fun initView() {
         val dialogConfirm = findViewById<TextView>(R.id.dialog_confirm)
         val dialogContent = findViewById<TextView>(R.id.dialog_content)
+        val dialogClose = findViewById<ImageView>(R.id.dialog_close)
 
         when(type){
             1->{
@@ -26,6 +28,9 @@ class FirstClickPrivateDialog(var ctx: Context, var type:Int,var listener: First
         }
         dialogConfirm.setOnClickListener {
             listener.onListener(type)
+            dismiss()
+        }
+        dialogClose.setOnClickListener {
             dismiss()
         }
 

@@ -34,10 +34,8 @@
         <ImageView
             android:id="@+id/input_panel_photo_select"
             android:layout_width="@dimen/dimen_22dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="20dp"
-            android:paddingTop="@dimen/dimen_12dp"
-            android:paddingBottom="@dimen/dimen_12dp"
             android:src="@mipmap/icon_select_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

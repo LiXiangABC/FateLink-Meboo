@@ -31,7 +31,7 @@
             android:lines="1"
             android:fontFamily="@font/cabin_medium"
             tools:text="@string/now_i_want"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/dimen_20sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/recyclerview"
@@ -44,7 +44,7 @@
             android:layout_height="44dp"
             android:paddingTop="@dimen/dimen_24dp"
             android:paddingEnd="@dimen/dimen_22dp"
-            android:src="@drawable/icon_black_close"
+            android:src="@drawable/icon_white_close"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 

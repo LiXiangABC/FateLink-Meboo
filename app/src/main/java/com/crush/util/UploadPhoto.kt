@@ -21,9 +21,9 @@ object UploadPhoto {
 
         val file = Uri.fromFile(File(path))
         val path = if (Firebase.auth.uid == null || Firebase.auth.uid.equals("")){
-            "images4/${file.lastPathSegment}"
+            "fatelink/images4/${file.lastPathSegment}"
         }else{
-            "images5/${file.lastPathSegment}"
+            "fatelink/images5/${file.lastPathSegment}"
         }
         val riversRef = storageRef.child(path)
         val uploadTask = riversRef.putFile(file)
@@ -45,9 +45,9 @@ object UploadPhoto {
 
         val file = Uri.fromFile(File(path))
         val path = if (Firebase.auth.uid == null || Firebase.auth.uid.equals("")){
-            "auramix/images1/${file.lastPathSegment}"
+            "fatelink/images1/${file.lastPathSegment}"
         }else{
-            "auramix/images2/${file.lastPathSegment}"
+            "fatelink/images2/${file.lastPathSegment}"
         }
         val riversRef = storageRef.child(path)
         val uploadTask = riversRef.putFile(file)

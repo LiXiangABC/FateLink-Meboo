@@ -53,40 +53,33 @@ class ProfileInfoActivity : MVPBaseActivity<ProfileInfoContact.View, ProfileInfo
             0,
             0
         )
-        savedInstanceState?.let {
-            if (supportFragmentManager.findFragmentByTag(ADFragment::class.java.simpleName) != null) {
-                adFragment =
-                    supportFragmentManager.findFragmentByTag(ADFragment::class.java.simpleName) as ADFragment
-            }
-            if (supportFragmentManager.getFragment(
-                    savedInstanceState,
-                    PhotoFragment::class.java.simpleName
-                ) != null
-            ) {
-                photoFragment =
-                    supportFragmentManager.findFragmentByTag(PhotoFragment::class.java.simpleName) as PhotoFragment
-            }
-            if (supportFragmentManager.findFragmentByTag(TurnOnsFragment::class.java.simpleName) != null) {
-                turnOnsFragment =
-                    supportFragmentManager.findFragmentByTag(TurnOnsFragment::class.java.simpleName) as TurnOnsFragment
-            }
-        }
-        if (adFragment == null) {
+        // 仅当没有保存状态时才初始化Fragment
+        if (savedInstanceState == null) {
             adFragment = ADFragment()
-        }
-        if (photoFragment == null) {
             photoFragment = PhotoFragment()
-        }
-        if (turnOnsFragment == null) {
             turnOnsFragment = TurnOnsFragment()
+        } else {
+            // 从FragmentManager恢复已存在的Fragment
+            adFragment = supportFragmentManager.findFragmentByTag(getFragmentTag(0)) as? ADFragment
+            photoFragment = supportFragmentManager.findFragmentByTag(getFragmentTag(1)) as? PhotoFragment
+            turnOnsFragment = supportFragmentManager.findFragmentByTag(getFragmentTag(2)) as? TurnOnsFragment
         }
 
-        if (!mFragments.contains(adFragment)) {
-            mFragments.add(adFragment as ADFragment)
-        }
-        if (!mFragments.contains(photoFragment)) {
-            mFragments.add(photoFragment as PhotoFragment)
-        }
+        // 确保Fragment非空
+        adFragment = adFragment ?: ADFragment()
+        photoFragment = photoFragment ?: PhotoFragment()
+        turnOnsFragment = turnOnsFragment ?: TurnOnsFragment()
+
+        mFragments.clear()
+        mFragments.add(adFragment!!)
+        mFragments.add(photoFragment!!)
+
+        // 立即初始化Adapter
+        val adapter = ProfilePagerAdapter(supportFragmentManager, mFragments, mTitles)
+        profileViewPager.adapter = adapter
+        profileTabLayout.setViewPager(profileViewPager)
+        profileViewPager.offscreenPageLimit = 2 // 设置为固定值
+
 
         OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
             override fun addBody(requestBody: OkHttpBodyEntity) {
@@ -116,22 +109,52 @@ class ProfileInfoActivity : MVPBaseActivity<ProfileInfoContact.View, ProfileInfo
 
                 BaseConfig.getInstance.setString(SpName.userCode, entity.data.userCode)
 
-                val bundle = Bundle()
-                bundle.putSerializable("entity", entity.data)
-                adFragment?.arguments = bundle
-                photoFragment?.arguments = bundle
+                val bundle = Bundle().apply {
+                    putSerializable("entity", entity.data)
+                }
+
+                // 安全设置参数
+                adFragment?.arguments = adFragment?.arguments ?: bundle
+                photoFragment?.arguments = photoFragment?.arguments ?: bundle
+
+                // 通知Fragment数据已更新
+                (adFragment as? ADFragment)?.onDataUpdated(entity.data)
+                (photoFragment as? PhotoFragment)?.onDataUpdated(entity.data)
+
                 if (CollectionUtils.isNotEmpty(entity.data.turnOnsList)) {
-                    mTitles.add(mActivity.getString(R.string.turns_ons))
+//                    mFragments.add(turnOnsFragment!!)
+//                    turnOnsFragment?.arguments = bundle
+
+                    // 确保只添加一次
                     if (!mFragments.contains(turnOnsFragment)) {
-                        mFragments.add(turnOnsFragment as TurnOnsFragment)
-                        turnOnsFragment?.arguments = bundle
+                        mTitles.add(mActivity.getString(R.string.turns_ons))
+                        turnOnsFragment?.arguments = turnOnsFragment?.arguments ?: bundle
+                        mFragments.add(turnOnsFragment!!)
+
+                        // 更新Adapter
+                        (profileViewPager.adapter as? ProfilePagerAdapter)?.updateFragments(mFragments, mTitles)
+                        profileViewPager.offscreenPageLimit = mFragments.size - 1
                     }
                 }
-                val profilePagerAdapter =
-                    ProfilePagerAdapter(supportFragmentManager, mFragments, mTitles)
-                profileViewPager.adapter = profilePagerAdapter
+//                val profilePagerAdapter = ProfilePagerAdapter(supportFragmentManager, mFragments, mTitles)
+//                profileViewPager.adapter = profilePagerAdapter
+//                profileTabLayout.setViewPager(profileViewPager)
+                // 创建或更新Adapter
+//                if (profileViewPager.adapter == null) {
+//                    val adapter = ProfilePagerAdapter(supportFragmentManager, mFragments, mTitles)
+//                    profileViewPager.adapter = adapter
+//                    profileTabLayout.setViewPager(profileViewPager)
+//                    profileViewPager.offscreenPageLimit = mFragments.size - 1
+//
+//                } else {
+//                    (profileViewPager.adapter as? ProfilePagerAdapter)?.apply {
+//                        updateFragments(mFragments, mTitles)
+//                    }
+//                }
+                // 刷新TabLayout
                 profileTabLayout.setViewPager(profileViewPager)
-                profileViewPager.offscreenPageLimit = mFragments.size - 1
+
+
             }
 
             override fun onFailure(code: Int, msg: String) {
@@ -146,6 +169,12 @@ class ProfileInfoActivity : MVPBaseActivity<ProfileInfoContact.View, ProfileInfo
             override fun onTabReselect(position: Int) {
             }
         })
+    }
+
+
+    private fun getFragmentTag(position: Int): String {
+        // 使用ViewPager的标准标签格式
+        return "android:switcher:${R.id.profile_view_pager}:$position"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

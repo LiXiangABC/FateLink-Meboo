@@ -1,5 +1,6 @@
 package com.crush.bean
 
+import io.rong.imkit.entity.IMTagBean
 import java.io.Serializable
 
 data class MatchIndexBean(
@@ -19,7 +20,7 @@ data class MatchIndexBean(
     val state:String,// 州
     val city:String?,// 城市
 
-    val interests:List<TagBean>,//兴趣，多个兴趣标签用逗号分隔
+    val interests:List<IMTagBean>,//兴趣，多个兴趣标签用逗号分隔
     val matched:Boolean,//true-匹配(对应已like我，则触发match效果) false-不匹配
     val userType:Int,//  2是CM  3是M
 

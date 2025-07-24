@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,17 +17,20 @@ import android.widget.TextView;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.crush.R;
-import com.crush.bean.TagBean;
+import com.crush.bean.RegisterTagBean;
 import com.crush.util.DensityUtil;
 
 import java.util.List;
+
+import io.rong.imkit.entity.IMTagBean;
 
 public class TagCloudView extends ViewGroup {
 
     private static final String TAG = TagCloudView.class.getSimpleName();
     private static final int TYPE_TEXT_NORMAL = 1;
     private List<String> tags;
-    private List<TagBean> tagBeans;
+    private List<IMTagBean> tagBeans;
+    private List<RegisterTagBean> registerTagBean;
 
     private LayoutInflater mInflater;
     private OnTagClickListener onTagClickListener;
@@ -411,7 +413,7 @@ public class TagCloudView extends ViewGroup {
         postInvalidate();
     }
 
-    public void setTagBeansCheck(List<TagBean> tagList) {
+    public void setTagBeansCheck(List<IMTagBean> tagList) {
         this.tagBeans = tagList;
         this.removeAllViews();
         if (tagBeans != null && tagBeans.size() > 0) {
@@ -445,7 +447,7 @@ public class TagCloudView extends ViewGroup {
         postInvalidate();
     }
 
-    public void setTagBeans(List<TagBean> tagList, boolean check) {
+    public void setTagBeans(List<IMTagBean> tagList, boolean check) {
         this.tagBeans = tagList;
         this.removeAllViews();
         if (tagBeans != null && tagBeans.size() > 0) {
@@ -463,6 +465,39 @@ public class TagCloudView extends ViewGroup {
                 LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 tagView.setLayoutParams(layoutParams);
                 tagView.setText(tagBeans.get(i).getInterest());
+                tagView.setTag(TYPE_TEXT_NORMAL);
+                final int finalI = i;
+                tagView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (onTagClickListener != null) {
+                            onTagClickListener.onTagClick(finalI);
+                        }
+                    }
+                });
+                addView(tagView);
+            }
+        }
+        postInvalidate();
+    }
+    public void setRegisterTagBeans(List<RegisterTagBean> tagList, boolean check) {
+        this.registerTagBean = tagList;
+        this.removeAllViews();
+        if (registerTagBean != null && registerTagBean.size() > 0) {
+            for (int i = 0; i < registerTagBean.size(); i++) {
+                TextView tagView = (TextView) mInflater.inflate(mTagResId, null);
+                if (mTagResId == DEFAULT_TAG_RESID) {
+                    tagView.setBackgroundResource(mBackground);
+                    tagView.setPadding(textPaddingLeft, textPaddingTop, textPaddingRight, textPaddingBottom);
+                    tagView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTagSize);
+                    tagView.setTextColor(mTagColor);
+                }
+                if (check) {
+                    tagView.setBackgroundResource(registerTagBean.get(i).getCheck() ? R.drawable.shape_interest_select_bg : R.drawable.shape_interest_unselect_bg);
+                }
+                LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                tagView.setLayoutParams(layoutParams);
+                tagView.setText(registerTagBean.get(i).getValue());
                 tagView.setTag(TYPE_TEXT_NORMAL);
                 final int finalI = i;
                 tagView.setOnClickListener(new OnClickListener() {

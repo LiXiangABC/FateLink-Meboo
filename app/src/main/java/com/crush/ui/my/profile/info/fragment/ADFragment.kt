@@ -1,17 +1,34 @@
 package com.crush.ui.my.profile.info.fragment
 
+import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.crush.R
+import com.crush.entity.UserProfileEntity
 import com.crush.view.TagCloudView
 import com.crush.mvp.MVPBaseFragment
 
 class ADFragment : MVPBaseFragment<ADContract.View, ADPresenter>(), ADContract.View {
 
-
+    companion object {
+        fun newInstance() = ADFragment()
+    }
     override fun bindLayout(): Int {
         return R.layout.layout_profile_ad
+    }
+
+    fun onDataUpdated(data: UserProfileEntity.Data) {
+        // 更新参数
+        arguments = (arguments ?: Bundle()).apply {
+            putSerializable("entity", data)
+        }
+
+        Log.e("~~~", "onDataUpdated:$data ")
+        // 刷新UI
+        mPresenter?.updateUI(data)
     }
 
 

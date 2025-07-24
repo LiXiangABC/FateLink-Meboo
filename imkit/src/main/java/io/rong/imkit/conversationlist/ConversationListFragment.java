@@ -1,27 +1,34 @@
 package io.rong.imkit.conversationlist;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.custom.base.config.BaseConfig;
 import com.gyf.immersionbar.ImmersionBar;
 import com.sunday.eventbus.SDBaseEvent;
@@ -43,6 +50,7 @@ import io.rong.imkit.IMCenter;
 import io.rong.imkit.R;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.SpName;
+import io.rong.imkit.config.BaseDataProcessor;
 import io.rong.imkit.config.ConversationListBehaviorListener;
 import io.rong.imkit.config.RongConfigCenter;
 import io.rong.imkit.conversationlist.model.BaseUiConversation;
@@ -51,10 +59,16 @@ import io.rong.imkit.conversationlist.viewmodel.ConversationListViewModel;
 import io.rong.imkit.event.EnumEventTag;
 import io.rong.imkit.event.Event;
 import io.rong.imkit.event.FirebaseEventTag;
+import io.rong.imkit.http.HttpRequest;
 import io.rong.imkit.model.NoticeContent;
+import io.rong.imkit.picture.permissions.PermissionChecker;
+import io.rong.imkit.picture.tools.ToastUtils;
 import io.rong.imkit.utils.FirebaseEventUtils;
+import io.rong.imkit.utils.PermissionCheckUtil;
+import io.rong.imkit.utils.RongUtils;
 import io.rong.imkit.utils.RouteUtils;
 import io.rong.imkit.widget.FixedLinearLayoutManager;
+import io.rong.imkit.widget.ViewChatHeaderWlm;
 import io.rong.imkit.widget.adapter.BaseAdapter;
 import io.rong.imkit.widget.adapter.ViewHolder;
 import io.rong.imkit.widget.dialog.OptionsPopupDialog;
@@ -65,6 +79,7 @@ import io.rong.imkit.widget.refresh.listener.OnLoadMoreListener;
 import io.rong.imkit.widget.refresh.listener.OnRefreshListener;
 import io.rong.imkit.widget.refresh.wrapper.RongRefreshHeader;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 
 public class ConversationListFragment extends Fragment implements BaseAdapter.OnItemClickListener, SDEventObserver {
@@ -225,7 +240,102 @@ public class ConversationListFragment extends Fragment implements BaseAdapter.On
 
         initRefreshView();
         subscribeUi();
+        IMConfig();
     }
+
+
+
+
+    /**
+     * 融云配置
+     */
+    private void IMConfig() {
+        View inflate = View.inflate(getActivity(), R.layout.layout_chat_header, null);
+        addHeaderView(inflate);
+        View emptyView = View.inflate(getActivity(), R.layout.layout_chat_empty, null);
+        LinearLayout insideContainer = emptyView.findViewById(R.id.inside_container);
+        setEmptyView(emptyView);
+        ImageView imgNotificationClose = inflate.findViewById(R.id.img_notification_close);
+        ViewChatHeaderWlm viewChatHeaderWlm = inflate.findViewById(R.id.viewChatHeaderWlm);
+//        viewChatDowm = inflate.findViewById(R.id.view_chat_dowm)
+        ConstraintLayout notificationContainer = inflate.findViewById(R.id.notification_container);
+        LottieAnimationView loRingTheBell = inflate.findViewById(R.id.lo_ring_the_bell);
+
+        viewChatHeaderWlm.getBanner().addBannerLifecycleObserver(this);
+        HttpRequest.INSTANCE.getWlmLiveData().observe(getViewLifecycleOwner(),wlmListBeans -> {
+            viewChatHeaderWlm.setData(BaseConfig.Companion.getGetInstance().getBoolean(SpName.INSTANCE.isMember(), false), wlmListBeans);
+        });
+        //系统客服信息请求
+        HttpRequest.INSTANCE.getServiceInfo(entity -> {
+            if (!CollectionUtils.checkNullOrEmptyOrContainsNull(entity.getData())) {
+                String serverUserCode = entity.getData().get(0).getUserCode();
+                BaseConfig.Companion.getGetInstance().setString(SpName.INSTANCE.getServerUserCode(), serverUserCode);
+                RongIM.getInstance().refreshUserInfoCache(
+                        new UserInfo(
+                                entity.getData().get(0).getUserCode(),
+                                entity.getData().get(0).getName(),
+                                Uri.parse(entity.getData().get(0).getIocn())
+                        )
+                );
+                //加白用户不显示系统消息
+                if (BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0) == 1) {
+//                        RongConfigCenter.conversationListConfig().setDataProcessor(new BaseDataProcessor<Conversation>(){
+//                            ArrayList<Conversation> newList = new ArrayList<>();
+//                                for (item in data) {
+//                                val targetId = item?.targetId
+//                                if (serverUserCode != "" && serverUserCode == targetId) {
+//                                    serverCount = item.unreadMessageCount
+//                                } else {RongConfigCenter
+//                                    newList.add(item)
+//                                }
+//                            }
+//                            //过滤后的数据
+//                                return super.filtered(newList)
+//                        });
+                }
+
+            }
+           return null;
+        });
+
+
+        //通知权限栏是否展示
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !PermissionCheckUtil.checkPermissions(getActivity(),
+                new String[] {Manifest.permission.POST_NOTIFICATIONS}
+        ) && BaseConfig.Companion.getGetInstance().getBoolean(SpName.INSTANCE.getFirstShowNotification(), false)
+        ){
+            notificationContainer.setVisibility(View.VISIBLE);
+        }else {
+            notificationContainer.setVisibility(View.GONE);
+        }
+        insideContainer.setVisibility(notificationContainer.getVisibility() != View.VISIBLE?View.VISIBLE:View.GONE);
+
+        //通知权限请求
+        notificationContainer.setOnClickListener(view ->  {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                String[]  permissions = new String[] {Manifest.permission.POST_NOTIFICATIONS};
+                if (PermissionChecker.checkSelfPermission(getActivity(), permissions)) {
+                    loRingTheBell.cancelAnimation();
+                    notificationContainer.setVisibility(View.GONE);
+                } else {
+                    ToastUtils.s(getContext(), getString(R.string.rc_picture_camera));
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                    intent.setData(uri);
+                    getActivity().startActivityForResult(intent, Permission_Request);
+                }
+
+            }
+        });
+        //关闭通知权限请求栏
+        imgNotificationClose.setOnClickListener(view -> {
+            loRingTheBell.cancelAnimation();
+            notificationContainer.setVisibility(View.GONE);
+            insideContainer.setVisibility(View.VISIBLE);
+        });
+    }
+    private int Permission_Request = 10001;
+
 
     @Override
     public void onEvent(SDBaseEvent sdBaseEvent) {
@@ -563,6 +673,8 @@ public class ConversationListFragment extends Fragment implements BaseAdapter.On
                             }
                         });
     }
+
+
 
 
     /**

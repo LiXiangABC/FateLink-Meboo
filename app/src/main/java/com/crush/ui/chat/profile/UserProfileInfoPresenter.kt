@@ -15,7 +15,7 @@ import com.crush.Constant
 import com.crush.R
 import com.crush.adapter.PageLoaderStringAdapter
 import com.crush.adapter.UserProfileTurnOnsAdapter
-import com.crush.callback.EmptyCallBack
+import io.rong.imkit.widget.EmptyCallBack
 import com.crush.dialog.UserProfileOperationDialog
 import com.crush.entity.BaseEntity
 import com.crush.entity.MatchResultEntity
@@ -328,7 +328,8 @@ class UserProfileInfoPresenter : BasePresenterImpl<UserProfileInfoContract.View>
 
             userProfileDislike.setOnClickListener {
                 if (bundle.getBoolean("isWlm")){
-                    benefitsReduceWLM(bundle.getString("userCodeFriend",""),1,object :EmptyCallBack{
+                    benefitsReduceWLM(bundle.getString("userCodeFriend",""),1,object :
+                        EmptyCallBack {
                         override fun OnSuccessListener() {
                             OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
                                 override fun addBody(requestBody: OkHttpBodyEntity) {

@@ -1,6 +1,7 @@
 package io.rong.imkit.http
 
 import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import com.custom.base.config.BaseConfig
 import com.custom.base.entity.OkHttpBodyEntity
 import com.custom.base.http.OkHttpFromBoy
@@ -17,6 +18,7 @@ import io.rong.imkit.dialog.MemberUnitaryBuyNewDialog
 import io.rong.imkit.entity.BaseEntity
 import io.rong.imkit.entity.BaseResutlEntity
 import io.rong.imkit.entity.BuyMemberPageEntity
+import io.rong.imkit.entity.ConfigsEntity
 import io.rong.imkit.entity.EvaluateCheckBean
 import io.rong.imkit.entity.EvaluateCheckEntity
 import io.rong.imkit.entity.GreetingFlirtingEntity
@@ -28,6 +30,7 @@ import io.rong.imkit.entity.PrivateAlbumEntity
 import io.rong.imkit.entity.TipsEntity
 import io.rong.imkit.entity.TipsPopEntity
 import io.rong.imkit.entity.UserProfileEntity
+import io.rong.imkit.entity.WLMListBean
 import io.rong.imkit.event.EnumEventTag
 import io.rong.imkit.event.FirebaseEventTag
 import io.rong.imkit.pay.EmptySuccessCallBack
@@ -41,6 +44,12 @@ import org.json.JSONObject
 
 
 object HttpRequest {
+
+    var wlmLiveData = MutableLiveData<ArrayList<WLMListBean>>()
+    var canSendImageNumLiveData = MutableLiveData<Int>()
+    var canSendUnlockImageNumLiveData = MutableLiveData<Int>()
+
+
     var sayHiUrl:String=""
     fun getMemberReduce(context: Context,chatUserCode:String,uid:String,callback:RequestCallBack,benefitCode:Int,type:Int,imageCode:String) {
         OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
@@ -390,6 +399,8 @@ object HttpRequest {
                     BaseConfig.getInstance.setInt("${targetId}_sendMessagesNumber", 0)
                     BaseConfig.getInstance.setInt("${targetId}_messagesNumber", entity.data.messagesNumber)
                     BaseConfig.getInstance.setBoolean("${targetId}_member", entity.data.member)
+                    canSendImageNumLiveData.postValue(entity.data.canSendImageNum?:0)
+                    canSendUnlockImageNumLiveData.postValue(entity.data.canSendUnlockImageNum?:0)
                     try {
                         val userInfo = RongUserInfoManager.getInstance().getUserInfo(targetId)
                         if (userInfo != null) {
@@ -563,6 +574,19 @@ object HttpRequest {
         }, object : SDOkHttpResoutCallBack<BaseResutlEntity<TipsEntity>>(false) {
             override fun onSuccess(entity: BaseResutlEntity<TipsEntity>) {
                 sdOkHttpResoutCallBack.onSuccess(entity)
+            }
+        })
+    }
+
+    fun getServiceInfo(callback:(ConfigsEntity)->Unit){
+        OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
+            override fun addBody(requestBody: OkHttpBodyEntity) {
+                requestBody.setPost(API.user_config_url)
+                requestBody.add("code", 1)
+            }
+        }, object : SDOkHttpResoutCallBack<ConfigsEntity>(false) {
+            override fun onSuccess(entity: ConfigsEntity) {
+                callback.invoke(entity)
             }
         })
     }

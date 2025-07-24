@@ -18,6 +18,7 @@ import com.crush.R
 import com.crush.bean.UserPhotoV2Bean
 import com.custom.base.util.SDViewUtil
 import com.luck.picture.lib.photoview.PhotoView
+import com.makeramen.roundedimageview.RoundedImageView
 import com.youth.banner.adapter.BannerAdapter
 
 class PageLoaderStringAdapter(
@@ -41,7 +42,7 @@ class PageLoaderStringAdapter(
         size: Int
     ) {
         holder?.apply {
-            val imageLoading = view.findViewById<LottieAnimationView>(R.id.image_loading)
+            val imageLoading = view.findViewById<RoundedImageView>(R.id.image_loading)
             val iv = view.findViewById<ImageView>(R.id.item_start_page_iv)
 
             Glide.with(iv)
@@ -54,7 +55,7 @@ class PageLoaderStringAdapter(
                         isFirstResource: Boolean
                     ): Boolean {
                         imageLoading.visibility = View.GONE
-                        imageLoading.cancelAnimation()
+//                        imageLoading.cancelAnimation()
                         return false
                     }
 
@@ -66,7 +67,7 @@ class PageLoaderStringAdapter(
                         isFirstResource: Boolean
                     ): Boolean {
                         imageLoading.visibility = View.GONE
-                        imageLoading.cancelAnimation()
+//                        imageLoading.cancelAnimation()
                         return false
                     }
                 })

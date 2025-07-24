@@ -792,8 +792,8 @@ public class ConversationFragment extends Fragment
         mUnreadHistoryMessageNum = rootView.findViewById(R.id.rc_unread_message_count);
         mUnreadMentionMessageNum = rootView.findViewById(R.id.rc_mention_message_count);
         mNotificationContainer = rootView.findViewById(R.id.rc_notification_container);
-        mImgConversationBg = rootView.findViewById(R.id.img_conversation_bg);
-        mImgConversationBg.setVisibility(BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0) == 1 ? GONE : VISIBLE);
+//        mImgConversationBg = rootView.findViewById(R.id.img_conversation_bg);
+//        mImgConversationBg.setVisibility(BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0) == 1 ? GONE : VISIBLE);
         mNewMessageNum.setOnClickListener(this);
         mUnreadHistoryMessageNum.setOnClickListener(this);
         mUnreadMentionMessageNum.setOnClickListener(this);
@@ -1280,7 +1280,7 @@ public class ConversationFragment extends Fragment
                         tipsEntity.setShow(true);
                         String json = gson.toJson(tipsEntity);
                         TextMessage textMessage = TextMessage.obtain(json);
-                        textMessage.setExtra("[Auramix tips]");
+                        textMessage.setExtra("[FateLink tips]");
                         RongIM.getInstance().insertIncomingMessage(Conversation.ConversationType.PRIVATE,
                                 getTargetId(),
                                 getTargetId(),

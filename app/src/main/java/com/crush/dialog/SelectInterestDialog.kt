@@ -1,12 +1,11 @@
 package com.crush.dialog
 
 import android.app.Activity
-import android.graphics.Color
 import android.widget.ImageView
 import android.widget.TextView
 import com.crush.Constant
 import com.crush.R
-import com.crush.bean.TagBean
+import io.rong.imkit.entity.IMTagBean
 import com.crush.entity.InterestsInfoEntity
 import com.crush.view.TagCloudView
 import com.custom.base.entity.OkHttpBodyEntity
@@ -30,7 +29,7 @@ class SelectInterestDialog(
     private fun initView() {
         val dialogClose = findViewById<ImageView>(R.id.dialog_close)
         val addInterestsTagCloud = findViewById<TagCloudView>(R.id.add_interests_tag_cloud)
-        var tags: MutableList<TagBean> = ArrayList()
+        var tags: MutableList<IMTagBean> = ArrayList()
 
         OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
             override fun addBody(requestBody: OkHttpBodyEntity) {
@@ -92,6 +91,6 @@ class SelectInterestDialog(
     }
 
     interface onCallBack {
-        fun onCallback(tags: MutableList<TagBean>)
+        fun onCallback(tags: MutableList<IMTagBean>)
     }
 }

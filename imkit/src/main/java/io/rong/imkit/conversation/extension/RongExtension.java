@@ -119,7 +119,6 @@ public class RongExtension extends LinearLayout {
             };
     private HorizontalScrollView mFastReplyContainer;
     private TextView mTxtCallOne;
-    private TextView mTxtCallTwo;
     private TextView mTxtCallThree;
     private TextView mTxtCallFor;
 
@@ -158,7 +157,6 @@ public class RongExtension extends LinearLayout {
         mBoardContainer = mRoot.findViewById(R.id.rc_ext_board_container);
         mFastReplyContainer = mRoot.findViewById(R.id.fast_reply_container);
         mTxtCallOne = mRoot.findViewById(R.id.txt_call_one);
-        mTxtCallTwo = mRoot.findViewById(R.id.txt_call_two);
         mTxtCallThree = mRoot.findViewById(R.id.txt_call_three);
         mTxtCallFor = mRoot.findViewById(R.id.txt_call_four);
         mFastReplyContainer.setVisibility(BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0)==1?View.GONE : View.VISIBLE);
@@ -294,23 +292,6 @@ public class RongExtension extends LinearLayout {
 
         });
 
-        mTxtCallTwo.setOnClickListener(view -> {
-            String targetId = mConversationIdentifier.getTargetId();
-            boolean isMember = BaseConfig.Companion.getGetInstance().getBoolean(targetId + "_member", false);
-            if (!isMember) {
-                int messagesNumber = BaseConfig.Companion.getGetInstance().getInt(targetId + "_messagesNumber", 0);
-                if (messagesNumber <= 0) {
-                    mExtensionViewModel.forceSetSoftInputKeyBoard(false);
-                    SDEventManager.post(targetId, EnumEventTag.SEND_VIP_NOTICE.ordinal());
-                    HttpRequest.INSTANCE.showBuyMember(getContext(),0, mConversationIdentifier.getTargetId());
-                    return;
-                }
-            }
-            HttpRequest.INSTANCE.getGreetingFlirting(text -> {
-                Message message = Message.obtain(conversationIdentifier.getTargetId(), Conversation.ConversationType.PRIVATE,  TextMessage.obtain(text));
-                sendMessage(message);
-            });
-        });
         mTxtCallThree.setOnClickListener(view -> {
             String targetId = mConversationIdentifier.getTargetId();
             boolean isMember = BaseConfig.Companion.getGetInstance().getBoolean(targetId + "_member", false);

@@ -133,10 +133,6 @@ class LoginActivity : MVPBaseActivity<LoginContract.View, LoginPresenter>(), Log
         get() = findViewById(R.id.login_container)
     override val actionLoading: LottieAnimationView
         get() = findViewById(R.id.action_loading)
-    override val loginRealBg: ImageView
-        get() = findViewById(R.id.login_real_bg)
-    override val imgLoginText: ImageView
-        get() = findViewById(R.id.img_login_text)
     override val imgLoginLogo: ImageView
         get() = findViewById(R.id.img_login_logo)
     override val viewRecallHint: FrameLayout

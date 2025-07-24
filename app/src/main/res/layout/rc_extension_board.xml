@@ -28,29 +28,16 @@
                 android:id="@+id/txt_call_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👅 Say Hi"
+                android:text="💗Say Hi"
                 android:background="@drawable/select_call_press_bg"
-                android:paddingHorizontal="@dimen/dimen_8dp"
+                android:paddingHorizontal="@dimen/dimen_10dp"
                 android:paddingVertical="@dimen/dimen_5dp"
                 android:textColor="@color/selector_call_color"
                 android:textSize="12sp"
                 android:fontFamily="@font/interregular"
                 android:layout_marginStart="@dimen/dimen_12dp"
                 />
-            <com.crush.view.delay.DelayClickTextView
-                android:id="@+id/txt_call_two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🍌 Flirting"
-                android:layout_marginStart="@dimen/dimen_5dp"
-                android:background="@drawable/select_call_press_bg"
-                android:paddingHorizontal="@dimen/dimen_8dp"
-                android:paddingVertical="@dimen/dimen_5dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/interregular"
-                android:textColor="@color/selector_call_color"
 
-                />
             <com.crush.view.delay.DelayClickTextView
                 android:id="@+id/txt_call_three"
                 android:layout_width="wrap_content"

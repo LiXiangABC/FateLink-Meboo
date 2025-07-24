@@ -521,7 +521,7 @@
     <string name="terms">Terms</string>
     <string name="security">Security</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="member_buy_success_title">Welcome to Auramix</string>
+    <string name="member_buy_success_title">Welcome to FateLink</string>
     <string name="member_buy_success_tip">With unlimited daily swipes, won’t miss every change to meet your crush!</string>
     <string name="get_it">Get It</string>
     <string name="unlock_private_videos_title">Unlock Private Videos</string>
@@ -587,7 +587,7 @@
     <string name="txt_pay_error_tip_content_seven">supports USD payments</string>
     <string name="txt_pay_error_tip_content_seven_title">Add credit or debit card</string>
     <string name="txt_pay_error_tip_contact">Any problem arises, please message our Support Team gmail</string>
-    <string name="txt_pay_error_tip_contact_email">📮: auraMix-Official@outlook.com</string>
+    <string name="txt_pay_error_tip_contact_email">📮: FateLink.Official@outlook.com</string>
     <string name="txt_pay_error_tip_btn_one">Ok,Go ahead and upgrade</string>
     <string name="txt_pay_error_tip_btn_two">Ok,I konw it</string>
     <string name="txt_pay_error_tip_btn_three">Try It Again</string>
@@ -614,7 +614,18 @@
     <string name="abandon">Abandon</string>
     <string name="unblock_message">Message failed. You have blocked this user. Unblock to resume conversation.   Unblock</string>
 
-    <string name="email_address">auraMix-Official@outlook.com</string>
-    <string name="email_address_logo">📮: auraMix-Official@outlook.com</string>
+    <string name="email_address">FateLink.Official@outlook.com</string>
+    <string name="email_address_logo">📮: FateLink.Official@outlook.com</string>
+
+    <string name="enable_system_notifications">Turn on Notifications</string>
+    <string name="your_admirer">Your Admirer</string>
+    <string name="enable_system_notifications_content">Don\'t miss any messages from your friends.</string>
+    <string name="meet_more_people">Meet more people</string>
+    <string name="meet_more_people_tip">Tap on a new match above to send a message.</string>
+    <string name="unlock_unlimited_chats">Unlock unlimited chats</string>
+    <string name="go_vip_now">GO VIP now！</string>
+    <string name="lost_her">Lost her</string>
+    <string name="photo_message_limit">Photos build connection. Go Premium and keep the vibe alive with unlimited sharing.</string>
+
 
 </resources>

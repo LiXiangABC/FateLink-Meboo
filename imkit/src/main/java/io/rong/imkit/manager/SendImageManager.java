@@ -9,6 +9,7 @@ import io.rong.common.RLog;
 import io.rong.imkit.IMCenter;
 import io.rong.imkit.R;
 import io.rong.imkit.feature.destruct.DestructManager;
+import io.rong.imkit.http.HttpRequest;
 import io.rong.imkit.picture.config.PictureMimeType;
 import io.rong.imkit.picture.entity.LocalMedia;
 import io.rong.imkit.picture.tools.FileUtils;
@@ -99,6 +100,13 @@ public class SendImageManager {
                                     expansionKey.put("isPrivate","true");
                                     message.setExpansion(expansionKey);
                                     message.setCanIncludeExpansion(true);
+                                }else {
+                                    if (HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().getValue()!=null){
+                                        HashMap<String,String> expansionKey = new HashMap<>();
+                                        expansionKey.put("isPrivate",HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().getValue()<=0?"true":"false");
+                                        message.setExpansion(expansionKey);
+                                        message.setCanIncludeExpansion(true);
+                                    }
                                 }
                                 uploadController.execute(message);
                             }
@@ -216,6 +224,16 @@ public class SendImageManager {
                         //剩余发送次数
                         int messagesNumber= BaseConfig.Companion.getGetInstance().getInt(executingMessage.getTargetId()+"_messagesNumber",0)-1;
                         BaseConfig.Companion.getGetInstance().setInt(executingMessage.getTargetId()+"_messagesNumber",messagesNumber);
+                        if (HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue()!= null) {
+                            HttpRequest.INSTANCE.getCanSendImageNumLiveData().postValue(HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue()-1);
+                        }
+
+                        Integer canSendUnlockImageNum = HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().getValue();
+                        if (canSendUnlockImageNum != null) {
+                            if (canSendUnlockImageNum>0) {
+                                HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().postValue(canSendUnlockImageNum - 1);
+                            }
+                        }
                         polling();
 
                     }
@@ -251,6 +269,17 @@ public class SendImageManager {
                                 //剩余发送次数
                                 int messagesNumber= BaseConfig.Companion.getGetInstance().getInt(executingMessage.getTargetId()+"_messagesNumber",0)-1;
                                 BaseConfig.Companion.getGetInstance().setInt(executingMessage.getTargetId()+"_messagesNumber",messagesNumber);
+
+                                if (HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue()!= null) {
+                                    HttpRequest.INSTANCE.getCanSendImageNumLiveData().postValue(HttpRequest.INSTANCE.getCanSendImageNumLiveData().getValue()-1);
+                                }
+
+                                Integer canSendUnlockImageNum = HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().getValue();
+                                if (canSendUnlockImageNum != null) {
+                                    if (canSendUnlockImageNum>0) {
+                                        HttpRequest.INSTANCE.getCanSendUnlockImageNumLiveData().postValue(canSendUnlockImageNum - 1);
+                                    }
+                                }
                                 polling();
 
                             }

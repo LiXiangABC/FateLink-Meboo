@@ -44,7 +44,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivImage"
-            tools:text="Auramix Tips" />
+            tools:text="fatelink Tips" />
 
         <TextView
             android:id="@+id/tvContent"
@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="@+id/ivImage"
             app:layout_constraintStart_toStartOf="@+id/ivImage"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="Auramix encourages open dialogue, where expressing bold ideas and large-scale content is not just allowed but celebrated" />
+            tools:text="fatelink encourages open dialogue, where expressing bold ideas and large-scale content is not just allowed but celebrated" />
 
         <TextView
             android:id="@+id/tvGotIt"

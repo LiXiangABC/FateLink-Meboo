@@ -25,8 +25,6 @@ class LoginContract {
         val agreementContainer: ConstraintLayout
         val loginContainer: ConstraintLayout
         val actionLoading: LottieAnimationView
-        val loginRealBg: ImageView
-        val imgLoginText: ImageView
         val imgLoginLogo: ImageView
         val viewRecallHint: FrameLayout
         val tvRecallContent: TextView

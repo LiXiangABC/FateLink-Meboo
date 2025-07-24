@@ -2,6 +2,7 @@ package com.crush.dialog
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.Color
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
@@ -111,6 +112,7 @@ class CustomSelectorDialog {
 
             val itemText = holder.getView<TextView>(R.id.item_text)
             itemText.text = bean.value
+            itemText.setTextColor(if (bean.selected == 1) Color.WHITE else Color.parseColor("#202323"))
             itemText.setBackgroundResource(if (bean.selected == 1) R.drawable.shape_custom_selector_select else R.drawable.shape_custom_selector_unselect)
             itemText.setOnClickListener {
                 upDateStatus(position)

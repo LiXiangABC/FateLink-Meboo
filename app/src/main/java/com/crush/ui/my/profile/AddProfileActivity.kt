@@ -52,7 +52,6 @@ import com.crush.rongyun.RongConfigUtil
 import com.crush.ui.index.location.LocationRequestActivity
 import com.crush.util.CollectionUtils
 import com.crush.util.DensityUtil
-import com.crush.util.PermissionUtils
 import com.crush.util.SoftInputUtils
 import com.custom.base.config.BaseConfig
 import com.custom.base.entity.OkHttpBodyEntity
@@ -61,11 +60,14 @@ import com.custom.base.http.OkHttpManager
 import com.custom.base.http.SDOkHttpResoutCallBack
 import com.crush.mvp.MVPBaseActivity
 import com.crush.util.IntentUtil
+import com.crush.util.PermissionUtil
+import com.crush.util.appContext
 import com.custom.base.util.ToastUtil
 import com.github.gzuliyujiang.wheelpicker.annotation.DateMode
 import com.github.gzuliyujiang.wheelpicker.entity.DateEntity
 import com.crush.view.DateWheelLayout
 import com.crush.view.EnglishDateFormatter
+import com.crush.view.TagCloudView
 import com.gyf.immersionbar.ImmersionBar
 import io.rong.imkit.RongIM
 import io.rong.imkit.SpName
@@ -121,6 +123,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
     var nicknameStream: RegisterConfigEntity.ConfigsBean? = null
     var photoStream: RegisterConfigEntity.ConfigsBean? = null
     var wantStream: RegisterConfigEntity.ConfigsBean? = null
+    var interestStream: RegisterConfigEntity.ConfigsBean? = null
     val preferArray = arrayListOf<GenderPreferListBean>()
     var manSelectMore = false
     var womanSelectMore = false
@@ -280,8 +283,185 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
                     setWantInfo()
                 }
             }
+
+            if (CollectionUtils.isNotEmpty(entity.data.configs.filter {
+                    it.pageType == 7
+                })) {
+                interestStream = entity.data.configs.filter {
+                    it.pageType == 7
+                }[0]
+                interestStream?.let {
+                    txtInterestTitle.text = it.firstTitle ?: ""
+                    setInterestInfo()
+                }
+            }
         } else {
             setWantView(iwantList)
+        }
+    }
+
+    private fun setInterestInfo(){
+        interestStream?.let {
+            val interestList = it.interestList
+            interestList?.let {
+                interestsTagCloud.setRegisterTagBeans(interestList,true)
+                interestsTagCloud.setOnTagClickListener {position->
+                    if (!interestList[position].check) {
+                        var count = 0
+                        for (i in 0 until interestList.size) {
+                            if (interestList[i].check) {
+                                count++
+                            }
+                        }
+                        if (count >= 8) {
+                            ToastUtil.toast(getString(R.string.interest_more_tip))
+                            return@setOnTagClickListener
+                        }
+                    }
+
+                    interestList[position].check = !interestList[position].check
+                    interestsTagCloud.getTags(
+                        position,
+                        if (interestList[position].check) R.drawable.shape_interest_select_bg else R.drawable.shape_interest_unselect_bg
+                    )
+                    if (interestList.find { it.check }!= null){
+                        txtInterestNext.setTextColor(ContextCompat.getColor(appContext, R.color.color_001912))
+                        txtInterestNextContainer.setBackgroundResource(R.drawable.shape_solid_pink_radius_26)
+                        txtInterestNextContainer.isEnabled = true
+                    }
+
+                }
+            }
+
+
+            txtInterestNextContainer.setOnClickListener {
+                if (interestList?.find { it.check }==null){
+                    ToastUtil.toast(getString(R.string.interest_toast))
+                    return@setOnClickListener
+                }
+                actionLoading.visibility = View.VISIBLE
+                actionLoading.playAnimation()
+                OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
+                    override fun addBody(requestBody: OkHttpBodyEntity) {
+                        requestBody.setPost(Constant.user_user_info_init_url)
+                        var userCode = BaseConfig.getInstance.getString(SpName.userCode, "")
+                        if (userCode.length > 4) {
+                            userCode = userCode.substring(userCode.length - 3)
+                        }
+                        requestBody.add(
+                            "nickName",
+                            if (editNickname.text.toString() != "") editNickname.text.toString() else "Socialite$userCode"
+                        )
+                        requestBody.add("birthday", selectDateValue)
+                        mPresenter?.let {
+                            requestBody.add("gender", if (it.getGender() != -1) it.getGender() else 1)
+                            if (CollectionUtils.isNotEmpty(it.getImageShow())) {
+                                val list = arrayListOf<String>()
+                                repeat(it.getImageShow().size) { it1 ->
+                                    if (it.getImageShow()[it1].imageLoadUrl != "") {
+                                        list.add(it.getImageShow()[it1].imageLoadUrl)
+                                    }
+                                }
+                                requestBody.add("images", list)
+                                requestBody.add("avatarUrl", it.getImageShow()[0].imageLoadUrl)
+                            }
+
+                            if (it.getGender() != 0) {
+                                genderStream?.apply {
+                                    val bodyList = arrayListOf<Long>()
+                                    val bodyShapeList =
+                                        if (it.getGender() == 1) genderStream!!.bodyShapeForMan else genderStream!!.bodyShapeForWoman
+                                    if (bodyShapeList != null) {
+                                        for (i in 0 until bodyShapeList.size) {
+                                            if (bodyShapeList[i].selected == 1) {
+                                                bodyList.add(bodyShapeList[i].code)
+                                            }
+                                        }
+                                        requestBody.add("bodyShape", bodyList)
+                                    }
+                                }
+
+                            }
+
+                            var userWant: Long = 0
+                            for (i in 0 until radioLookingGroup.childCount) {
+                                if ((radioLookingGroup[i] as RadioButton).isChecked) {
+                                    if (wantStream != null) {
+                                        userWant = wantStream!!.iwantList[i].code
+                                    } else {
+                                        userWant = iwantList[i].code
+                                    }
+                                }
+                            }
+                            requestBody.add("userWant", userWant)
+                            val acceptList = arrayListOf<Long>()
+                            wantStream?.apply {
+                                if (this.youAcceptForWomen != null && this.youAcceptForMan != null) {
+                                    for (i in 0 until accpetContainer.childCount) {
+                                        if ((accpetContainer[i] as CheckBox).isChecked) {
+                                            if (it.getGender() == 2) {
+                                                acceptList.add(this.youAcceptForWomen[i].code)
+                                            } else {
+                                                acceptList.add(this.youAcceptForMan[i].code)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            requestBody.add("youAccept", acceptList)
+                            requestBody.add(
+                                "lookingFor",
+                                if (it.getGender() == 1) 2 else if (it.getGender() == 2) 1 else 0
+                            )
+                            if (interestList.isNotEmpty()) {
+                                val filter = interestList.filter { it.check }
+                                val list = arrayListOf<Int>()
+                                repeat(filter.size) {
+                                    list.add(filter[it].code)
+                                }
+                                requestBody.add("interests", list)
+                            }
+                        }
+
+
+                    }
+                }, object : SDOkHttpResoutCallBack<UserProfileEntity>() {
+                    override fun onSuccess(entity: UserProfileEntity) {
+                        AFDotLogUtil().addFirebaseSighUp(if (entity.data.email == null) "email" else "phone")
+                        if (CollectionUtils.isNotEmpty(entity.data.images)) {
+                            repeat(entity.data.images.size) {
+                                if (!RongUtils.isDestroy(mActivity)) {
+                                    Activities.get().top?.let { activity ->
+                                        Glide.with(activity)
+                                            .load(entity.data.images[it])
+                                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                            .preload()
+                                    }
+                                }
+
+                            }
+                        }
+                        BaseConfig.getInstance.setBoolean(SpName.profileComplete, true)
+                        BaseConfig.getInstance.setString(
+                            SpName.nickName,
+                            editNickname.text.toString()
+                        )
+                        entity.data.avatarUrl?.apply {
+                            BaseConfig.getInstance.setString(SpName.avatarUrl, this)
+                        }
+
+
+                        getTrafficFrom(entity)
+
+                    }
+
+                    override fun onFailure(code: Int, msg: String) {
+                        actionLoading.visibility = View.GONE
+                        actionLoading.pauseAnimation()
+                        showToast(msg)
+                    }
+                })
+            }
         }
     }
 
@@ -663,121 +843,10 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
                 return@setOnClickListener
             }
 
-            actionLoading.visibility = View.VISIBLE
-            actionLoading.playAnimation()
-            OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
-                override fun addBody(requestBody: OkHttpBodyEntity) {
-                    requestBody.setPost(Constant.user_user_info_init_url)
-                    var userCode = BaseConfig.getInstance.getString(SpName.userCode, "")
-                    if (userCode.length > 4) {
-                        userCode = userCode.substring(userCode.length - 3)
-                    }
-                    requestBody.add(
-                        "nickName",
-                        if (editNickname.text.toString() != "") editNickname.text.toString() else "Socialite$userCode"
-                    )
-                    requestBody.add("birthday", selectDateValue)
-                    mPresenter?.let {
-                        requestBody.add("gender", if (it.getGender() != -1) it.getGender() else 1)
-                        if (CollectionUtils.isNotEmpty(it.getImageShow())) {
-                            val list = arrayListOf<String>()
-                            repeat(it.getImageShow().size) { it1 ->
-                                if (it.getImageShow()[it1].imageLoadUrl != "") {
-                                    list.add(it.getImageShow()[it1].imageLoadUrl)
-                                }
-                            }
-                            requestBody.add("images", list)
-                            requestBody.add("avatarUrl", it.getImageShow()[0].imageLoadUrl)
-                        }
-
-                        if (it.getGender() != 0) {
-                            genderStream?.apply {
-                                val bodyList = arrayListOf<Long>()
-                                val bodyShapeList =
-                                    if (it.getGender() == 1) genderStream!!.bodyShapeForMan else genderStream!!.bodyShapeForWoman
-                                if (bodyShapeList != null) {
-                                    for (i in 0 until bodyShapeList.size) {
-                                        if (bodyShapeList[i].selected == 1) {
-                                            bodyList.add(bodyShapeList[i].code)
-                                        }
-                                    }
-                                    requestBody.add("bodyShape", bodyList)
-                                }
-                            }
-
-                        }
-
-                        var userWant: Long = 0
-                        for (i in 0 until radioLookingGroup.childCount) {
-                            if ((radioLookingGroup[i] as RadioButton).isChecked) {
-                                if (wantStream != null) {
-                                    userWant = wantStream!!.iwantList[i].code
-                                } else {
-                                    userWant = iwantList[i].code
-                                }
-                            }
-                        }
-                        requestBody.add("userWant", userWant)
-                        val acceptList = arrayListOf<Long>()
-                        wantStream?.apply {
-                            if (this.youAcceptForWomen != null && this.youAcceptForMan != null) {
-                                for (i in 0 until accpetContainer.childCount) {
-                                    if ((accpetContainer[i] as CheckBox).isChecked) {
-                                        if (it.getGender() == 2) {
-                                            acceptList.add(this.youAcceptForWomen[i].code)
-                                        } else {
-                                            acceptList.add(this.youAcceptForMan[i].code)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        requestBody.add("youAccept", acceptList)
-                        requestBody.add(
-                            "lookingFor",
-                            if (it.getGender() == 1) 2 else if (it.getGender() == 2) 1 else 0
-                        )
-                    }
-
-
-                }
-            }, object : SDOkHttpResoutCallBack<UserProfileEntity>() {
-                override fun onSuccess(entity: UserProfileEntity) {
-                    AFDotLogUtil().addFirebaseSighUp(if (entity.data.email == null) "email" else "phone")
-                    if (CollectionUtils.isNotEmpty(entity.data.images)) {
-                        repeat(entity.data.images.size) {
-                            if (!RongUtils.isDestroy(mActivity)) {
-                                Activities.get().top?.let { activity ->
-                                    Glide.with(activity)
-                                        .load(entity.data.images[it])
-                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                        .preload()
-                                }
-                            }
-
-                        }
-                    }
-                    BaseConfig.getInstance.setBoolean(SpName.profileComplete, true)
-                    BaseConfig.getInstance.setString(
-                        SpName.nickName,
-                        editNickname.text.toString()
-                    )
-                    entity.data.avatarUrl?.apply {
-                        BaseConfig.getInstance.setString(SpName.avatarUrl, this)
-                    }
-
-
-                    getTrafficFrom(entity)
-
-                }
-
-                override fun onFailure(code: Int, msg: String) {
-                    actionLoading.visibility = View.GONE
-                    actionLoading.pauseAnimation()
-                    showToast(msg)
-                }
-            })
-//                HttpRequest.commonNotify(608, "")
+            step = 6
+            setInterestInfo()
+            purposeContainer.visibility = View.GONE
+            interestContainer.visibility = View.VISIBLE
             DotLogUtil.setEventName(DotLogEventName.USER_PROFILE_WYH_ON_NEXT_CLICK)
                 .commit(mActivity)
 
@@ -787,12 +856,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
     }
 
     private fun goActivity(entity: UserProfileEntity) {
-        if (PermissionUtils.lacksPermission(
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) && PermissionUtils.lacksPermission(
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) && trafficSource != 1
-        ) {
+        if (PermissionUtil.checkPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) && PermissionUtil.checkPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION) && trafficSource != 1) {
             if (entity.data.nickName != null) {
                 RongIM.getInstance().refreshUserInfoCache(
                     UserInfo(
@@ -893,6 +957,15 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
                 step = 4
                 photoContainer.visibility = View.VISIBLE
                 purposeContainer.visibility = View.GONE
+
+            }
+            6 -> {
+                wantStream?.let {
+                    changeOutsideBg(it.backgroundPhoto)
+                }
+                step = 5
+                purposeContainer.visibility = View.VISIBLE
+                interestContainer.visibility = View.GONE
 
             }
         }
@@ -1201,6 +1274,7 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
         get() = findViewById(R.id.img_top_back)
     override val dateSelectLayout: DateWheelLayout
         get() = findViewById(R.id.date_select_layout)
+
     override val txtShowDateTitle: TextView
         get() = findViewById(R.id.txt_show_date)
     override val txtShowDateTip: TextView
@@ -1209,6 +1283,17 @@ class AddProfileActivity : MVPBaseActivity<AddProfileContact.View, AddProfilePre
         get() = findViewById(R.id.txt_date_save_tip)
     override val selectDateTips: TextView
         get() = findViewById(R.id.select_date_tips)
+
+    override val interestContainer: ConstraintLayout
+        get() = findViewById(R.id.interest_container)
+    override val txtInterestTitle: TextView
+        get() = findViewById(R.id.txt_interest_title)
+    override val interestsTagCloud: TagCloudView
+        get() = findViewById(R.id.interests_tag_cloud)
+    override val txtInterestNext: TextView
+        get() = findViewById(R.id.text_interest_next)
+    override val txtInterestNextContainer: LinearLayout
+        get() = findViewById(R.id.txt_interest_next_container)
 
 
 }

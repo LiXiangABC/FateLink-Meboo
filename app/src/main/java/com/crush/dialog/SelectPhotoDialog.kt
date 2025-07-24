@@ -7,8 +7,9 @@ import android.widget.TextView
 import com.crush.R
 import com.crush.dot.DotLogEventName
 import com.crush.dot.DotLogUtil
-import com.crush.util.PermissionUtils
+import com.crush.util.PermissionUtil
 import com.crush.util.SelectPictureUtil
+import io.rong.imkit.activity.Activities
 import razerdp.basepopup.BasePopupWindow
 
 class SelectPhotoDialog(var ctx: Activity) :  BasePopupWindow(ctx) {
@@ -25,24 +26,28 @@ class SelectPhotoDialog(var ctx: Activity) :  BasePopupWindow(ctx) {
         val dialogAlbums = findViewById<TextView>(R.id.dialog_albums)
         val dialogCamera = findViewById<TextView>(R.id.dialog_camera)
         dialogCamera.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (!PermissionUtils.lacksPermission(Manifest.permission.CAMERA)) {
-                    SelectPictureUtil.selectCamera(ctx)
+            Activities.get().top?.let {activity->
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (!PermissionUtil.checkPermission(activity,Manifest.permission.CAMERA)) {
+                        SelectPictureUtil.selectCamera(activity)
+                    } else {
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.CAMERA, activity = activity, type = 1) {
+                            if (it){
+                                SelectPictureUtil.selectCamera(activity)
+                            }
+                        }
+                    }
                 } else {
-                    PermissionUtils.requestPermission(ctx,1, {
-                        SelectPictureUtil.selectCamera(ctx) },
-                        Manifest.permission.CAMERA
-                    )
-                }
-            } else {
-                if (!PermissionUtils.lacksPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) && !PermissionUtils.lacksPermission( Manifest.permission.CAMERA)) {
-                    SelectPictureUtil.selectCamera(ctx)
-                } else {
-                    PermissionUtils.requestPermission(ctx, 1, {
-                        SelectPictureUtil.selectCamera(ctx) },
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.CAMERA
-                    )
+                    if (!PermissionUtil.checkPermission(activity,Manifest.permission.WRITE_EXTERNAL_STORAGE) && !PermissionUtil.checkPermission(activity, Manifest.permission.CAMERA)) {
+                        SelectPictureUtil.selectCamera(activity)
+                    } else {
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.CAMERA,activity = activity, type = 1) {
+                            if (it) {
+                                SelectPictureUtil.selectCamera(activity)
+                            }
+                        }
+                    }
                 }
             }
 //            HttpRequest.commonNotify(605,"")
@@ -51,43 +56,31 @@ class SelectPhotoDialog(var ctx: Activity) :  BasePopupWindow(ctx) {
             dismiss()
         }
         dialogAlbums.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (!PermissionUtils.lacksPermission(Manifest.permission.READ_MEDIA_IMAGES) && !PermissionUtils.lacksPermission(Manifest.permission.READ_MEDIA_VIDEO)) {
-                     SelectPictureUtil.selectPhoto(ctx)
+            Activities.get().top?.let {activity->
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (!PermissionUtil.checkPermission(activity,Manifest.permission.READ_MEDIA_IMAGES) && !PermissionUtil.checkPermission(activity,Manifest.permission.READ_MEDIA_VIDEO)) {
+                        SelectPictureUtil.selectPhoto(activity)
+                    } else {
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.READ_MEDIA_IMAGES,
+                            Manifest.permission.READ_MEDIA_VIDEO, activity = activity, type = 4) {
+                            if (it) {
+                                SelectPictureUtil.selectPhoto(activity)
+                            }
+                        }
+                    }
                 } else {
-                    PermissionUtils.requestPermission(ctx, 4,
-                        {
-                             SelectPictureUtil.selectPhoto(ctx)
-                        },
-                        Manifest.permission.READ_MEDIA_IMAGES,
-                        Manifest.permission.READ_MEDIA_VIDEO
-                    )
-                }
-            } else {
-//                if (PermissionChecker.isCheckReadStorage(
-//                        SelectMimeType.ofImage(),
-//                        ctx
-//                    )
-//                ) {
-//                    SelectPictureUtil.selectP(ctx)
-//                } else {
-//                    val readPermissionArray = PermissionConfig.getReadPermissionArray(
-//                        ctx,
-//                        SelectMimeType.ofImage()
-//                    )
-//                    ActivityCompat.requestPermissions(ctx, readPermissionArray, 101)
-//                }
-                if (!PermissionUtils.lacksPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                     SelectPictureUtil.selectPhoto(ctx)
-                } else {
-                    PermissionUtils.requestPermission(ctx, 4,
-                        {
-                             SelectPictureUtil.selectPhoto(ctx)
-                        },
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    )
+                    if (!PermissionUtil.checkPermission(activity,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        SelectPictureUtil.selectPhoto(activity)
+                    } else {
+                        PermissionUtil.requestPermissionCallBack(Manifest.permission.WRITE_EXTERNAL_STORAGE, activity = activity, type = 4) {
+                            if (it) {
+                                SelectPictureUtil.selectPhoto(activity)
+                            }
+                        }
+                    }
                 }
             }
+
 //            HttpRequest.commonNotify(604,"")
             DotLogUtil.setEventName(DotLogEventName.USER_PROFILE_UPLOAD_IMAGE_ON_CLICK).commit(ctx)
 

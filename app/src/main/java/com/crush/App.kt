@@ -87,7 +87,7 @@ class App : Application() {
             debug = isDebug,
             printLog = isDebug,
             debugUrl = "https://api-dev.usalovehere.top",
-            url = "https://api-prod.tokiya.top",
+            url = "https://bff.fatelink123.top",
             successCode = "0",
             successCodeName = "code",
             successMsgName = "msg",
@@ -103,7 +103,7 @@ class App : Application() {
         jsonObject.put("timestamp", System.currentTimeMillis())
         jsonObject.put("channel", ChannelUtil.getChannel())
         jsonObject.put("appsFlyerUID", "")
-        jsonObject.put("appCode", "auramix")
+        jsonObject.put("appCode", "fatelink")
         jsonObject.put("applicationID", BuildConfig.APPLICATION_ID)
         jsonObject.put("appVersion", BuildConfig.VERSION_CODE)
         jsonObject.put("token", BaseConfig.getInstance.getString(SpName.token, ""))
@@ -170,6 +170,7 @@ class App : Application() {
                 jsonObject.put("adgroup", this.adgroup)
                 jsonObject.put("creative", this.creative)
                 jsonObject.put("clickLabel", this.clickLabel)
+                jsonObject.put("costType", this.costType)
                 jsonObject.put("fbInstallReferrer", this.fbInstallReferrer)
                 BaseConfig.getInstance.setString(SpName.adChannel, jsonObject.toString())
                 val channel = BaseConfig.getInstance.getString(SpName.channel, "")

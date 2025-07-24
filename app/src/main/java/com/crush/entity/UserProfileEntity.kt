@@ -9,7 +9,7 @@ data class UserProfileEntity(
     val code: Int, // 200
     val data: Data,
     val msg: String // 操作成功
-) {
+) : Serializable {
     data class Data(
         val userCode: String,
         val email: String,

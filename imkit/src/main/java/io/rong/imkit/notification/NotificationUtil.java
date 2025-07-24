@@ -136,12 +136,7 @@ public class NotificationUtil {
             Uri portraitUri) {
         String tickerText =
                 context.getResources()
-                        .getString(
-                                context.getResources()
-                                        .getIdentifier(
-                                                "rc_notification_ticker_text",
-                                                "string",
-                                                context.getPackageName()));
+                        .getString(R.string.rc_notification_ticker_text);
         Notification notification;
         boolean isLollipop = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP);
         String categoryNotification =

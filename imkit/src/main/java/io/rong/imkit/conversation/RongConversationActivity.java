@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -116,9 +117,9 @@ public class RongConversationActivity extends RongBaseActivity implements SDEven
         initListener();
         initViewModel();
         observeUserInfoChange();
-        if (BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0)==1){
-            Objects.requireNonNull(newTitleBar.getNewTitleBar()).setBackgroundColor(Color.WHITE);
-        }
+//        if (BaseConfig.Companion.getGetInstance().getInt(SpName.INSTANCE.getTrafficSource(), 0)==1){
+            Objects.requireNonNull(newTitleBar.getNewTitleBar()).setBackgroundColor(ContextCompat.getColor(this,R.color.color_ADEEEF));
+//        }
 
     }
 

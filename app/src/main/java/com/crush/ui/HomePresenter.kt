@@ -14,7 +14,7 @@ import com.crush.App
 import com.crush.BuildConfig
 import com.crush.Constant
 import com.crush.adapter.IMMatchedAdapter
-import com.crush.bean.WLMListBean
+import io.rong.imkit.entity.WLMListBean
 import com.crush.dialog.AnnouncementDialog
 import com.crush.dialog.GoogleEvaluateDialog
 import com.crush.dialog.LowerLimitDebitPopup
@@ -37,9 +37,9 @@ import com.crush.socket.netty.NettyClient
 import com.crush.ui.index.helper.NewBieHelper
 import com.crush.util.DateUtils
 import com.crush.util.HandlerUtils
-import com.crush.util.PermissionUtils
+import com.crush.util.PermissionUtil
 import com.crush.util.SystemUtils
-import com.crush.view.ViewChatHeaderWlm
+import io.rong.imkit.widget.ViewChatHeaderWlm
 import com.custom.base.config.BaseConfig
 import com.custom.base.entity.OkHttpBodyEntity
 import com.custom.base.entity.PageModel
@@ -54,6 +54,7 @@ import io.rong.imkit.RongIM
 import io.rong.imkit.SpName
 import io.rong.imkit.entity.BaseEntity
 import io.rong.imkit.event.EnumEventTag
+import io.rong.imkit.http.HttpRequest
 import io.rong.imkit.userinfo.RongUserInfoManager
 import io.rong.imkit.utils.JsonUtils
 import io.rong.imkit.utils.RongUtils
@@ -84,7 +85,6 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
     private lateinit var imMatchedAdapter: IMMatchedAdapter
     var viewChatHeaderWlm: ViewChatHeaderWlm? = null
     private var index = 0
-    var wlmLiveData = MutableLiveData<ArrayList<WLMListBean>>()
     var member=false
     var googleEvaluate=false
     var handel = HandlerUtils.HandlerHolder(this)
@@ -296,9 +296,9 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
      * 上传设备信息
      */
     private fun uploadVersionInfo() {
-        if (!PermissionUtils.lacksPermission(
+        if (!PermissionUtil.checkPermission(mActivity,
                 Manifest.permission.ACCESS_FINE_LOCATION
-            ) || !PermissionUtils.lacksPermission(
+            ) || !PermissionUtil.checkPermission(mActivity,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             )
         ) {
@@ -310,7 +310,7 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
             uploadPermission(0, 1)
         }
         uploadPermission(
-            if (PermissionUtils.lacksPermission(
+            if (PermissionUtil.checkPermission(mActivity,
                     Manifest.permission.POST_NOTIFICATIONS
                 )
             ) 0 else 1, 2
@@ -396,7 +396,7 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
     fun checkUpdate() {
         OkHttpManager.instance.requestInterface(object : OkHttpFromBoy {
             override fun addBody(requestBody: OkHttpBodyEntity) {
-                requestBody.setGet(Constant.user_apk_update_url)
+                requestBody.setPost(Constant.user_apk_update_url)
                 requestBody.add("versionCode", SystemUtils.getVersionCode(mActivity))
                 requestBody.add("appCode", "chat01")
             }
@@ -426,7 +426,7 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
 
     fun refreshChatHeadWlm(wlmList: ArrayList<WLMListBean>) {
         member = BaseConfig.getInstance.getBoolean(SpName.isMember, false)
-        wlmLiveData.postValue(wlmList)
+        HttpRequest.wlmLiveData.postValue(wlmList)
     }
 
 
@@ -458,7 +458,7 @@ class HomePresenter : BasePresenterImpl<HomeContract.View>(), HomeContract.Prese
                         }
                     }
                     member = entity.data.isMember
-                    wlmLiveData.postValue(entity.data.wlmList)
+                    HttpRequest.wlmLiveData.postValue(entity.data.wlmList)
                 }
 
                 override fun onFinish() {
